@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Team17OOPTeamProject.Models.Enums;
 
 namespace Team17OOPTeamProject.Models.Abstract
 {
@@ -9,14 +10,13 @@ namespace Team17OOPTeamProject.Models.Abstract
         //Fields
         protected string title;
         protected string description;
-        //TODO STATUS
         //TODO ASSIGNEE
         protected List<string> comments;
         protected List<string> history;
 
 
         //Constructor
-        public Abstract(string title, string description /*TODO STATUS*/ /* Assignee */)
+        public Abstract(string title, string description /* Assignee */)
         {
 
         }
