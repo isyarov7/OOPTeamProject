@@ -7,7 +7,7 @@ namespace Team17OOPTeamProject.Models.Contracts
 {
     public interface IBug
     {
-        List<string> Step { get; }
+        List<string> Steps { get; }
         Priority Priority { get; }
         Severity Severity { get; }
         BugStatus BugStatus { get; }

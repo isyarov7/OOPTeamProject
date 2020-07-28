@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Team17OOPTeamProject.Models.Contracts;
 using Team17OOPTeamProject.Models.Enums;
 
 namespace Team17OOPTeamProject.Models
 {
-    public class Bug : Abstract.Abstract
+    public class Bug : Abstract.Abstract, IBug
     {
         //Fields 
         private List<string> steps;
@@ -13,21 +14,16 @@ namespace Team17OOPTeamProject.Models
         private Severity severity;
         private BugStatus bugStatus;
         //Assignee
-        private List<string> comments;
-        private List<string> history;
 
         //Constructor
-        public Bug(string title, string description)
-            : base(title, description)
+        public Bug(string title, string description, List<string> comments, List<string> history)
+            : base(title, description, comments, history)
         {
             this.Steps = steps;
             this.Priority = priority;
             this.Severity = severity;
             this.BugStatus = bugStatus;
-            comments = new List<string>();
-            this.Comments = comments;
-            history = new List<string>();
-            this.History = history;
+            
         }
 
         //Properties

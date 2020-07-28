@@ -5,10 +5,11 @@ using Team17OOPTeamProject.Models.Enums;
 
 namespace Team17OOPTeamProject.Models.Contracts
 {
-    public interface IAbstract
+    public interface IStory
     {
-        string Title { get; }
-
-        string Description { get; }
+        Priority Priority { get; }
+        Size Size { get; }
+        StoryStatus StoryStatus { get; }
+        //ASSIGNEE
     }
 }

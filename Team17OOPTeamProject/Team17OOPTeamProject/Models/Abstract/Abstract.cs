@@ -17,8 +17,14 @@ namespace Team17OOPTeamProject.Models.Abstract
 
 
         //Constructor
-        public Abstract(string title, string description /* Assignee */)
+        public Abstract(string title, string description /* Assignee */, List<string> comments, List<string> history)
         {
+            this.Title = title;
+            this.Description = description;
+            comments = new List<string>();
+            this.Comments = comments;
+            history = new List<string>();
+            this.History = history;
 
         }
 
