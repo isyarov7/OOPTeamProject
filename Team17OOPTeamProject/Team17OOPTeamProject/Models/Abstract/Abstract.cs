@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Team17OOPTeamProject.Models.Contracts;
 using Team17OOPTeamProject.Models.Enums;
 
 namespace Team17OOPTeamProject.Models.Abstract
 {
-    public class Abstract
+    public class Abstract : IAbstract
     {
         //Fields
         protected string title;
@@ -22,7 +23,7 @@ namespace Team17OOPTeamProject.Models.Abstract
         }
 
         //Properties
-        protected string Title
+        public string Title
         {
             get => this.title;
             set
@@ -34,7 +35,7 @@ namespace Team17OOPTeamProject.Models.Abstract
                 this.title = value;
             }
         }
-        protected string Description
+        public string Description
         {
             get => this.description;
             set
@@ -46,8 +47,9 @@ namespace Team17OOPTeamProject.Models.Abstract
                 this.description = value;
             }
         }
-        protected List<string> Comments { get => comments; set => comments = value; }
-        protected List<string> History { get => history; set => history = value; }
+       public virtual List<string> Comments { get => comments; set => comments = value; }
+       public virtual List<string> History { get => history; set => history = value; }
+
 
         //Methods 
 
