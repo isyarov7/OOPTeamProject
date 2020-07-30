@@ -11,6 +11,7 @@ namespace Team17OOPTeamProject
     {
         //Fields
         private int rating;
+
         FeedbackStatus feedbackStatus;
         //Constructor
         public Feedback(string title, string description, int rating, FeedbackStatus feedbackStatus, List<string> comments, List<string> history)
