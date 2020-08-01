@@ -10,12 +10,14 @@ namespace T17.Models.Models
 {
     public class Board : IBoard
     {
+        //Fields
         private string name;
         private readonly List<IAbstract> bugs;
         private readonly List<IAbstract> stories;
         private readonly List<IAbstract> feedbacks;
         private readonly List<string> history;
 
+        //Constructor
         public Board(string name)
         {
             this.Name = name;
@@ -25,6 +27,7 @@ namespace T17.Models.Models
             this.history = new List<string>();
         }
 
+        //Properties
         public string Name
         {
             get
@@ -49,6 +52,7 @@ namespace T17.Models.Models
         public IReadOnlyList<IAbstract> Feedbacks => this.feedbacks;
         public IReadOnlyCollection<string> History => this.history;
 
+        //Methods   
         public string AddBug(Bug bug)
         {
             if (!bugs.Contains(bug))
@@ -57,7 +61,10 @@ namespace T17.Models.Models
                 this.history.Add($"Bug with title: {bug.Title} has been succesfully added!");
                 return $"Bug with title: {bug.Title} has been succesfully added!";
             }
-            return $"Bug with title: {bug.Title} already exist!";
+            else
+            {
+                return $"Bug with title: {bug.Title} already exist!";
+            }
         }
 
         public string AddFeedback(Feedback feedback)
@@ -68,7 +75,10 @@ namespace T17.Models.Models
                 this.history.Add($"Feedback with title: {feedback.Title} has been succesfully added!");
                 return $"Feedback with title: {feedback.Title} has been succesfully added!";
             }
-            return $"Feedback with title: {feedback.Title} already exist!";
+            else
+            {
+                return $"Feedback with title: {feedback.Title} already exist!";
+            }
         }
 
         public string AddStory(Story story)
@@ -79,7 +89,10 @@ namespace T17.Models.Models
                 this.history.Add($"Story with title: {story.Title} has been succesfully added!");
                 return $"Story with title: {story.Title} has been succesfully added!";
             }
-            return $"Story with title: {story.Title} already exist!";
+            else
+            {
+                return $"Story with title: {story.Title} already exist!";
+            }
         }
 
         public string RemoveBug(Bug bug)

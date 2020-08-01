@@ -15,7 +15,7 @@ namespace Team17OOPTeamProject.Models.Contracts
 
         public abstract BugStatus BugStatus { get; }
 
-        public abstract StoryStatus StortyStatus { get; }
+        public abstract StoryStatus StoryStatus { get; }
 
         public abstract FeedbackStatus FeedbackStatus { get; }
         

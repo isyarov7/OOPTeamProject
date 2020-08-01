@@ -12,21 +12,53 @@ namespace Team17OOPTeamProject
         //Fields
         private int rating;
 
-        FeedbackStatus feedbackStatus;
+        private FeedbackStatus feedbackStatus = FeedbackStatus.New;
         //Constructor
-        public Feedback(string title, string description, int rating, FeedbackStatus feedbackStatus, List<string> comments, List<string> history)
-            : base(title, id)
+        public Feedback(string title, string id, int rating)
+             : base(title, id)
         {
-            this.Rating = rating;
             this.FeedbackStatus = feedbackStatus;
+            this.Rating = rating;
+        }
+
+        public Feedback(string title, string description, string id, int rating)
+            : this(title, id, rating)
+        {
+            this.Description = description;
         }
         //Properties
         public int Rating
         {
             get => this.rating;
-            set => this.rating = value;
+            set
+            {
+                if (value < 0)
+                {
+                    this.rating = 0;
+                }
+                this.rating = value;
+            }
         }
 
-        public FeedbackStatus FeedbackStatus { get => this.feedbackStatus; set => feedbackStatus = value;}
+        public FeedbackStatus FeedbackStatus { get; private set; }
+
+        //Methods
+        public void FeedBackStatusToUnscheduledScheduledDone()
+        {
+            if (FeedbackStatus == FeedbackStatus.New || FeedbackStatus == FeedbackStatus.Unscheduled
+                || FeedbackStatus == FeedbackStatus.Scheduled)
+            {
+                this.history.Add($"Feedback status is changed from: {this.FeedbackStatus} to {++this.FeedbackStatus}");
+            }
+        }
+
+        public void FeedBackStatusToScheduledUnscheduledNew()
+        {
+            if (FeedbackStatus == FeedbackStatus.Done || FeedbackStatus == FeedbackStatus.Unscheduled
+                || FeedbackStatus == FeedbackStatus.Scheduled)
+            {
+                this.history.Add($"Changed status from {this.FeedbackStatus} to {--this.FeedbackStatus}");
+            }
+        }
     }
 }
