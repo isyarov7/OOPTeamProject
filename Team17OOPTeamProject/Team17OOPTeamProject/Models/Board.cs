@@ -57,7 +57,7 @@ namespace T17.Models.Models
                 this.history.Add($"Bug with title: {bug.Title} has been succesfully added!");
                 return $"Bug with title: {bug.Title} has been succesfully added!";
             }
-            return $"Bug with title: {bug.Title} is already exist!";
+            return $"Bug with title: {bug.Title} already exist!";
         }
 
         public string AddFeedback(Feedback feedback)
@@ -68,7 +68,7 @@ namespace T17.Models.Models
                 this.history.Add($"Feedback with title: {feedback.Title} has been succesfully added!");
                 return $"Feedback with title: {feedback.Title} has been succesfully added!";
             }
-            return $"Feedback with title: {feedback.Title} is already exist!";
+            return $"Feedback with title: {feedback.Title} already exist!";
         }
 
         public string AddStory(Story story)
@@ -79,7 +79,7 @@ namespace T17.Models.Models
                 this.history.Add($"Story with title: {story.Title} has been succesfully added!");
                 return $"Story with title: {story.Title} has been succesfully added!";
             }
-            return $"Story with title: {story.Title} is already exist!";
+            return $"Story with title: {story.Title} already exist!";
         }
 
         public string RemoveBug(Bug bug)
@@ -87,8 +87,8 @@ namespace T17.Models.Models
             if (bugs.Contains(bug))
             {
                 bugs.Remove(bug);
-                this.history.Add($"The bug with title: {bug.Title} has been succesfully removed!");
-                return $"The bug with title: {bug.Title} has been succesfully removed!";
+                this.history.Add($"Bug with title: {bug.Title} has been succesfully removed!");
+                return $"Bug with title: {bug.Title} has been succesfully removed!";
             }
             else
             {
@@ -101,8 +101,8 @@ namespace T17.Models.Models
             if (feedbacks.Contains(feedback))
             {
                 feedbacks.Remove(feedback);
-                this.history.Add($"The feedback with title: {feedback.Title} has been succesfully removed!");
-                return $"The feedback with title: {feedback.Title} has been succesfully removed!";
+                this.history.Add($"Feedback with title: {feedback.Title} has been succesfully removed!");
+                return $"Feedback with title: {feedback.Title} has been succesfully removed!";
             }
             else
             {
@@ -115,8 +115,8 @@ namespace T17.Models.Models
             if (stories.Contains(story))
             {
                 stories.Remove(story);
-                this.history.Add($"The story with title: {story.Title} has been succesfully removed!");
-                return $"The story title: {story.Title} has been succesfully removed!";
+                this.history.Add($"Story with title: {story.Title} has been succesfully removed!");
+                return $"Story title: {story.Title} has been succesfully removed!";
             }
             else
             {

@@ -57,10 +57,10 @@ namespace T17.Models.Models
             if (!bugs.Contains(bug))
             {
                 bugs.Add(bug);
-                this.history.Add($"Bug {bug.Title} has been succesfully added!");
-                return $"Bug {bug.Title} has been succesfully added!";
+                this.history.Add($"Bug with title: {bug.Title} has been succesfully added!");
+                return $"Bug with title: {bug.Title} has been succesfully added!";
             }
-            return $"Bug with title: {bug.Title} is already exist!";
+            return $"Bug with title: {bug.Title} already exist!";
         }
 
         public string RemoveBug(Bug bug)
@@ -68,12 +68,12 @@ namespace T17.Models.Models
             if (bugs.Contains(bug))
             {
                 bugs.Remove(bug);
-                this.history.Add($"Bug {bug.Title} has been successfully removed!");
-                return $"Bug {bug.Title} has been succesfully removed!";
+                this.history.Add($"Bug with title: {bug.Title} has been successfully removed!");
+                return $"Bug with title: {bug.Title} has been succesfully removed!";
             }
             else
             {
-                return $"Bug with this title: {bug.Title} does not exist!";
+                return $"Bug with title: {bug.Title} does not exist!";
             }
         }
         public string AddStory(Story story)
@@ -81,10 +81,10 @@ namespace T17.Models.Models
             if (!stories.Contains(story))
             {
                 stories.Add(story);
-                this.history.Add($"Story {story.Title} has been succesfully added!");
+                this.history.Add($"Story with title: {story.Title} has been succesfully added!");
                 return $"Story with title: {story.Title} has been succesfully added!";
             }
-            return $"Story with title: {story.Title} is already exist!";
+            return $"Story with title: {story.Title} already exist!";
         }
 
         public string RemoveStory(Story story)
@@ -109,7 +109,7 @@ namespace T17.Models.Models
                 this.history.Add($"Feedback with title: {feedback.Title} has been succesfully added!");
                 return $"Feedback with title: {feedback.Title} has been succesfully added!";
             }
-            return $"Feedback with title: {feedback.Title} is already exist!";
+            return $"Feedback with title: {feedback.Title} already exist!";
         }
 
         public string RemoveFeedback(Feedback feedback)

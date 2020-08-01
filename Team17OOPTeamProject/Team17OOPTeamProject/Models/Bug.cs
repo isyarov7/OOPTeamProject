@@ -32,7 +32,7 @@ namespace Team17OOPTeamProject.Models
         public Severity Severity { get => severity; set => severity = value; }
         public BugStatus BugStatus { get => bugStatus; set => bugStatus = value; }
         //Get from BASE ? 
-        public override List<string> Comments { get => base.Comments; set => base.Comments = value; }
+        public override List<string> Comments { get => base.c; set => base.Comments = value; }
         public override List<string> History { get => base.History; set => base.History = value; }
     }
 }

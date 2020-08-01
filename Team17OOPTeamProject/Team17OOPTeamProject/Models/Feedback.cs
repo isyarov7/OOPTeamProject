@@ -15,7 +15,7 @@ namespace Team17OOPTeamProject
         FeedbackStatus feedbackStatus;
         //Constructor
         public Feedback(string title, string description, int rating, FeedbackStatus feedbackStatus, List<string> comments, List<string> history)
-            : base(title, description, comments, history)
+            : base(title, id)
         {
             this.Rating = rating;
             this.FeedbackStatus = feedbackStatus;
