@@ -1,10 +1,183 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using T17.Models.Models.Contracts;
+using Team17OOPTeamProject;
+using Team17OOPTeamProject.Models;
+using Team17OOPTeamProject.Models.Contracts;
 
 namespace T17.Models.Models
 {
-    public class Board
+    public class Board : IBoard
     {
+        private string name;
+        private readonly List<IAbstract> bugs;
+        private readonly List<IAbstract> stories;
+        private readonly List<IAbstract> feedbacks;
+        private readonly List<string> history;
+
+        public Board(string name)
+        {
+            this.Name = name;
+            this.bugs = new List<IAbstract>();
+            this.stories = new List<IAbstract>();
+            this.feedbacks = new List<IAbstract>();
+            this.history = new List<string>();
+        }
+
+        public string Name
+        {
+            get
+            {
+                return this.name;
+            }
+            private set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Name cannot be null.");
+                }
+                if (value.Length < 5 || value.Length > 10)
+                {
+                    throw new ArgumentException("Name should be between 5 and 10 symbols.");
+                }
+                this.name = value;
+            }
+        }
+        public IReadOnlyList<IAbstract> Bugs => this.bugs;
+        public IReadOnlyList<IAbstract> Stories => this.stories;
+        public IReadOnlyList<IAbstract> Feedbacks => this.feedbacks;
+        public IReadOnlyCollection<string> History => this.history;
+
+        public string AddBug(Bug bug)
+        {
+            if (!bugs.Contains(bug))
+            {
+                bugs.Add(bug);
+                this.history.Add($"Bug with title: {bug.Title} has been succesfully added!");
+                return $"Bug with title: {bug.Title} has been succesfully added!";
+            }
+            return $"Bug with title: {bug.Title} is already exist!";
+        }
+
+        public string AddFeedback(Feedback feedback)
+        {
+            if (!feedbacks.Contains(feedback))
+            {
+                feedbacks.Add(feedback);
+                this.history.Add($"Feedback with title: {feedback.Title} has been succesfully added!");
+                return $"Feedback with title: {feedback.Title} has been succesfully added!";
+            }
+            return $"Feedback with title: {feedback.Title} is already exist!";
+        }
+
+        public string AddStory(Story story)
+        {
+            if (!stories.Contains(story))
+            {
+                stories.Add(story);
+                this.history.Add($"Story with title: {story.Title} has been succesfully added!");
+                return $"Story with title: {story.Title} has been succesfully added!";
+            }
+            return $"Story with title: {story.Title} is already exist!";
+        }
+
+        public string RemoveBug(Bug bug)
+        {
+            if (bugs.Contains(bug))
+            {
+                bugs.Remove(bug);
+                this.history.Add($"The bug with title: {bug.Title} has been succesfully removed!");
+                return $"The bug with title: {bug.Title} has been succesfully removed!";
+            }
+            else
+            {
+                return $"Bug with title: {bug.Title} is not existing!";
+            }
+        }
+
+        public string RemoveFeedback(Feedback feedback)
+        {
+            if (feedbacks.Contains(feedback))
+            {
+                feedbacks.Remove(feedback);
+                this.history.Add($"The feedback with title: {feedback.Title} has been succesfully removed!");
+                return $"The feedback with title: {feedback.Title} has been succesfully removed!";
+            }
+            else
+            {
+                return $"There is no feedback with name {feedback.Title} on the list!";
+            }
+        }
+
+        public string RemoveStory(Story story)
+        {
+            if (stories.Contains(story))
+            {
+                stories.Remove(story);
+                this.history.Add($"The story with title: {story.Title} has been succesfully removed!");
+                return $"The story title: {story.Title} has been succesfully removed!";
+            }
+            else
+            {
+                return $"There is no story with name {story.Title} on the list!";
+            }
+        }
+
+        public string PrintHistory()
+        {
+            if (history.Count == 0)
+            {
+                return $"The history of: {this.Name} is empty!";
+            }
+
+            var sb = new StringBuilder();
+
+            sb.AppendLine("History:");
+
+            foreach (string item in this.history)
+            {
+                sb.AppendLine(item);
+            }
+            return sb.ToString();
+        }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+
+            sb.AppendLine($"Board {this.name}");
+            sb.AppendLine("Stories:");
+            if (stories.Count < 1)
+            {
+                sb.AppendLine("No members are part of this team!");
+            }
+            else
+            {
+                sb.AppendLine(string.Join(Environment.NewLine, stories));
+            }
+
+            sb.AppendLine("Bugs:");
+            if (bugs.Count < 1)
+            {
+                sb.AppendLine("No boards are part of this team!");
+            }
+            else
+            {
+                sb.AppendLine(string.Join(Environment.NewLine, bugs));
+            }
+
+            sb.AppendLine("Feedback:");
+            if (feedbacks.Count < 1)
+            {
+                sb.AppendLine("No members are part of this team!");
+            }
+            else
+            {
+                sb.AppendLine(string.Join(Environment.NewLine, feedbacks));
+            }
+
+            return sb.ToString().Trim();
+        }
     }
 }

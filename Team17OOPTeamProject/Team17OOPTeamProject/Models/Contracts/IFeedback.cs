@@ -5,9 +5,8 @@ using Team17OOPTeamProject.Models.Enums;
 
 namespace Team17OOPTeamProject.Models.Contracts
 {
-    public interface IFeedback
+    public interface IFeedback : IAbstract
     {
-        int Rating { get; }
-        FeedbackStatus FeedbackStatus { get; }
+        public int Rating { get; }
     }
 }

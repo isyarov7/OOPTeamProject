@@ -5,11 +5,12 @@ using Team17OOPTeamProject.Models.Enums;
 
 namespace Team17OOPTeamProject.Models.Contracts
 {
-    public interface IStory
+    public interface IStory : IBug
     {
-        Priority Priority { get; }
-        Size Size { get; }
-        StoryStatus StoryStatus { get; }
-        //ASSIGNEE
+        public Size Size { get; }
+
+        public Priority Priority { get; }
+
+        public IReadOnlyList<string> Assignee { get; }
     }
 }

@@ -5,16 +5,12 @@ using Team17OOPTeamProject.Models.Contracts;
 
 namespace T17.Models.Models.Contracts
 {
-    public interface IBoard
+    public interface IMember
     {
-        public string Name { get; }
-
-        public IReadOnlyList<IAbstract> Bugs { get; }
-
         public IReadOnlyList<IAbstract> Stories { get; }
-
+        public IReadOnlyList<IAbstract> Bugs { get; }
         public IReadOnlyList<IAbstract> Feedbacks { get; }
-
         public IReadOnlyCollection<string> History { get; }
+        public string Name { get; }
     }
 }
