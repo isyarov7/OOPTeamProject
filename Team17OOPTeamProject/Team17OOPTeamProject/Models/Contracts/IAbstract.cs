@@ -7,8 +7,23 @@ namespace Team17OOPTeamProject.Models.Contracts
 {
     public interface IAbstract
     {
-        string Title { get; }
+        public string ID { get; }
 
-        string Description { get; }
+        public string Title { get; }
+
+        public string Description { get; }
+
+        public abstract BugStatus BugStatus { get; }
+
+        public abstract StoryStatus StortyStatus { get; }
+
+        public abstract FeedbackStatus FeedbackStatus { get; }
+        
+        public IReadOnlyDictionary<string, string> Comment { get; }
+
+        public IReadOnlyCollection<string> History { get; }
+
+
+
     }
 }
