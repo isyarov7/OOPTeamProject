@@ -15,14 +15,13 @@ namespace Team17OOPTeamProject.Models.Abstract
         protected List<string> history;
 
         //Constructor
-        public Abstract(string title, string id)
+        public Abstract(string title)
         {
             this.history = new List<string>();
             this.Title = title;
-            this.ID = id;
         }
 
-        public Abstract(string title, string description, string id) : this(title, id)
+        public Abstract(string title, string description) : this(title)
         {
             this.Description = description;
         }
@@ -60,12 +59,6 @@ namespace Team17OOPTeamProject.Models.Abstract
                 this.description = value;
             }
         }
-        public string ID
-        {
-            get;
-            private set;
-        }
-
         public BugStatus BugStatus { get; }
 
         public StoryStatus StoryStatus { get; }

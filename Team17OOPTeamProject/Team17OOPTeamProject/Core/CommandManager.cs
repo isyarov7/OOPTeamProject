@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
+using T17.Models.Commands;
 using T17.Models.Core.Contracts;
 
 namespace T17.Models.Core
@@ -20,10 +21,10 @@ namespace T17.Models.Core
 
             return commandName switch
             {
-            "createperson" => new CreatePersonCommand(commandParameters),
+            "createperson" => new CreateANewPersonCommand(commandParameters),
             "showallpeople" => new ShowAllPeopleCommand(commandParameters),
             "showpersonsactivity" => new ShowPersonsActivityCommand(commandParameters),
-            "createanewteam" => new CreateANewTeamCommand(commandParameters),
+            "createnewteam" => new CreateANewTeamCommand(commandParameters),
             "showallteams" => new ShowAllTeamsCommand(commandParameters),
             "showteamsactivity" => new ShowTeamsActivityCommand(commandParameters),
             "addpersontoteam" => new AddPersonToTeamCommand(commandParameters),

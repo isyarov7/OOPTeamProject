@@ -11,16 +11,16 @@ namespace Team17OOPTeamProject.Models
     public class Story : Abstract.Abstract, IStory
     {
         private StoryStatus storyStatus = StoryStatus.NotDone;
-        public Story(string title, string id, Priority priority, Size size)
-           : base(title, id)
+        public Story(string title, Priority priority, Size size)
+           : base(title)
         {
             this.Size = size;
             this.Priority = priority;
             this.StoryStatus = storyStatus;
         }
 
-        public Story(string title, string description, string id, Priority priority, Size size)
-            : this(title, id, priority, size)
+        public Story(string title, string description, Priority priority, Size size)
+            : this(title, priority, size)
         {
             this.Description = description;
         }

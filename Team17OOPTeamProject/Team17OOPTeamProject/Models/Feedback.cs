@@ -14,15 +14,15 @@ namespace Team17OOPTeamProject
 
         private FeedbackStatus feedbackStatus = FeedbackStatus.New;
         //Constructor
-        public Feedback(string title, string id, int rating)
-             : base(title, id)
+        public Feedback(string title, int rating)
+             : base(title)
         {
             this.FeedbackStatus = feedbackStatus;
             this.Rating = rating;
         }
 
-        public Feedback(string title, string description, string id, int rating)
-            : this(title, id, rating)
+        public Feedback(string title, string description, int rating)
+            : this(title, rating)
         {
             this.Description = description;
         }

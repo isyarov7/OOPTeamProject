@@ -7,8 +7,6 @@ namespace Team17OOPTeamProject.Models.Contracts
 {
     public interface IAbstract
     {
-        public string ID { get; }
-
         public string Title { get; }
 
         public string Description { get; }

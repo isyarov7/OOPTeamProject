@@ -1,19 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using T17.Models.Models.Contracts;
+using Team17OOPTeamProject.Models.Contracts;
+using Team17OOPTeamProject.Models.Enums;
 
 namespace T17.Models.Core.Contracts
 {
     public interface IFactory
     {
-    //    IBus CreateBus(int passengerCapacity, double pricePerKilometer, bool hasFreeTv);
 
-    //    IAirplane CreateAirplane(int passengerCapacity, double pricePerKilometer, bool isLowCost);
+        ITeam CreateTeam(string name);
 
-    //    ITrain CreateTrain(int passengerCapacity, double pricePerKilometer, int carts);
+        IMember CreateMember(string name);
 
-    //    IJourney CreateJourney(string startingLocation, string destination, int distance, IVehicle vehicle);
+        IBoard CreateBoard(string name);
 
-    //    ITicket CreateTicket(IJourney journey, double administrativeCosts);
+        IBug CreateBug(string title, string description, string id, string stepsToProduce, Priority priority, Severity severity);
+
+        IStory CreateStory(string title, string description, string id, Priority priority, Size size);
+
+        IFeedback CreateFeedback(string title, string description, string id, int rating);
     }
 }

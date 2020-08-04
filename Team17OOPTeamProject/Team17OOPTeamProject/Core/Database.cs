@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using T17.Models.Core.Contracts;
+using T17.Models.Models.Contracts;
+using Team17OOPTeamProject.Models.Contracts;
 
 namespace T17.Models.Core
 {
@@ -21,22 +23,22 @@ namespace T17.Models.Core
             }
         }
 
-        private readonly List<IVehicle> vehicles = new List<IVehicle>();
-        public IList<IVehicle> Vehicles
+        private readonly List<IAbstract> boardItems = new List<IAbstract>();
+        public IList<IAbstract> BoardItems
         {
-            get => this.vehicles;
+            get => this.boardItems;
         }
 
-        private readonly List<IJourney> journeys = new List<IJourney>();
-        public IList<IJourney> Journeys
+        private readonly List<ITeam> teams = new List<ITeam>();
+        public IList<ITeam> Teams
         {
-            get => this.journeys;
+            get => this.teams;
         }
 
-        private readonly List<ITicket> tickets = new List<ITicket>();
-        public IList<ITicket> Tickets
+        private readonly List<IMember> member = new List<IMember>();
+        public IList<IMember> Member
         {
-            get => this.tickets;
+            get => this.member;
         }
     }
 }

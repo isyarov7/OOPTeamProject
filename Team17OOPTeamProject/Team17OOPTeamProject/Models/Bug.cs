@@ -14,8 +14,8 @@ namespace Team17OOPTeamProject.Models
         private readonly BugStatus bugStatus = BugStatus.Active;
 
         //Constructor
-        public Bug(string title, string id, string stepsToProduce, Priority priority, Severity severity)
-            : base(title, id)
+        public Bug(string title, string stepsToProduce, Priority priority, Severity severity)
+            : base(title)
         {
             this.BugStatus = bugStatus;
             this.StepsToProduce = stepsToProduce;
@@ -24,8 +24,8 @@ namespace Team17OOPTeamProject.Models
             this.assignee = new List<Member>();
         }
 
-        public Bug(string title, string description, string id, string stepsToProduce, Priority priority, Severity severity)
-            : this(title, id, stepsToProduce, priority, severity)
+        public Bug(string title, string description, string stepsToProduce, Priority priority, Severity severity)
+            : this(title, stepsToProduce, priority, severity)
         {
             this.Description = description;
         }
