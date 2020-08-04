@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using T17.Models.Commands.Contracts;
 using T17.Models.Core.Contracts;
 
 namespace T17.Models.Core
@@ -54,7 +55,7 @@ namespace T17.Models.Core
         {
             try
             {
-               ICommand command = this.commandManager.ParseCommand(commandLine);
+                ICommand command = this.commandManager.ParseCommand(commandLine);
                 string result = command.Execute();
 
                 return result.Trim();
@@ -71,11 +72,11 @@ namespace T17.Models.Core
         }
 
         private void Print(string commandResult)
-{
-    StringBuilder sb = new StringBuilder();
-    sb.AppendLine(commandResult);
-    sb.AppendLine("####################");
-    Console.WriteLine(sb.ToString().Trim());
-}
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(commandResult);
+            sb.AppendLine("####################");
+            Console.WriteLine(sb.ToString().Trim());
+        }
     }
 }

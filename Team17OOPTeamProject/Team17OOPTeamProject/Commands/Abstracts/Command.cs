@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
+using T17.Models.Core.Contracts;
 
 namespace T17.Models.Commands.Abstracts
 {
