@@ -1,12 +1,12 @@
-﻿using System;
+﻿
 
 namespace Team17OOPTeamProject
 {
-    class Program
+    class Startup
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Engine.Instance.Run();
         }
     }
 }
