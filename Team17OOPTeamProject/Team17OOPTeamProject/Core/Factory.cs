@@ -36,25 +36,25 @@ namespace T17.Models.Core
         {
             Member member = new Member(name);
             return member;
-        } 
+        }
         public IBoard CreateBoard(string name)
         {
             Board board = new Board(name);
             return board;
         }
-        public IBug CreateBug(string title, string description, string id, string stepsToProduce, Priority priority, Severity severity)
+        public IBug CreateBug(string title, string description, string stepsToProduce, Priority priority, Severity severity)
         {
-            Bug bug = new Bug(title, description, id, stepsToProduce, priority, severity);
+            Bug bug = new Bug(title, description, stepsToProduce, priority, severity);
             return bug;
         }
-        public IStory CreateStory(string title, string description, string id,Priority priority, Size size)
+        public IStory CreateStory(string title, string description, Priority priority, Size size)
         {
-            Story story = new Story(title, description, id, priority, size);
+            Story story = new Story(title, description, priority, size);
             return story;
         }
-        public IFeedback CreateFeedback(string title, string description, string id, int rating)
+        public IFeedback CreateFeedback(string title, string description, int rating)
         {
-            Feedback feedback = new Feedback(title, description, id, rating);
+            Feedback feedback = new Feedback(title, description, rating);
             return feedback;
         }
     }

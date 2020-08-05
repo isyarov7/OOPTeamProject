@@ -55,7 +55,7 @@ namespace T17.Models.Core
         {
             try
             {
-                ICommand command = this.commandManager.ParseCommand(commandLine);
+                var command = this.commandManager.ParseCommand(commandLine);
                 string result = command.Execute();
 
                 return result.Trim();

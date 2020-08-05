@@ -16,10 +16,10 @@ namespace T17.Models.Core.Contracts
 
         IBoard CreateBoard(string name);
 
-        IBug CreateBug(string title, string description, string id, string stepsToProduce, Priority priority, Severity severity);
+        IBug CreateBug(string title, string description, string stepsToProduce, Priority priority, Severity severity);
 
-        IStory CreateStory(string title, string description, string id, Priority priority, Size size);
+        IStory CreateStory(string title, string description, Priority priority, Size size);
 
-        IFeedback CreateFeedback(string title, string description, string id, int rating);
+        IFeedback CreateFeedback(string title, string description, int rating);
     }
 }

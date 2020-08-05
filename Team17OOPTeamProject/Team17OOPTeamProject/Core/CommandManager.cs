@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Windows.Input;
 using T17.Models.Commands;
 using T17.Models.Core.Contracts;
+using T17.Models.Commands.Contracts;
 
 namespace T17.Models.Core
 {
