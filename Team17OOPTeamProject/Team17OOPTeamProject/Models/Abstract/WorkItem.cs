@@ -6,7 +6,7 @@ using Team17OOPTeamProject.Models.Enums;
 
 namespace Team17OOPTeamProject.Models.Abstract
 {
-    public class Abstract : IAbstract
+    public abstract class WorkItem : IWorkItem
     {
         //Fields
         protected string title;
@@ -15,13 +15,13 @@ namespace Team17OOPTeamProject.Models.Abstract
         protected List<string> history;
 
         //Constructor
-        public Abstract(string title)
+        public WorkItem(string title)
         {
             this.history = new List<string>();
             this.Title = title;
         }
 
-        public Abstract(string title, List<string> description) : this(title)
+        public WorkItem(string title, List<string> description) : this(title)
         {
             this.Description = description;
         }
@@ -59,12 +59,6 @@ namespace Team17OOPTeamProject.Models.Abstract
                 this.description = value;
             }
         }
-        public BugStatus BugStatus { get; }
-
-        public StoryStatus StoryStatus { get; }
-
-        public FeedbackStatus FeedbackStatus { get; }
-
         public IReadOnlyDictionary<string, string> Comment => this.comment;
 
         public List<string> History => this.history;

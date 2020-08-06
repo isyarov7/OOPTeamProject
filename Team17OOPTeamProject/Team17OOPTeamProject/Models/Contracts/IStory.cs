@@ -6,7 +6,7 @@ using Team17OOPTeamProject.Models.Enums;
 
 namespace Team17OOPTeamProject.Models.Contracts
 {
-    public interface IStory : IAbstract
+    public interface IStory : IWorkItem
     {
 
         public Size Size { get; }

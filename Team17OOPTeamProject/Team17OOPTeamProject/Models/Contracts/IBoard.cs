@@ -9,11 +9,11 @@ namespace T17.Models.Models.Contracts
     {
         public string Name { get; }
 
-        public IReadOnlyList<IAbstract> Bugs { get; }
+        public IReadOnlyList<IWorkItem> Bugs { get; }
 
-        public IReadOnlyList<IAbstract> Stories { get; }
+        public IReadOnlyList<IWorkItem> Stories { get; }
 
-        public IReadOnlyList<IAbstract> Feedbacks { get; }
+        public IReadOnlyList<IWorkItem> Feedbacks { get; }
 
         public IReadOnlyCollection<string> History { get; }
     }

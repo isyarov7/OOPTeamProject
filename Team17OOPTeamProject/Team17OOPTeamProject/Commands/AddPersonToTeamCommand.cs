@@ -17,21 +17,32 @@ namespace T17.Models.Commands
         public override string Execute()
         {
             string name;
-            string team;
+            string teamName;
 
             try
             {
                 name = this.CommandParameters[0];
-                team = this.CommandParameters[1];
+                var member = this.Database.Member.Where(m => m.Name == name).FirstOrDefault();
+                if (member == null)
+                {
+                    return "There is no such member!";
+                }
+                teamName = this.CommandParameters[1];
+                var team = this.Database.Teams.Where(t => t.Name == teamName).FirstOrDefault();
+                if (team == null)
+                {
+                    return "There is no such team!";
+                }
+                team.Members.Add(member);
+                return $"Team with ID {this.Database.Member.Count} was created.";
             }
             catch
             {
                 throw new ArgumentException("Failed to parse CreateMember command parameters.");
             }
 
-            
 
-            return $"Team with ID {this.Database.Member.Count} was created.";
+
         }
     }
 }

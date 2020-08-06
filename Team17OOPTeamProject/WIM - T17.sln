@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "T17.Models", "Team17OOPTeamProject\T17.Models.csproj", "{0CF2CF12-3CA6-44CC-89E9-6FCD47557428}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WIM.T17", "Team17OOPTeamProject\WIM.T17.csproj", "{0CF2CF12-3CA6-44CC-89E9-6FCD47557428}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WIM.T17.Tests", "WIM.T17.Tests\WIM.T17.Tests.csproj", "{F6EAAC6D-A841-47F1-A11F-CFB49070FE3F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{0CF2CF12-3CA6-44CC-89E9-6FCD47557428}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CF2CF12-3CA6-44CC-89E9-6FCD47557428}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CF2CF12-3CA6-44CC-89E9-6FCD47557428}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6EAAC6D-A841-47F1-A11F-CFB49070FE3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6EAAC6D-A841-47F1-A11F-CFB49070FE3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6EAAC6D-A841-47F1-A11F-CFB49070FE3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6EAAC6D-A841-47F1-A11F-CFB49070FE3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

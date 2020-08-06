@@ -11,9 +11,9 @@ namespace T17.Models.Models
     public class Member : IMember
     {
         //Fields
-        private readonly List<IAbstract> stories;
-        private readonly List<IAbstract> bugs;
-        private readonly List<IAbstract> feedbacks;
+        private readonly List<IWorkItem> stories;
+        private readonly List<IWorkItem> bugs;
+        private readonly List<IWorkItem> feedbacks;
         private readonly List<string> history;
         private string name;
 
@@ -21,17 +21,17 @@ namespace T17.Models.Models
         public Member(string name)
         {
             this.history = new List<string>();
-            this.stories = new List<IAbstract>();
-            this.feedbacks = new List<IAbstract>();
-            this.bugs = new List<IAbstract>();
+            this.stories = new List<IWorkItem>();
+            this.feedbacks = new List<IWorkItem>();
+            this.bugs = new List<IWorkItem>();
             this.Name = name;
         }
         //Properties
-        public IReadOnlyList<IAbstract> Stories => this.stories;
+        public IReadOnlyList<IWorkItem> Stories => this.stories;
 
-        public IReadOnlyList<IAbstract> Bugs => this.bugs;
+        public IReadOnlyList<IWorkItem> Bugs => this.bugs;
 
-        public IReadOnlyList<IAbstract> Feedbacks => this.feedbacks;
+        public IReadOnlyList<IWorkItem> Feedbacks => this.feedbacks;
 
         public IReadOnlyCollection<string> History => this.history;
 

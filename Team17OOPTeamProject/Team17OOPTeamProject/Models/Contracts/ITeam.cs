@@ -7,8 +7,8 @@ namespace T17.Models.Models.Contracts
     public interface ITeam
     {
         public string Name { get; }
-        public IReadOnlyList<IMember> Members { get; }
-        public IReadOnlyList<IBoard> Boards { get; }
-        public IReadOnlyCollection<string> History { get; }
+        public List<IMember> Members { get; }
+        public List<IBoard> Boards { get; }
+        public List<string> History { get; }
     }
 }

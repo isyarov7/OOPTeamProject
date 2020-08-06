@@ -8,7 +8,7 @@ using Team17OOPTeamProject.Models.Enums;
 
 namespace Team17OOPTeamProject.Models
 {
-    public class Story : Abstract.Abstract, IStory
+    public class Story : Abstract.WorkItem, IStory
     {
         private StoryStatus storyStatus = StoryStatus.NotDone;
         public Story(string title, Priority priority, Size size)

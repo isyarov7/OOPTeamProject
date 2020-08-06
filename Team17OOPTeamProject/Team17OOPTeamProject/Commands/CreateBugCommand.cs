@@ -22,28 +22,22 @@ namespace T17.Models.Commands
         public override string Execute()
         {
 
-            if (CommandParameters.Count < 7)
-                throw new ArgumentException("You have to submit 8 parameters!");
+            if (CommandParameters.Count < 5)
+                throw new ArgumentException("You have to submit 6 parameters!");
 
-            string teamName = this.CommandParameters[0];
-            string boardName = this.CommandParameters[1];
-            string title = this.CommandParameters[2];
-            List<string> description = this.CommandParameters[3].Trim().Split(',').ToList();
-            Enum.TryParse<Priority>(this.CommandParameters[4], true, out Priority priority);
-            Enum.TryParse<Severity>(this.CommandParameters[5], true, out Severity severity);
-            Enum.TryParse<BugStatus>(this.CommandParameters[6], true, out BugStatus bugStatus);
-            List<string> stepsToProduce = this.CommandParameters[7].Trim().Split(',').ToList();
+            string title = this.CommandParameters[0];
+            List<string> description = this.CommandParameters[1].Trim().Split(',').ToList();
+            Enum.TryParse<Priority>(this.CommandParameters[2], true, out Priority priority);
+            Enum.TryParse<Severity>(this.CommandParameters[3], true, out Severity severity);
+            Enum.TryParse<BugStatus>(this.CommandParameters[4], true, out BugStatus bugStatus);
+            List<string> stepsToProduce = this.CommandParameters[5].Trim().Split(',').ToList();
 
             var bug = this.Factory.CreateBug(title, description, priority, severity, bugStatus, stepsToProduce);
-            this.Database.BoardItems.Add(bug);
+            this.Database.Bugs.Add(bug);
 
             bug.History.Add($"Bug with title: {title} was created!");
-
-            Board foundBoard = (Board)Database.Teams.Where(team => team.Name == teamName)
-                .Select(team => team.Boards.Where(board => board.Name == teamName));
-            foundBoard.WorkItems.Add(bug);
-            bug.History.Add($"Bug added to board: {boardName} in team {teamName}.");
-            return $"Bug with ID {this.Database.BoardItems.Count} was created.";
+           
+            return $"Bug with ID {this.Database.Bugs.Count} was created.";
         }
     }
 }

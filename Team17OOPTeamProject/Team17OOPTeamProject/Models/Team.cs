@@ -37,12 +37,11 @@ namespace T17.Models.Models
             }
         }
 
-        public IReadOnlyList<IMember> Members => this.members;
+        public List<IMember> Members => this.members;
 
-        public IReadOnlyList<IBoard> Boards => this.boards;
+        public List<IBoard> Boards => this.boards;
 
-        public IReadOnlyCollection<string> History => this.history;
-
+        public List<string> History => this.history;
         public string AddMember(Member member)
         {
             if (!members.Contains(member))

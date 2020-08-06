@@ -8,8 +8,10 @@ namespace T17.Models.Core.Contracts
 {
     public interface IDatabase
     {
-        IList<IAbstract> BoardItems { get; }
-        IList<ITeam> Teams { get; }
-        IList<IMember> Member { get; }
+        List<IBug> Bugs { get; }
+        List<IFeedback> Feedback { get; }
+        List<IStory> Story { get; }
+        List<ITeam> Teams { get; }
+        List<IMember> Member { get; }
     }
 }

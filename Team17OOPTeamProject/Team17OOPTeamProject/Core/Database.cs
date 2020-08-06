@@ -22,23 +22,10 @@ namespace T17.Models.Core
                 return instance;
             }
         }
-
-        private readonly List<IAbstract> boardItems = new List<IAbstract>();
-        public IList<IAbstract> BoardItems
-        {
-            get => this.boardItems;
-        }
-
-        private readonly List<ITeam> teams = new List<ITeam>();
-        public IList<ITeam> Teams
-        {
-            get => this.teams;
-        }
-
-        private readonly List<IMember> member = new List<IMember>();
-        public IList<IMember> Member
-        {
-            get => this.member;
-        }
+        public List<IBug> Bugs { get; set; } = new List<IBug>();
+        public List<IFeedback> Feedback { get; set; } = new List<IFeedback>();
+        public List<IStory> Story { get; set; } = new List<IStory>();
+        public List<ITeam> Teams { get; set; } = new List<ITeam>();
+        public List<IMember> Member { get; set; } = new List<IMember>();
     }
 }

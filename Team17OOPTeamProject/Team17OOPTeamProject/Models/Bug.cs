@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 using T17.Models.Models;
+using Team17OOPTeamProject.Models.Abstract;
 using Team17OOPTeamProject.Models.Contracts;
 using Team17OOPTeamProject.Models.Enums;
 
 namespace Team17OOPTeamProject.Models
 {
-    public class Bug : Abstract.Abstract, IBug
+    public class Bug : WorkItem, IBug
     {
         //Fields 
         private readonly List<Member> assignee;
@@ -45,7 +46,7 @@ namespace Team17OOPTeamProject.Models
             private set;
         }
 
-        //Methods
+      //TODO :  //Move to Commands!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11111 //
         public string AddAssignee(Member member)
         {
             if (!assignee.Contains(member))
@@ -68,7 +69,7 @@ namespace Team17OOPTeamProject.Models
             else
             return $"There is no member with name {member.Name} on the list!";
         }
-
+       
         public void ChangeBugStatusToFixed()
         {
             if (BugStatus != BugStatus.Fixed)

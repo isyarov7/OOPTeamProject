@@ -7,7 +7,7 @@ using Team17OOPTeamProject.Models.Enums;
 
 namespace Team17OOPTeamProject
 {
-    public class Feedback : Abstract, IFeedback
+    public class Feedback : WorkItem, IFeedback
     {
         //Fields
         private int rating;

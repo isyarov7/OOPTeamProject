@@ -6,9 +6,9 @@ using T17.Models.Models.Contracts;
 
 namespace T17.Models.Commands
 {
-    public class CreateANewPersonCommand : Command
+    public class CreatePersonCommand : Command
     {
-        public CreateANewPersonCommand(IList<string> commandParameters)
+        public CreatePersonCommand(IList<string> commandParameters)
             : base(commandParameters)
         {
         }
@@ -29,7 +29,7 @@ namespace T17.Models.Commands
             IMember member = this.Factory.CreateMember(name);
             this.Database.Member.Add(member);
 
-            return $"Team with ID {this.Database.Member.Count} was created.";
+            return $"Person with ID {this.Database.Member.Count} was created.";
         }
     }
 }

@@ -5,17 +5,11 @@ using Team17OOPTeamProject.Models.Enums;
 
 namespace Team17OOPTeamProject.Models.Contracts
 {
-    public interface IAbstract
+    public interface IWorkItem
     {
         public string Title { get; }
 
         public List<string> Description { get; }
-
-        public abstract BugStatus BugStatus { get; }
-
-        public abstract StoryStatus StoryStatus { get; }
-
-        public abstract FeedbackStatus FeedbackStatus { get; }
         
         public IReadOnlyDictionary<string, string> Comment { get; }
 

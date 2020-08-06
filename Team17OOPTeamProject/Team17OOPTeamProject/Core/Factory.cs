@@ -27,32 +27,32 @@ namespace T17.Models.Core
             }
         }
 
-        public ITeam CreateTeam(string name)
+        public Team CreateTeam(string name)
         {
             Team team = new Team(name);
             return team;
         }
-        public IMember CreateMember(string name)
+        public Member CreateMember(string name)
         {
             Member member = new Member(name);
             return member;
         }
-        public IBoard CreateBoard(string name)
+        public Board CreateBoard(string name)
         {
             Board board = new Board(name);
             return board;
         }
-        public IBug CreateBug(string title, List<string> description, Priority priority, Severity severity, BugStatus bugStatus, List<string> stepsToProduce)
+        public Bug CreateBug(string title, List<string> description, Priority priority, Severity severity, BugStatus bugStatus, List<string> stepsToProduce)
         {
             Bug bug = new Bug(title, description, priority, severity, bugStatus, stepsToProduce);
             return bug;
         }
-        public IStory CreateStory(string title, List<string> description, Priority priority, Size size)
+        public Story CreateStory(string title, List<string> description, Priority priority, Size size)
         {
             Story story = new Story(title, description, priority, size);
             return story;
         }
-        public IFeedback CreateFeedback(string title, List<string> description, int rating)
+        public Feedback CreateFeedback(string title, List<string> description, int rating)
         {
             Feedback feedback = new Feedback(title, description, rating);
             return feedback;
