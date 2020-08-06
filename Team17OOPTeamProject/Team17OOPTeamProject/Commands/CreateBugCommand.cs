@@ -41,9 +41,9 @@ namespace T17.Models.Commands
 
             Board foundBoard = (Board)Database.Teams.Where(team => team.Name == teamName)
                 .Select(team => team.Boards.Where(board => board.Name == teamName));
-
-            //TODO
-            return $"Team with ID {this.Database.Teams.Count - 1} was created.";
+            foundBoard.WorkItems.Add(bug);
+            bug.History.Add($"Bug added to board: {boardName} in team {teamName}.");
+            return $"Bug with ID {this.Database.BoardItems.Count} was created.";
         }
     }
 }

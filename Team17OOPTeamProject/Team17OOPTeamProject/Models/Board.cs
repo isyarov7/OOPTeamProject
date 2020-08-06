@@ -16,6 +16,7 @@ namespace T17.Models.Models
         private readonly List<IAbstract> stories;
         private readonly List<IAbstract> feedbacks;
         private readonly List<string> history;
+        private List<object> workItems;
 
         //Constructor
         public Board(string name)
@@ -25,6 +26,7 @@ namespace T17.Models.Models
             this.stories = new List<IAbstract>();
             this.feedbacks = new List<IAbstract>();
             this.history = new List<string>();
+            this.WorkItems = new List<object>();
         }
 
         //Properties
@@ -51,6 +53,8 @@ namespace T17.Models.Models
         public IReadOnlyList<IAbstract> Stories => this.stories;
         public IReadOnlyList<IAbstract> Feedbacks => this.feedbacks;
         public IReadOnlyCollection<string> History => this.history;
+
+        public List<object> WorkItems { get => workItems; set => workItems = value; }
 
         //Methods   
         public string AddBug(Bug bug)

@@ -29,7 +29,7 @@ namespace T17.Models.Commands
             ITeam team = this.Factory.CreateTeam(name);
             this.Database.Teams.Add(team);
 
-            return $"Team with ID {this.Database.Teams.Count - 1} was created.";
+            return $"Team with ID {this.Database.Teams.Count} was created.";
         }
     }
 }

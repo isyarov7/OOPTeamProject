@@ -31,7 +31,7 @@ namespace T17.Models.Commands
 
             
 
-            return $"Team with ID {this.Database.Member.Count - 1} was created.";
+            return $"Team with ID {this.Database.Member.Count} was created.";
         }
     }
 }
