@@ -10,7 +10,7 @@ namespace Team17OOPTeamProject.Models.Abstract
     {
         //Fields
         protected string title;
-        protected string description;
+        protected List<string> description;
         protected Dictionary<string, string> comment;
         protected List<string> history;
 
@@ -21,7 +21,7 @@ namespace Team17OOPTeamProject.Models.Abstract
             this.Title = title;
         }
 
-        public Abstract(string title, string description) : this(title)
+        public Abstract(string title, List<string> description) : this(title)
         {
             this.Description = description;
         }
@@ -43,16 +43,16 @@ namespace Team17OOPTeamProject.Models.Abstract
                 this.title = value;
             }
         }
-        public string Description
+        public List<string> Description
         {
             get => this.description;
             set
             {
-                if (string.IsNullOrEmpty(value))
+                if (value.Count < 1)
                 {
-                    throw new ArgumentException("Description can't be null.");
+                    throw new ArgumentException("Description can't be empty.");
                 }
-                if (value.Length < 10 || value.Length > 500)
+                if (value.Count < 10 || value.Count > 500)
                 {
                     throw new ArgumentException("Description should be between 10 and 500 symbols!");
                 }
@@ -67,7 +67,7 @@ namespace Team17OOPTeamProject.Models.Abstract
 
         public IReadOnlyDictionary<string, string> Comment => this.comment;
 
-        public IReadOnlyCollection<string> History => this.history;
+        public List<string> History => this.history;
 
         //Methods 
         public string PrintHistory()

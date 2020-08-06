@@ -21,7 +21,7 @@ namespace Team17OOPTeamProject
             this.Rating = rating;
         }
 
-        public Feedback(string title, string description, int rating)
+        public Feedback(string title, List<string> description, int rating)
             : this(title, rating)
         {
             this.Description = description;

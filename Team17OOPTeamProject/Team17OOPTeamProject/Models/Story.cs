@@ -19,7 +19,7 @@ namespace Team17OOPTeamProject.Models
             this.StoryStatus = storyStatus;
         }
 
-        public Story(string title, string description, Priority priority, Size size)
+        public Story(string title, List<string> description, Priority priority, Size size)
             : this(title, priority, size)
         {
             this.Description = description;

@@ -9,7 +9,7 @@ namespace Team17OOPTeamProject.Models.Contracts
     {
         public string Title { get; }
 
-        public string Description { get; }
+        public List<string> Description { get; }
 
         public abstract BugStatus BugStatus { get; }
 
@@ -19,7 +19,7 @@ namespace Team17OOPTeamProject.Models.Contracts
         
         public IReadOnlyDictionary<string, string> Comment { get; }
 
-        public IReadOnlyCollection<string> History { get; }
+        public List<string> History { get; }
 
 
 

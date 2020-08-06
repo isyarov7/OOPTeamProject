@@ -42,17 +42,17 @@ namespace T17.Models.Core
             Board board = new Board(name);
             return board;
         }
-        public IBug CreateBug(string title, string description, string stepsToProduce, Priority priority, Severity severity)
+        public IBug CreateBug(string title, List<string> description, Priority priority, Severity severity, BugStatus bugStatus, List<string> stepsToProduce)
         {
-            Bug bug = new Bug(title, description, stepsToProduce, priority, severity);
+            Bug bug = new Bug(title, description, priority, severity, bugStatus, stepsToProduce);
             return bug;
         }
-        public IStory CreateStory(string title, string description, Priority priority, Size size)
+        public IStory CreateStory(string title, List<string> description, Priority priority, Size size)
         {
             Story story = new Story(title, description, priority, size);
             return story;
         }
-        public IFeedback CreateFeedback(string title, string description, int rating)
+        public IFeedback CreateFeedback(string title, List<string> description, int rating)
         {
             Feedback feedback = new Feedback(title, description, rating);
             return feedback;
