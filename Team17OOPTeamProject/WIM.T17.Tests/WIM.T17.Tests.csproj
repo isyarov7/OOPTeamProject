@@ -14,9 +14,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="BugTests\" />
     <Folder Include="FeedbackTest\" />
     <Folder Include="StoryTests\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Team17OOPTeamProject\WIM.T17.csproj" />
   </ItemGroup>
 
 </Project>
