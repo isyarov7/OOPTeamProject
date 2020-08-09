@@ -16,9 +16,9 @@ namespace WIM.T17.Tests.BugTests
         [TestMethod]
         public void HasTitle()
         {
-            Bug bug = new Bug("BugTitlefsdfasdfasdf", new List<string> (){"dasmdkasmd"}, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() {"dasdasdas"});
+            Bug bug = new Bug("Title", new List<string> (){"description"}, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() {"steps"});
 
-            string expected = "BugTitlefsdfasdfasdf";
+            string expected = "Title";
             string actual = bug.Title;
 
             Assert.AreEqual(expected, actual);
@@ -27,7 +27,7 @@ namespace WIM.T17.Tests.BugTests
         [TestMethod]
         public void IsAdvanceStatusCorrect()
         {
-            Bug bug = new Bug("Ttile", new List<string>() { "dasmdkasmd" }, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() { "dasdasdas" });
+            Bug bug = new Bug("Ttitle", new List<string>() { "description" }, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() { "steps" });
 
             BugStatus expected = BugStatus.Fixed;
             BugStatus actual = bug.BugStatus;
@@ -38,7 +38,7 @@ namespace WIM.T17.Tests.BugTests
         [TestMethod]
         public void IsLowerStatusCorrect()
         {
-            Bug bug = new Bug("Ttile", new List<string>() { "dasmdkasmd" }, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() { "dasdasdas" });
+            Bug bug = new Bug("Title", new List<string>() { "description" }, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() { "steps" });
 
             BugStatus expected = BugStatus.Active;
             BugStatus actual = bug.BugStatus;
@@ -50,8 +50,7 @@ namespace WIM.T17.Tests.BugTests
         [TestMethod]
         public void StepsToReproduce()
         {
-            Bug bug = new Bug("Ttile", new List<string>() { "dasmdkasmd" }, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() { "dasdasdas" });
-
+            Bug bug = new Bug("Title", new List<string>() { "description" }, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() { "steps" });
             List<string> expected = new List<string>() { "dasdasdas" };
             List<string> actual = bug.StepsToProduce;
 
@@ -61,7 +60,7 @@ namespace WIM.T17.Tests.BugTests
         [TestMethod]
         public void HasPriority()
         {
-            Bug bug = new Bug("Ttile", new List<string>() { "dasmdkasmd" }, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() { "dasdasdas" });
+            Bug bug = new Bug("Title", new List<string>() { "description" }, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() { "steps" });
 
             Priority expected = Priority.High;
             Priority actual = bug.Priority;
@@ -72,7 +71,7 @@ namespace WIM.T17.Tests.BugTests
         [TestMethod]
         public void HasSeverity()
         {
-            Bug bug = new Bug("Ttile", new List<string>() { "dasmdkasmd" }, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() { "dasdasdas" });
+            Bug bug = new Bug("Title", new List<string>() { "description" }, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() { "steps" });
 
             Severity expected = Severity.Critical;
             Severity actual = bug.Severity;
@@ -83,7 +82,7 @@ namespace WIM.T17.Tests.BugTests
         [TestMethod]
         public void AddsAssignee()
         {
-            Bug bug = new Bug("Ttile", new List<string>() { "dasmdkasmd" }, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() { "dasdasdas" });
+            Bug bug = new Bug("Title", new List<string>() { "description" }, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() { "steps" });
             Member member = new Member("pesho");
 
             bug.AddAssignee(member);
@@ -94,7 +93,7 @@ namespace WIM.T17.Tests.BugTests
         [TestMethod]
         public void AddsUniqueAssignee()
         {
-            Bug bug = new Bug("Ttile", new List<string>() { "dasmdkasmd" }, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() { "dasdasdas" });
+            Bug bug = new Bug("Title", new List<string>() { "description" }, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() { "steps" });
             Member member = new Member("Gosho");
 
             bug.AddAssignee(member);
@@ -109,7 +108,7 @@ namespace WIM.T17.Tests.BugTests
 
         public void RemoveAssignee()
         {
-            Bug bug = new Bug("Ttile", new List<string>() { "dasmdkasmd" }, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() { "dasdasdas" });
+            Bug bug = new Bug("Title", new List<string>() { "description" }, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() { "steps" });
             Member member = new Member("Pesho");
 
             bug.RemoveAssignee(member);
@@ -120,21 +119,21 @@ namespace WIM.T17.Tests.BugTests
         [ExpectedException(typeof(ArgumentException))]
         public void ThrowsExceptionWhenTitleOOB()
         {
-            Bug bug = new Bug("asdnklndklasdklnaskldnklasndkasndkansdnalsn", new List<string>() { "dasmdkasmd" }, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() { "dasdasdas" });
+            Bug bug = new Bug("ttl", new List<string>() { "description" }, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() { "steps" });
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void ThrowsExceptionWhenTitleNull()
         {
-            Bug bug = new Bug("", new List<string>() { "dasmdkasmd" }, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() { "dasdasdas" });
+            Bug bug = new Bug(null, new List<string>() { "description" }, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() { "steps" });
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void ThrowsExceptionWhenDescriptionOOB()
         {
-           Bug bug = new Bug("Ttile", new List<string>() { "dsa" }, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() { "dasdasdas" });
+            Bug bug = new Bug("Ttitle", new List<string>() { "desc" }, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() { "steps" });
 
         }
     }
