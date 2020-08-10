@@ -14,7 +14,7 @@ namespace WIM.T17.Tests.StoryTests
         {
             var story = new Story("title", new List<string>() { "description" } , Priority.High, Size.Large);
 
-            string expected = "dasasfasfa";
+            string expected = "title";
             string actual = story.Title;
 
             Assert.AreEqual(expected, actual);
