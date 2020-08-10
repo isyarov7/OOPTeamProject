@@ -14,7 +14,7 @@ namespace WIM.T17.Tests.BugTests
     class BugTest
     {
         [TestMethod]
-        public void HasTitle()
+        public void IsTitleTheSameAsExpected()
         {
             Bug bug = new Bug("Title", new List<string> (){"description"}, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() {"steps"});
 
@@ -27,7 +27,7 @@ namespace WIM.T17.Tests.BugTests
         [TestMethod]
         public void IsAdvanceStatusCorrect()
         {
-            Bug bug = new Bug("Ttitle", new List<string>() { "description" }, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() { "steps" });
+            Bug bug = new Bug("Title", new List<string>() { "description" }, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() { "steps" });
 
             BugStatus expected = BugStatus.Fixed;
             BugStatus actual = bug.BugStatus;
@@ -133,7 +133,7 @@ namespace WIM.T17.Tests.BugTests
         [ExpectedException(typeof(ArgumentException))]
         public void ThrowsExceptionWhenDescriptionOOB()
         {
-            Bug bug = new Bug("Ttitle", new List<string>() { "desc" }, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() { "steps" });
+            Bug bug = new Bug("Title", new List<string>() { "desc" }, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() { "steps" });
 
         }
     }

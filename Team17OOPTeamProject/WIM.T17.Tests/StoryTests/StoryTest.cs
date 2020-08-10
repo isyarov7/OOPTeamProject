@@ -10,7 +10,7 @@ namespace WIM.T17.Tests.StoryTests
     class StoryTest
     {
         [TestMethod]
-        public void HasTitle()
+        public void IsTitleTheSameAsExpected()
         {
             var story = new Story("title", new List<string>() { "description" } , Priority.High, Size.Large);
 

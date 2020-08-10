@@ -5,6 +5,7 @@ using System.Text;
 using T17.Models.Commands;
 using T17.Models.Core.Contracts;
 using T17.Models.Commands.Contracts;
+using WIM.T17.Commands;
 
 namespace T17.Models.Core
 {
@@ -28,7 +29,7 @@ namespace T17.Models.Core
             "showallteams" => new ShowAllTeamsCommand(commandParameters),
             "showteamsactivity" => new ShowTeamsActivityCommand(commandParameters),
             "addpersontoteam" => new AddPersonToTeamCommand(commandParameters),
-            //"showallteammembers" => new ShowAllTeamMembersCommand(commandParameters),
+            "showallteammembers" => new ShowAllTeamMembersCommand(commandParameters),
             //"createnewboardinteam" => new CreateNewBoardInTeamCommand(commandParameters),
             //"showallteamboards" => new ShowAllTeamBoardsCommand(commandParameters),
             //"showboardsactivity" => new ShowBoardsActivityCommand(commandParameters),

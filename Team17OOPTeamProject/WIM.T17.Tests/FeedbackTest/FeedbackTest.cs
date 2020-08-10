@@ -9,7 +9,7 @@ namespace WIM.T17.Tests.FeedbackTest
     class FeedbackTest
     {
         [TestMethod]
-        public void HasTitle()
+        public void IsTitleTheSameAsExpected()
         {
             Feedback feedback = new Feedback("Title", new List<string>() { "steps" }, 10);
 
