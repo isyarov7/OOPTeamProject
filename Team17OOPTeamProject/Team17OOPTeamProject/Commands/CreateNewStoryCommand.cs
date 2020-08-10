@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using T17.Models.Commands.Abstracts;
+using T17.Models.Models;
+using Team17OOPTeamProject.Models.Enums;
 
 namespace WIM.T17.Commands
 {
@@ -15,22 +18,22 @@ namespace WIM.T17.Commands
         public override string Execute()
         {
 
-            if (CommandParameters.Count < 5)
-                throw new ArgumentException("You have to submit 6 parameters!");
+            if (CommandParameters.Count < 3)
+                throw new ArgumentException("You have to submit 4 parameters!");
 
             string title = this.CommandParameters[0];
             List<string> description = this.CommandParameters[1].Trim().Split(',').ToList();
             Enum.TryParse<Priority>(this.CommandParameters[2], true, out Priority priority);
-            Enum.TryParse<Severity>(this.CommandParameters[3], true, out Severity severity);
-            Enum.TryParse<BugStatus>(this.CommandParameters[4], true, out BugStatus bugStatus);
-            List<string> stepsToProduce = this.CommandParameters[5].Trim().Split(',').ToList();
+            Enum.TryParse<Size>(this.CommandParameters[3], true, out Size size);
+            //TODO
+            //List<Member> assignee = this.CommandParameters[4].Trim().Split(',').ToList();
 
-            var bug = this.Factory.CreateBug(title, description, priority, severity, bugStatus, stepsToProduce);
-            this.Database.Bugs.Add(bug);
+            var story = this.Factory.CreateStory(title, description, priority, size);
+            this.Database.Story.Add(story);
 
-            bug.History.Add($"Bug with title: {title} was created!");
+            story.History.Add($"Story with title: {title} was created!");
 
-            return $"Bug with ID {this.Database.Bugs.Count} was created.";
+            return $"Story with ID {this.Database.Story.Count} was created.";
         }
     }
 }

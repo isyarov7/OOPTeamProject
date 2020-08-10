@@ -16,12 +16,13 @@ namespace Team17OOPTeamProject.Models
         {
             this.Size = size;
             this.Priority = priority;
-            this.StoryStatus = storyStatus;
+            
         }
 
         public Story(string title, List<string> description, Priority priority, Size size)
             : this(title, priority, size)
         {
+           
             this.Description = description;
         }
 
@@ -32,6 +33,8 @@ namespace Team17OOPTeamProject.Models
         public StoryStatus StoryStatus { get; private set; }
 
         public IReadOnlyList<Member> Assignee => throw new NotImplementedException();
+
+
 
         //Methods
         public void StoryStatusChangedToInProgressOrToDone()

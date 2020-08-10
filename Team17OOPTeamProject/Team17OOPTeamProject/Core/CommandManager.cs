@@ -35,7 +35,7 @@ namespace T17.Models.Core
             //"showboardsactivity" => new ShowBoardsActivityCommand(commandParameters),
             "createnewbug" => new CreateBugCommand(commandParameters),
             "createnewstory" => new CreateNewStoryCommand(commandParameters),
-            //"createnewfeedback" => new CreateNewFeedbackCommand(commandParameters),
+            "createnewfeedback" => new CreateNewFeedbackCommand(commandParameters),
             //"changepriorityofabug" => new ChangePriorityOfABugCommand(commandParameters),
             //"changeseverityofabug" => new ChangeSeverityOfABugCommand(commandParameters),
             //"changestatusofabug" => new ChangeStatusOfABugCommand(commandParameters),

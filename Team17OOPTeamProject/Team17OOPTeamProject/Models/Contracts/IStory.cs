@@ -8,7 +8,6 @@ namespace Team17OOPTeamProject.Models.Contracts
 {
     public interface IStory : IWorkItem
     {
-
         public Size Size { get; }
 
         public Priority Priority { get; }
