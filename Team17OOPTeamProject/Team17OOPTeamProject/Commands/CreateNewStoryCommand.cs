@@ -22,7 +22,7 @@ namespace WIM.T17.Commands
                 throw new ArgumentException("You have to submit 4 parameters!");
 
             string title = this.CommandParameters[0];
-            List<string> description = this.CommandParameters[1].Trim().Split(',').ToList();
+            string description = this.CommandParameters[1];
             Enum.TryParse<Priority>(this.CommandParameters[2], true, out Priority priority);
             Enum.TryParse<Size>(this.CommandParameters[3], true, out Size size);
             //TODO

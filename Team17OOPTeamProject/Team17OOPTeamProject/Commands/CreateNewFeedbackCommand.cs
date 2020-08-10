@@ -20,7 +20,7 @@ namespace WIM.T17.Commands
                 throw new ArgumentException("You have to submit 4 parameters!");
 
             string title = this.CommandParameters[0];
-            List<string> description = this.CommandParameters[1].Trim().Split(',').ToList();
+            string description = this.CommandParameters[1];
             int rating = int.Parse(this.CommandParameters[2]);
 
             var feedback = this.Factory.CreateFeedback(title, description, rating);

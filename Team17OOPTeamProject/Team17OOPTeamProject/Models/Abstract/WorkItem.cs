@@ -10,7 +10,7 @@ namespace Team17OOPTeamProject.Models.Abstract
     {
         //Fields
         protected string title;
-        protected List<string> description;
+        protected string description;
         protected Dictionary<string, string> comment;
         protected List<string> history;
 
@@ -21,7 +21,7 @@ namespace Team17OOPTeamProject.Models.Abstract
             this.Title = title;
         }
 
-        public WorkItem(string title, List<string> description) : this(title)
+        public WorkItem(string title, string description) : this(title)
         {
             this.Description = description;
         }
@@ -43,16 +43,16 @@ namespace Team17OOPTeamProject.Models.Abstract
                 this.title = value;
             }
         }
-        public List<string> Description
+        public string Description
         {
             get => this.description;
             set
             {
-                if (value.Count < 1)
+                if (value == null)
                 {
                     throw new ArgumentException("Description can't be empty.");
                 }
-                if (value.Count < 10 || value.Count > 500)
+                if (value.Length < 10 || value.Length > 500)
                 {
                     throw new ArgumentException("Description should be between 10 and 500 symbols!");
                 }

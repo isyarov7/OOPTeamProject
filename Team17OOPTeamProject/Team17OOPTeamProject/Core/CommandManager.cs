@@ -36,7 +36,7 @@ namespace T17.Models.Core
             "createnewbug" => new CreateBugCommand(commandParameters),
             "createnewstory" => new CreateNewStoryCommand(commandParameters),
             "createnewfeedback" => new CreateNewFeedbackCommand(commandParameters),
-            //"changepriorityofabug" => new ChangePriorityOfABugCommand(commandParameters),
+            "changebugprioritytomedium" => new ChangeBugPriorityToMediumCommand(commandParameters),
             //"changeseverityofabug" => new ChangeSeverityOfABugCommand(commandParameters),
             //"changestatusofabug" => new ChangeStatusOfABugCommand(commandParameters),
             //"changepriorityofastory" => new ChangePriorityOfAStoryCommand(commandParameters),

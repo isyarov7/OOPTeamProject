@@ -9,7 +9,7 @@ namespace Team17OOPTeamProject.Models.Contracts
     public interface IBug : IWorkItem
     {
         public List<string> StepsToProduce { get; }
-        public Priority Priority { get; }
+        public Priority Priority { get; set; }
         public Severity Severity { get; }
         public IReadOnlyList<Member> Assignee { get; }
     }

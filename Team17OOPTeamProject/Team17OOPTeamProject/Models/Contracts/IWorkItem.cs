@@ -9,7 +9,7 @@ namespace Team17OOPTeamProject.Models.Contracts
     {
         public string Title { get; }
 
-        public List<string> Description { get; }
+        public string Description { get; }
         
         public IReadOnlyDictionary<string, string> Comment { get; }
 

@@ -26,7 +26,7 @@ namespace T17.Models.Commands
                 throw new ArgumentException("You have to submit 6 parameters!");
 
             string title = this.CommandParameters[0];
-            List<string> description = this.CommandParameters[1].Trim().Split(',').ToList();
+            string description = this.CommandParameters[1];
             Enum.TryParse<Priority>(this.CommandParameters[2], true, out Priority priority);
             Enum.TryParse<Severity>(this.CommandParameters[3], true, out Severity severity);
             Enum.TryParse<BugStatus>(this.CommandParameters[4], true, out BugStatus bugStatus);

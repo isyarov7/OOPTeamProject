@@ -40,9 +40,6 @@ namespace T17.Models.Commands
             {
                 throw new ArgumentException("Failed to parse CreateMember command parameters.");
             }
-
-
-
         }
     }
 }
