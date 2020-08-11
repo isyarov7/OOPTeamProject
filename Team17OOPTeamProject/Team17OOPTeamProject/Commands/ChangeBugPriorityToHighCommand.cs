@@ -7,10 +7,9 @@ using Team17OOPTeamProject.Models.Enums;
 
 namespace WIM.T17.Commands
 {
-    public class ChangeBugPriorityToMediumCommand : Command
+    public class ChangeBugPriorityToHighCommand : Command
     {
-
-        public ChangeBugPriorityToMediumCommand(IList<string> commandParameters)
+        public ChangeBugPriorityToHighCommand(IList<string> commandParameters)
             : base(commandParameters)
         {
         }
@@ -24,21 +23,21 @@ namespace WIM.T17.Commands
                 var bug = this.Database.Bugs.Where(m => m.Title == bugName).FirstOrDefault();
                 if (bug == null)
                 {
-                    return "There is no such bug!";
+                    return "There is no such a bug!";
                 }
-                if (bug.Priority == Priority.Medium)
+                if (bug.Priority == Priority.High)
                 {
-                    return ("Bug priority is already Medium.");
+                    return ("Bug priority is already high.");
                 }
-                bug.Priority = Priority.Medium;
+                bug.Priority = Priority.High;
 
-                bug.History.Add($"This bug {bug.Title} priority was changed to: Medium!");
+                bug.History.Add($"This bug {bug.Title} priority was changed to: High!");
 
-                return $"This bug {bug.Title} priority was changed to: Medium!";
+                return $"This bug {bug.Title} priority was changed to: High!";
             }
             catch
             {
-                throw new ArgumentException("Failed to parse ChangeBugPriorityToMedium command parameters.");
+                throw new ArgumentException("Failed to parse ChangeBugPriorityToHigh command parameters.");
             }
         }
     }

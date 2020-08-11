@@ -10,7 +10,7 @@ namespace Team17OOPTeamProject.Models.Contracts
     {
         public Size Size { get; }
 
-        public Priority Priority { get; }
+        public Priority Priority { get; set; }
 
         public IReadOnlyList<Member> Assignee { get; }
     }

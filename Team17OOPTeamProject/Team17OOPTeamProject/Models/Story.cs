@@ -29,7 +29,7 @@ namespace Team17OOPTeamProject.Models
         //Properties
         public Size Size { get; private set; }
 
-        public Priority Priority { get; private set; }
+        public Priority Priority { get; set; }
         public StoryStatus StoryStatus { get; private set; }
 
         public IReadOnlyList<Member> Assignee => throw new NotImplementedException();
