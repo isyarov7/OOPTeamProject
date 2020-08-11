@@ -27,5 +27,6 @@ namespace T17.Models.Core
         public List<IStory> Story { get; set; } = new List<IStory>();
         public List<ITeam> Teams { get; set; } = new List<ITeam>();
         public List<IMember> Member { get; set; } = new List<IMember>();
+        public List<IBoard> Boards { get; set; } = new List<IBoard>();
     }
 }

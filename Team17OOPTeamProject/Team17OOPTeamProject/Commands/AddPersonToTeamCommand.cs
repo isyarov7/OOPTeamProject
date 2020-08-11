@@ -13,7 +13,6 @@ namespace T17.Models.Commands
             : base(commandParameters)
         {
         }
-        //TODO
         public override string Execute()
         {
             string name;
@@ -34,7 +33,7 @@ namespace T17.Models.Commands
                     return "There is no such team!";
                 }
                 team.Members.Add(member);
-                return $"Team with ID {this.Database.Member.Count} was created.";
+                return $"Member: {name} was added to team: {teamName}!";
             }
             catch
             {

@@ -13,5 +13,6 @@ namespace T17.Models.Core.Contracts
         List<IStory> Story { get; }
         List<ITeam> Teams { get; }
         List<IMember> Member { get; }
+        List<IBoard> Boards { get; }
     }
 }
