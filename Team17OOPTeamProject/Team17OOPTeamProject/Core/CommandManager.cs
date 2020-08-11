@@ -33,6 +33,7 @@ namespace T17.Models.Core
             "createnewboardinteam" => new CreateNewBoardInTeamCommand(commandParameters),
             "showallteamboards" => new ShowAllTeamBoardsCommand(commandParameters),
             //"showboardsactivity" => new ShowBoardsActivityCommand(commandParameters),
+            "addbugtoboard" => new AddBugToBoardCommand(commandParameters),
             "createnewbug" => new CreateBugCommand(commandParameters),
             "createnewstory" => new CreateNewStoryCommand(commandParameters),
             "createnewfeedback" => new CreateNewFeedbackCommand(commandParameters),

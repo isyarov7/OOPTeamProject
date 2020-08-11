@@ -8,7 +8,7 @@ namespace T17.Models.Models.Contracts
     {
         public string Name { get; }
         public List<IMember> Members { get; }
-        public List<IBoard> Boards { get; }
+        public List<IBoard> Boards { get; set; }
         public List<string> History { get; }
     }
 }

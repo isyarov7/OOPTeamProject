@@ -7,9 +7,9 @@ namespace T17.Models.Models
 {
     public class Team : ITeam
     {
-        private readonly List<string> history;
-        private readonly List<IMember> members;
-        private readonly List<IBoard> boards;
+        private  List<string> history;
+        private  List<IMember> members;
+        private  List<IBoard> boards;
         private string name;
 
         public Team(string name)
@@ -39,7 +39,11 @@ namespace T17.Models.Models
 
         public List<IMember> Members => this.members;
 
-        public List<IBoard> Boards => this.boards;
+        public List<IBoard> Boards 
+        {
+            get { return this.boards; }
+            set { this.boards = value; }
+        }
 
         public List<string> History => this.history;
         public string AddMember(Member member)
