@@ -16,5 +16,8 @@ namespace T17.Models.Models.Contracts
         public IReadOnlyList<IWorkItem> Feedbacks { get; }
 
         public IReadOnlyCollection<string> History { get; }
+        public List<object> WorkItems { get; set; }
+        public void AddWorkItemToBoadrd(IWorkItem workItem);
+        
     }
 }

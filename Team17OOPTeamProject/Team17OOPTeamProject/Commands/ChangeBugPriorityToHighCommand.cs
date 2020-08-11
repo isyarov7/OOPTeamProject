@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using T17.Models.Commands.Abstracts;
 using Team17OOPTeamProject.Models.Enums;
@@ -17,6 +18,7 @@ namespace WIM.T17.Commands
         public override string Execute()
         {
             string bugName;
+       //TODO     Priority priorityType;
             try
             {
                 bugName = this.CommandParameters[0];

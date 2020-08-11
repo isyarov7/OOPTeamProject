@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using T17.Models.Models;
+using T17.Models.Models.Contracts;
 using Team17OOPTeamProject.Models.Abstract;
 using Team17OOPTeamProject.Models.Contracts;
 using Team17OOPTeamProject.Models.Enums;
@@ -32,7 +33,7 @@ namespace Team17OOPTeamProject.Models
         public Priority Priority { get; set; }
         public StoryStatus StoryStatus { get; private set; }
 
-        public IReadOnlyList<Member> Assignee => throw new NotImplementedException();
+        public IMember Assignee { get; set; }
 
 
 

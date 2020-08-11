@@ -92,7 +92,7 @@ namespace T17.Models.Models
             }
             else
             {
-                return $"Boardwith name: {board.Name} does not exist!";
+                return $"Board with name: {board.Name} does not exist!";
             }
         }
 
@@ -108,7 +108,7 @@ namespace T17.Models.Models
             }
             else
             {
-                sb.AppendLine(string.Join(Environment.NewLine, members));
+                sb.Append(string.Join(Environment.NewLine, members));
             }
 
             sb.AppendLine("Boards:");
@@ -118,7 +118,7 @@ namespace T17.Models.Models
             }
             else
             {
-                sb.AppendLine(string.Join(Environment.NewLine, boards));
+                sb.Append(string.Join(Environment.NewLine, boards));
             }
 
             return sb.ToString().Trim();

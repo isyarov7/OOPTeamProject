@@ -34,8 +34,8 @@ namespace T17.Models.Commands
 
             var bug = this.Factory.CreateBug(title, description, priority, severity, bugStatus, stepsToProduce);
             this.Database.Bugs.Add(bug);
-
-            bug.History.Add($"Bug with title: {title} was created!");
+            
+            bug.History.Add($"Bug with title: {bug.Title} was created!");
            
             return $"Bug with ID {this.Database.Bugs.Count} was created.";
         }

@@ -70,7 +70,10 @@ namespace T17.Models.Models
                 return $"Bug with title: {bug.Title} already exist!";
             }
         }
-
+        public void AddWorkItemToBoadrd(IWorkItem workItem)
+        {
+            this.workItems.Add(workItem);
+        }
         public string AddFeedback(Feedback feedback)
         {
             if (!feedbacks.Contains(feedback))

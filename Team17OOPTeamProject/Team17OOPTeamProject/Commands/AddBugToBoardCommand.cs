@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using T17.Models.Commands.Abstracts;
+using Team17OOPTeamProject.Models.Contracts;
 
 namespace WIM.T17.Commands
 {
@@ -16,6 +17,7 @@ namespace WIM.T17.Commands
         {
             string bugName;
             string teamName;
+            string boardName;
 
             try
             {
@@ -31,12 +33,25 @@ namespace WIM.T17.Commands
                 {
                     return "There is no such team!";
                 }
-                team.Boards.Add(bug);
-                return $"Member: {name} was added to team: {teamName}!";
+                boardName = this.CommandParameters[2];
+              
+
+                var board = this.Database.Boards.Where(t => t.Name == boardName).FirstOrDefault();
+                if (board == null)
+                {
+                    return "There is no such team!";
+                }
+
+
+                board.AddWorkItemToBoadrd(bug);
+                
+                bug.History.Add($"Bug: {bug.Title} successfully added to board: {board.Name}!");
+
+                return $"Bug: {bug.Title} successfully added to board: {board.Name}!";
             }
             catch
             {
-                throw new ArgumentException("Failed to parse CreateMember command parameters.");
+                throw new ArgumentException("Failed to parse AddBugToBoard command parameters.");
             }
         }
     }
