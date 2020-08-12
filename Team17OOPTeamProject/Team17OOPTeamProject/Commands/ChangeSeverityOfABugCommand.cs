@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using T17.Models.Commands.Abstracts;
 using Team17OOPTeamProject.Models.Enums;
 
 namespace WIM.T17.Commands
 {
-    public class ChangeBugPriorityToLowCommand : Command
+    public class ChangeSeverityOfABugCommand : Command
     {
-        public ChangeBugPriorityToLowCommand(IList<string> commandParameters)
+        public ChangeSeverityOfABugCommand(IList<string> commandParameters)
             : base(commandParameters)
         {
         }
@@ -25,19 +26,19 @@ namespace WIM.T17.Commands
                 {
                     return "There is no such a bug!";
                 }
-                if (bug.Priority == Priority.Low)
-                {
-                    return ("Bug priority is already low.");
-                }
-                bug.Priority = Priority.Low;
 
-                bug.History.Add($"This bug {bug.Title} priority was changed to: Low!");
+                Enum.TryParse<Severity>(this.CommandParameters[2], true, out Severity severityType);
 
-                return $"This bug {bug.Title} priority was changed to: Low!";
+                bug.Severity = severityType;
+
+
+                bug.History.Add($"This bug {bug.Title} severity was changed to: {bug.Severity}!");
+
+                return $"This bug {bug.Title} severity was changed to: {bug.Severity}!";
             }
             catch
             {
-                throw new ArgumentException("Failed to parse ChangeBugPriorityToLow command parameters.");
+                throw new ArgumentException("Failed to parse ChangeBugSeverity command parameters.");
             }
         }
     }

@@ -11,7 +11,8 @@ namespace Team17OOPTeamProject.Models.Contracts
     {
         public List<string> StepsToProduce { get; }
         public Priority Priority { get; set; }
-        public Severity Severity { get; }
+        public BugStatus BugStatus { get; set; }
+        public Severity Severity { get; set; }
         public IMember Assignee { get; set; }
     }
 }

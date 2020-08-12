@@ -8,9 +8,9 @@ using Team17OOPTeamProject.Models.Enums;
 
 namespace WIM.T17.Commands
 {
-    public class ChangeBugPriorityToHighCommand : Command
+    public class ChangeStatusOfABugCommand : Command
     {
-        public ChangeBugPriorityToHighCommand(IList<string> commandParameters)
+        public ChangeStatusOfABugCommand(IList<string> commandParameters)
             : base(commandParameters)
         {
         }
@@ -18,7 +18,6 @@ namespace WIM.T17.Commands
         public override string Execute()
         {
             string bugName;
-       //TODO     Priority priorityType;
             try
             {
                 bugName = this.CommandParameters[0];
@@ -27,19 +26,19 @@ namespace WIM.T17.Commands
                 {
                     return "There is no such a bug!";
                 }
-                if (bug.Priority == Priority.High)
-                {
-                    return ("Bug priority is already high.");
-                }
-                bug.Priority = Priority.High;
 
-                bug.History.Add($"This bug {bug.Title} priority was changed to: High!");
+                Enum.TryParse<BugStatus>(this.CommandParameters[2], true, out BugStatus bugStatusType);
 
-                return $"This bug {bug.Title} priority was changed to: High!";
+                bug.BugStatus = bugStatusType;
+
+
+                bug.History.Add($"This bug {bug.Title} status was changed to: {bug.BugStatus}!");
+
+                return $"This bug {bug.Title} status was changed to: {bug.BugStatus}!";
             }
             catch
             {
-                throw new ArgumentException("Failed to parse ChangeBugPriorityToHigh command parameters.");
+                throw new ArgumentException("Failed to parse ChangeBugStatus command parameters.");
             }
         }
     }

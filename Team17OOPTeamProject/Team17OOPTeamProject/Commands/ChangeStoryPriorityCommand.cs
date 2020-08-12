@@ -7,9 +7,9 @@ using Team17OOPTeamProject.Models.Enums;
 
 namespace WIM.T17.Commands
 {
-    public class ChangeStoryPriorityToHighCommand : Command
+    public class ChangeStoryPriorityCommand : Command
     {
-        public ChangeStoryPriorityToHighCommand(IList<string> commandParameters)
+        public ChangeStoryPriorityCommand(IList<string> commandParameters)
             : base(commandParameters)
         {
         }
@@ -25,19 +25,18 @@ namespace WIM.T17.Commands
                 {
                     return "There is no such a story!";
                 }
-                if (story.Priority == Priority.High)
-                {
-                    return ("Story priority is already High.");
-                }
-                story.Priority = Priority.High;
 
-                story.History.Add($"This story {story.Title} priority was changed to: High!");
+                Enum.TryParse<Priority>(this.CommandParameters[2], true, out Priority priorityType);
 
-                return $"This story {story.Title} priority was changed to: High!";
+                story.Priority = priorityType;
+
+                story.History.Add($"This story {story.Title} priority was changed to: {story.Priority}!");
+
+                return $"This story {story.Title} priority was changed to:{story.Priority}!";
             }
             catch
             {
-                throw new ArgumentException("Failed to parse ChangeStoryPriorityToHigh command parameters.");
+                throw new ArgumentException("Failed to parse ChangeStoryPriority command parameters.");
             }
         }
     }

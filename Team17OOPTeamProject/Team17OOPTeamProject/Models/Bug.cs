@@ -35,10 +35,10 @@ namespace Team17OOPTeamProject.Models
         //Properties
         public Priority Priority { get; set; }
 
-        public Severity Severity { get; private set; }
+        public Severity Severity { get;  set; }
 
         public IMember Assignee { get; set; }
-        public BugStatus BugStatus { get; private set; }
+        public BugStatus BugStatus { get;  set; }
 
         public List<string> StepsToProduce
         {
