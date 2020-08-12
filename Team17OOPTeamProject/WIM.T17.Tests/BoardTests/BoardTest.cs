@@ -83,7 +83,7 @@ namespace WIM.T17.Tests.BoardTests
             public void RemovesBugCorrectly()
             {
                 Board board = new Board("Board");
-                Bug bug = new Bug("Title", new List<string>() {"steps"}, Priority.High, Severity.Critical);
+                Bug bug = new Bug("Title", "description", Priority.High, Severity.Critical, new List<string>() { "steps" });
 
                 board.AddBug(bug);
                 board.RemoveBug(bug);
