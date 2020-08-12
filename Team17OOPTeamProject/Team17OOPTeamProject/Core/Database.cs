@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using T17.Models.Core.Contracts;
 using T17.Models.Models.Contracts;
+using Team17OOPTeamProject.Models;
 using Team17OOPTeamProject.Models.Contracts;
 
 namespace T17.Models.Core
@@ -28,5 +30,28 @@ namespace T17.Models.Core
         public List<ITeam> Teams { get; set; } = new List<ITeam>();
         public List<IMember> Member { get; set; } = new List<IMember>();
         public List<IBoard> Boards { get; set; } = new List<IBoard>();
+        public IWorkItem GetName(string name)
+        {
+            var itemStory = Story.FirstOrDefault(x => x.Title == name);
+            var itemBug = Bugs.FirstOrDefault(x => x.Title == name);
+            var itemFeedback = Feedback.FirstOrDefault(x => x.Title == name);
+
+            if (itemStory != null)
+            {
+                return itemStory;
+            }
+            
+            if (itemBug != null)
+            {
+                return itemBug;
+            }
+            
+            if (itemFeedback != null)
+            {
+                return itemFeedback;
+            }
+            
+            return null;
+        }
     }
 }

@@ -7,10 +7,10 @@ namespace T17.Models.Models.Contracts
 {
     public interface IMember
     {
-        public IReadOnlyList<IWorkItem> Stories { get; }
-        public IReadOnlyList<IWorkItem> Bugs { get; }
-        public IReadOnlyList<IWorkItem> Feedbacks { get; }
-        public IReadOnlyCollection<string> History { get; }
+        public List<IWorkItem> Stories { get; set; }
+        public List<IWorkItem> Bugs { get; set; }
+        public List<IWorkItem> Feedbacks { get; set; }
+        public List<string> History { get; }
         public string Name { get; }
     }
 }

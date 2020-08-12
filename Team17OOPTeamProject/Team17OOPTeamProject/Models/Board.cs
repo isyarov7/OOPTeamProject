@@ -16,7 +16,7 @@ namespace T17.Models.Models
         private readonly List<IWorkItem> stories;
         private readonly List<IWorkItem> feedbacks;
         private readonly List<string> history;
-        private List<object> workItems;
+        private List<IWorkItem> workItems;
 
         //Constructor
         public Board(string name)
@@ -26,7 +26,7 @@ namespace T17.Models.Models
             this.stories = new List<IWorkItem>();
             this.feedbacks = new List<IWorkItem>();
             this.history = new List<string>();
-            this.WorkItems = new List<object>();
+            this.WorkItems = new List<IWorkItem>();
         }
 
         //Properties
@@ -49,12 +49,12 @@ namespace T17.Models.Models
                 this.name = value;
             }
         }
-        public IReadOnlyList<IWorkItem> Bugs => this.bugs;
-        public IReadOnlyList<IWorkItem> Stories => this.stories;
-        public IReadOnlyList<IWorkItem> Feedbacks => this.feedbacks;
-        public IReadOnlyCollection<string> History => this.history;
+        public List<IWorkItem> Bugs => this.bugs;
+        public List<IWorkItem> Stories => this.stories;
+        public List<IWorkItem> Feedbacks => this.feedbacks;
+        public List<string> History => this.history;
 
-        public List<object> WorkItems { get => workItems; set => workItems = value; }
+        public List<IWorkItem> WorkItems { get => workItems; set => workItems = value; }
 
         //Methods   
         public string AddBug(Bug bug)

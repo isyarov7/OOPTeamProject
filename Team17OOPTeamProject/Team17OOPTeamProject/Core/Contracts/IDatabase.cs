@@ -14,5 +14,6 @@ namespace T17.Models.Core.Contracts
         List<ITeam> Teams { get; }
         List<IMember> Member { get; }
         List<IBoard> Boards { get; }
+        public IWorkItem GetName(string name);
     }
 }

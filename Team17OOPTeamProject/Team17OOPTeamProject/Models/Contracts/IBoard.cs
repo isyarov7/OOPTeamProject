@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Team17OOPTeamProject.Models.Abstract;
 using Team17OOPTeamProject.Models.Contracts;
 
 namespace T17.Models.Models.Contracts
@@ -9,14 +10,14 @@ namespace T17.Models.Models.Contracts
     {
         public string Name { get; }
 
-        public IReadOnlyList<IWorkItem> Bugs { get; }
+        public List<IWorkItem> Bugs { get; }
 
-        public IReadOnlyList<IWorkItem> Stories { get; }
+        public List<IWorkItem> Stories { get; }
 
-        public IReadOnlyList<IWorkItem> Feedbacks { get; }
+        public List<IWorkItem> Feedbacks { get; }
 
-        public IReadOnlyCollection<string> History { get; }
-        public List<object> WorkItems { get; set; }
+        public List<string> History { get; }
+        public List<IWorkItem> WorkItems { get; set; }
         public void AddWorkItemToBoadrd(IWorkItem workItem);
         
     }

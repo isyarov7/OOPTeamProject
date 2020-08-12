@@ -11,10 +11,10 @@ namespace T17.Models.Models
     public class Member : IMember
     {
         //Fields
-        private readonly List<IWorkItem> stories;
-        private readonly List<IWorkItem> bugs;
-        private readonly List<IWorkItem> feedbacks;
-        private readonly List<string> history;
+        private  List<IWorkItem> stories;
+        private  List<IWorkItem> bugs;
+        private  List<IWorkItem> feedbacks;
+        private  List<string> history;
         private string name;
 
         //Constructor
@@ -27,13 +27,24 @@ namespace T17.Models.Models
             this.Name = name;
         }
         //Properties
-        public IReadOnlyList<IWorkItem> Stories => this.stories;
+        public List<IWorkItem> Stories
+        {
+            get { return this.stories; }
+            set { this.stories = value; }
+        }
 
-        public IReadOnlyList<IWorkItem> Bugs => this.bugs;
+        public List<IWorkItem> Bugs
+        {
+            get { return this.bugs; }
+            set { this.bugs = value; }
+        }
 
-        public IReadOnlyList<IWorkItem> Feedbacks => this.feedbacks;
-
-        public IReadOnlyCollection<string> History => this.history;
+        public List<IWorkItem> Feedbacks
+        {
+            get { return this.feedbacks; }
+            set { this.feedbacks = value; }
+        }
+        public List<string> History => this.history;
 
         public string Name 
         { 

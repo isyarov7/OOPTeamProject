@@ -45,7 +45,7 @@ namespace T17.Models.Core
             "changestorystatus" => new ChangeStoryStatusCommand(commandParameters),
             "changefeedbackrating" => new ChangeFeedbackRatingCommand(commandParameters),
             "changefeedbackstatus" => new ChangeFeedbackStatusCommand(commandParameters),
-            //"assignworkitemtoaperson" => new AssignWorkItemToAPersonCommand(commandParameters),
+            "assignworkitemtoaperson" => new AssignWorkItemToAPersonCommand(commandParameters),
             //"unassignworkitemtoaperson" => new UnassignWorkItemToAPersonCommand(commandParameters),
             //"addcommenttoaworkitem" => new AddCommentToAWorkItemCommand(commandParameters),
             //TODO
