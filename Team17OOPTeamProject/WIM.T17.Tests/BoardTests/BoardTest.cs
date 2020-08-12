@@ -44,7 +44,7 @@ namespace WIM.T17.Tests.BoardTests
             public void AssignBugCorrectly()
             {
                 Board board = new Board("Gosho");
-                Bug bug = new Bug("Title", new List<string>() { "description" }, Priority.High, Severity.Critical, BugStatus.Active, new List<string>() { "steps" });
+                Bug bug = new Bug("Title", "description", Priority.High, Severity.Critical, BugStatus.Active, new List<string>() { "steps" });
 
                 board.AddBug(bug);
 
@@ -57,7 +57,7 @@ namespace WIM.T17.Tests.BoardTests
             public void AssignsStoryCorrectly()
             {
                 Board board = new Board("Pesho");
-                Story story = new Story("title", new List<string>() { "description" }, Priority.High, Size.Large);
+                Story story = new Story("title", "description", Priority.High, Size.Large);
 
                 board.AddStory(story);
 
@@ -97,7 +97,7 @@ namespace WIM.T17.Tests.BoardTests
             public void RemoveFeedbackCorrectly()
             {
                 Board board = new Board("Gosho");
-                Feedback feedback = new Feedback("Title", new List<string>() { "steps" }, 10);
+                Feedback feedback = new Feedback("Title", "description", 10);
 
                 board.AddFeedback(feedback);
                 board.RemoveFeedback(feedback);
@@ -112,7 +112,7 @@ namespace WIM.T17.Tests.BoardTests
             public void RemoveStoryCorrectly()
             {
                 Board board = new Board("Manol");
-                Story story = new Story("title", new List<string>() { "description" }, Priority.High, Size.Large);
+                Story story = new Story("title", "description", Priority.High, Size.Large);
 
                 board.AddStory(story);
                 board.RemoveStory(story);
