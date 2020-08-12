@@ -7,6 +7,7 @@ namespace Team17OOPTeamProject.Models.Contracts
 {
     public interface IFeedback : IWorkItem
     {
+        public FeedbackStatus FeedbackStatus { get; set; }
         public int Rating { get; }
     }
 }

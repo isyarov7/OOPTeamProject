@@ -28,30 +28,11 @@ namespace Team17OOPTeamProject.Models
         }
 
         //Properties
-        public Size Size { get; private set; }
+        public Size Size { get; set; }
 
         public Priority Priority { get; set; }
-        public StoryStatus StoryStatus { get; private set; }
+        public StoryStatus StoryStatus { get; set; }
 
         public IMember Assignee { get; set; }
-
-
-
-        //Methods
-        public void StoryStatusChangedToInProgressOrToDone()
-        {
-            if (StoryStatus == StoryStatus.NotDone || StoryStatus == StoryStatus.InProgress)
-            {
-                this.history.Add($"Story status is changed from {this.StoryStatus} to {++this.StoryStatus}");
-            }
-        }
-
-        public void StoryStatusChangedToInProgressOrNotDone()
-        {
-            if (StoryStatus == StoryStatus.Done || StoryStatus == StoryStatus.InProgress)
-            {
-                this.history.Add($"Story status is changed from {this.StoryStatus} to {++this.StoryStatus}");
-            }
-        }
     }
 }

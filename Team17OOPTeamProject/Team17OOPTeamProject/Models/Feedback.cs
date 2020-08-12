@@ -40,25 +40,6 @@ namespace Team17OOPTeamProject
             }
         }
 
-        public FeedbackStatus FeedbackStatus { get; private set; }
-
-        //Methods
-        public void FeedBackStatusToUnscheduledScheduledDone()
-        {
-            if (FeedbackStatus == FeedbackStatus.New || FeedbackStatus == FeedbackStatus.Unscheduled
-                || FeedbackStatus == FeedbackStatus.Scheduled)
-            {
-                this.history.Add($"Feedback status is changed from: {this.FeedbackStatus} to {++this.FeedbackStatus}");
-            }
-        }
-
-        public void FeedBackStatusToScheduledUnscheduledNew()
-        {
-            if (FeedbackStatus == FeedbackStatus.Done || FeedbackStatus == FeedbackStatus.Unscheduled
-                || FeedbackStatus == FeedbackStatus.Scheduled)
-            {
-                this.history.Add($"Changed status from {this.FeedbackStatus} to {--this.FeedbackStatus}");
-            }
-        }
+        public FeedbackStatus FeedbackStatus { get; set; }
     }
 }
