@@ -6,30 +6,27 @@ using T17.Models.Models.Contracts;
 
 namespace T17.Models.Commands
 {
-    public class CreateANewTeamCommand : Command
+    public class CreateTeamCommand : Command
     {
-        public CreateANewTeamCommand(IList<string> commandParameters)
+        public CreateTeamCommand(IList<string> commandParameters)
             : base(commandParameters)
         {
         }
 
         public override string Execute()
         {
-            string name;
-
             try
             {
-                name = this.CommandParameters[0];
+                string name = this.CommandParameters[0];
+                ITeam team = this.Factory.CreateTeam(name);
+                this.Database.Teams.Add(team);
+                team.History.Add($"Team with ID {this.Database.Teams.Count} was created.");
+                return $"Team with ID {this.Database.Teams.Count} was created.";
             }
             catch
             {
                 throw new ArgumentException("Failed to parse CreateTeam command parameters.");
-            }
-
-            ITeam team = this.Factory.CreateTeam(name);
-            this.Database.Teams.Add(team);
-
-            return $"Team with ID {this.Database.Teams.Count} was created.";
+            }            
         }
     }
 }

@@ -17,7 +17,7 @@ namespace T17.Models.Core
         {
             var lineParameters = commandLine
                 .Trim()
-                .Split(" ", StringSplitOptions.RemoveEmptyEntries);
+                .Split(";", StringSplitOptions.RemoveEmptyEntries);
 
             string commandName = lineParameters[0];
             List<string> commandParameters = lineParameters.Skip(1).ToList();
@@ -27,20 +27,20 @@ namespace T17.Models.Core
             "CreatePerson" => new CreatePersonCommand(commandParameters),
             "ShowAllMembers" => new ShowAllPeopleCommand(commandParameters),
             "ShowPeopleActivity" => new ShowPersonsActivityCommand(commandParameters),
-            "CreateTeam" => new CreateANewTeamCommand(commandParameters),
+            "CreateTeam" => new CreateTeamCommand(commandParameters),
             "ShowAllTeams" => new ShowAllTeamsCommand(commandParameters),
             "ShowTeamsActivity" => new ShowTeamsActivityCommand(commandParameters),
             "AddPersonToTeam" => new AddPersonToTeamCommand(commandParameters),
             "ShowTeamMembers" => new ShowAllTeamMembersCommand(commandParameters),
-            "CreateBoardInTeam" => new CreateNewBoardInTeamCommand(commandParameters),
+            "CreateBoardInTeam" => new CreateBoardInTeamCommand(commandParameters),
             "ShowTeamBoards" => new ShowAllTeamBoardsCommand(commandParameters),
             "ShowBoardsActivity" => new ShowBoardsActivityCommand(commandParameters),
             "AddBugToBoard" => new AddBugToBoardCommand(commandParameters),
             "AddStoryToBoard" => new AddStoryToBoardCommand(commandParameters),
             "AddFeedbackToBoard" => new AddFeedbackToBoardCommand(commandParameters),
             "CreateBug" => new CreateBugCommand(commandParameters),
-            "CreateStory" => new CreateNewStoryCommand(commandParameters),
-            "CreateFeedback" => new CreateNewFeedbackCommand(commandParameters),
+            "CreateStory" => new CreateStoryCommand(commandParameters),
+            "CreateFeedback" => new CreateFeedbackCommand(commandParameters),
             "changebugpriority" => new ChangeBugPriorityCommand(commandParameters),
             "changestorypriority" => new ChangeStoryPriorityCommand(commandParameters),
             "changeseverityofabug" => new ChangeSeverityOfABugCommand(commandParameters),

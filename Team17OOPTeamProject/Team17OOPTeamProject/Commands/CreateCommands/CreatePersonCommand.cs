@@ -15,21 +15,19 @@ namespace T17.Models.Commands
 
         public override string Execute()
         {
-            string name;
-
             try
             {
-                name = this.CommandParameters[0];
+                string name = this.CommandParameters[0];
+
+                IMember member = this.Factory.CreateMember(name);
+                this.Database.Member.Add(member);
+                member.History.Add($"Person with ID {this.Database.Member.Count} was created.");
+                return $"Person with ID {this.Database.Member.Count} was created.";
             }
             catch
             {
                 throw new ArgumentException("Failed to parse CreateMember command parameters.");
             }
-
-            IMember member = this.Factory.CreateMember(name);
-            this.Database.Member.Add(member);
-
-            return $"Person with ID {this.Database.Member.Count} was created.";
         }
     }
 }

@@ -6,9 +6,9 @@ using T17.Models.Commands.Abstracts;
 
 namespace WIM.T17.Commands
 {
-    public class CreateNewFeedbackCommand : Command
+    public class CreateFeedbackCommand : Command
     {
-        public CreateNewFeedbackCommand(IList<string> commandParameters)
+        public CreateFeedbackCommand(IList<string> commandParameters)
            : base(commandParameters)
         {
         }

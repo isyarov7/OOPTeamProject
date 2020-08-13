@@ -6,28 +6,25 @@ using T17.Models.Commands.Abstracts;
 
 namespace WIM.T17.Commands
 {
-    class CreateNewBoardInTeamCommand : Command
+    class CreateBoardInTeamCommand : Command
     {
-        public CreateNewBoardInTeamCommand(IList<string> commandParameters)
+        public CreateBoardInTeamCommand(IList<string> commandParameters)
            : base(commandParameters)
         {
         }
 
         public override string Execute()
         {
-
-            string boardName, teamName;
-
             try
             {
-                boardName = CommandParameters[0];
+                string boardName = CommandParameters[0];
                 if (boardName.Length < 3)
                 {
                     throw new ArgumentOutOfRangeException("The name of board should contains at least 4 symbols!");
                 }
                 var board = this.Factory.CreateBoard(boardName);
 
-                teamName = CommandParameters[1];
+                string teamName = CommandParameters[1];
 
                 var team = this.Database.Teams.Where(t => t.Name == teamName).FirstOrDefault();
 
