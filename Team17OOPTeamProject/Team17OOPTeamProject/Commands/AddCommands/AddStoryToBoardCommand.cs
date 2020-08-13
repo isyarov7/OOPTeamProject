@@ -43,7 +43,7 @@ namespace WIM.T17.Commands.AddCommands
 
 
 
-                board.AddWorkItemToBoadrd(story);
+                //board.AddWorkItemToBoadrd(story);
 
                 story.History.Add($"Story: {story.Title} successfully added to board: {board.Name}!");
                 board.History.Add($"Story: {story.Title} was successfully added to board {board.Name}!");

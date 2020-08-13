@@ -44,7 +44,7 @@ namespace WIM.T17.Commands.AddCommands
 
 
 
-                board.AddWorkItemToBoadrd(feedback);
+                //board.AddWorkItemToBoadrd(feedback);
 
                 feedback.History.Add($"Feedback: {feedback.Title} successfully added to board: {board.Name}!");
                 board.History.Add($"Feedback: {feedback.Title} was successfully added to board {board.Name}!");

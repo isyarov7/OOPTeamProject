@@ -11,14 +11,11 @@ namespace Team17OOPTeamProject
     {
         //Fields
         private int rating;
-
-        private FeedbackStatus feedbackStatus;
         //Constructor
         public Feedback(string title,string description, int rating)
              : base(title, description)
         {
-            this.feedbackStatus = FeedbackStatus.New;
-            this.FeedbackStatus = feedbackStatus;
+            this.FeedbackStatus = FeedbackStatus.New;
             this.Rating = rating;
         }
         //Properties
@@ -34,12 +31,7 @@ namespace Team17OOPTeamProject
                 this.rating = value;
             }
         }
-
-        public FeedbackStatus FeedbackStatus
-        {
-            get { return this.feedbackStatus; }
-            set { this.feedbackStatus = value; }
-        }
+        public FeedbackStatus FeedbackStatus { get; set; }
         public override string PrintDetails()
         {
             var sb = new StringBuilder();

@@ -10,5 +10,7 @@ namespace T17.Models.Models.Contracts
         public List<IMember> Members { get; }
         public List<IBoard> Boards { get; set; }
         public List<string> History { get; }
+        public string PrintDetails();
+        public string PrintHistory();
     }
 }

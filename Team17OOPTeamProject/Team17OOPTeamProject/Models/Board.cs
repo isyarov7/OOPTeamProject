@@ -12,19 +12,13 @@ namespace T17.Models.Models
     {
         //Fields
         private string name;
-        private readonly List<IWorkItem> bugs;
-        private readonly List<IWorkItem> stories;
-        private readonly List<IWorkItem> feedbacks;
-        private readonly List<string> history;
+        private List<string> history;
         private List<IWorkItem> workItems;
 
         //Constructor
         public Board(string name)
         {
             this.Name = name;
-            this.bugs = new List<IWorkItem>();
-            this.stories = new List<IWorkItem>();
-            this.feedbacks = new List<IWorkItem>();
             this.history = new List<string>();
             this.WorkItems = new List<IWorkItem>();
         }
@@ -49,100 +43,104 @@ namespace T17.Models.Models
                 this.name = value;
             }
         }
-        public List<IWorkItem> Bugs => this.bugs;
-        public List<IWorkItem> Stories => this.stories;
-        public List<IWorkItem> Feedbacks => this.feedbacks;
-        public List<string> History => this.history;
+        public List<string> History
+        {
+            get { return this.history; }
+            set { this.history = value; }
+        }
 
-        public List<IWorkItem> WorkItems { get => workItems; set => workItems = value; }
-
+        public List<IWorkItem> WorkItems
+        {
+            get { return this.workItems; }
+            set { this.workItems = value; }
+        }
         //Methods   
-        public string AddBug(Bug bug)
-        {
-            if (!bugs.Contains(bug))
-            {
-                bugs.Add(bug);
-                this.history.Add($"Bug with title: {bug.Title} has been succesfully added!");
-                return $"Bug with title: {bug.Title} has been succesfully added!";
-            }
-            else
-            {
-                return $"Bug with title: {bug.Title} already exist!";
-            }
-        }
-        public void AddWorkItemToBoadrd(IWorkItem workItem)
-        {
-            this.workItems.Add(workItem);
-        }
-        public string AddFeedback(Feedback feedback)
-        {
-            if (!feedbacks.Contains(feedback))
-            {
-                feedbacks.Add(feedback);
-                this.history.Add($"Feedback with title: {feedback.Title} has been succesfully added!");
-                return $"Feedback with title: {feedback.Title} has been succesfully added!";
-            }
-            else
-            {
-                return $"Feedback with title: {feedback.Title} already exist!";
-            }
-        }
+        //public string AddBug(Bug bug)
+        //{
+        //    if (!bugs.Contains(bug))
+        //    {
+        //        bugs.Add(bug);
+        //        this.history.Add($"Bug with title: {bug.Title} has been succesfully added!");
+        //        return $"Bug with title: {bug.Title} has been succesfully added!";
+        //    }
+        //    else
+        //    {
+        //        return $"Bug with title: {bug.Title} already exist!";
+        //    }
+        //}
+        //public void AddWorkItemToBoadrd(IWorkItem workItem)
+        //{
+        //    this.workItems.Add(workItem);
+        //}
+        //public string AddFeedback(Feedback feedback)
+        //{
+        //    if (!feedbacks.Contains(feedback))
+        //    {
+        //        feedbacks.Add(feedback);
+        //        this.history.Add($"Feedback with title: {feedback.Title} has been succesfully added!");
+        //        return $"Feedback with title: {feedback.Title} has been succesfully added!";
+        //    }
+        //    else
+        //    {
+        //        return $"Feedback with title: {feedback.Title} already exist!";
+        //    }
+        //}
 
-        public string AddStory(Story story)
-        {
-            if (!stories.Contains(story))
-            {
-                stories.Add(story);
-                this.history.Add($"Story with title: {story.Title} has been succesfully added!");
-                return $"Story with title: {story.Title} has been succesfully added!";
-            }
-            else
-            {
-                return $"Story with title: {story.Title} already exist!";
-            }
-        }
+        //public string AddStory(Story story)
+        //{
+        //    if (!stories.Contains(story))
+        //    {
+        //        stories.Add(story);
+        //        this.history.Add($"Story with title: {story.Title} has been succesfully added!");
+        //        return $"Story with title: {story.Title} has been succesfully added!";
+        //    }
+        //    else
+        //    {
+        //        return $"Story with title: {story.Title} already exist!";
+        //    }
+        //}
 
-        public string RemoveBug(Bug bug)
-        {
-            if (bugs.Contains(bug))
-            {
-                bugs.Remove(bug);
-                this.history.Add($"Bug with title: {bug.Title} has been succesfully removed!");
-                return $"Bug with title: {bug.Title} has been succesfully removed!";
-            }
-            else
-            {
-                return $"Bug with title: {bug.Title} is not existing!";
-            }
-        }
+        //public string RemoveBug(Bug bug)
+        //{
+        //    if (bugs.Contains(bug))
+        //    {
+        //        bugs.Remove(bug);
+        //        this.history.Add($"Bug with title: {bug.Title} has been succesfully removed!");
+        //        return $"Bug with title: {bug.Title} has been succesfully removed!";
+        //    }
+        //    else
+        //    {
+        //        return $"Bug with title: {bug.Title} is not existing!";
+        //    }
+        //}
 
-        public string RemoveFeedback(Feedback feedback)
-        {
-            if (feedbacks.Contains(feedback))
-            {
-                feedbacks.Remove(feedback);
-                this.history.Add($"Feedback with title: {feedback.Title} has been succesfully removed!");
-                return $"Feedback with title: {feedback.Title} has been succesfully removed!";
-            }
-            else
-            {
-                return $"There is no feedback with name {feedback.Title} on the list!";
-            }
-        }
+        //public string RemoveFeedback(Feedback feedback)
+        //{
+        //    if (feedbacks.Contains(feedback))
+        //    {
+        //        feedbacks.Remove(feedback);
+        //        this.history.Add($"Feedback with title: {feedback.Title} has been succesfully removed!");
+        //        return $"Feedback with title: {feedback.Title} has been succesfully removed!";
+        //    }
+        //    else
+        //    {
+        //        return $"There is no feedback with name {feedback.Title} on the list!";
+        //    }
+        //}
 
-        public string RemoveStory(Story story)
-        {
-            if (stories.Contains(story))
-            {
-                stories.Remove(story);
-                this.history.Add($"Story with title: {story.Title} has been succesfully removed!");
-                return $"Story title: {story.Title} has been succesfully removed!";
-            }
-            else
-            {
-                return $"There is no story with name {story.Title} on the list!";
-            }
-        }
+        //public string RemoveStory(Story story)
+        //{
+        //    if (stories.Contains(story))
+        //    {
+        //        stories.Remove(story);
+        //        this.history.Add($"Story with title: {story.Title} has been succesfully removed!");
+        //        return $"Story title: {story.Title} has been succesfully removed!";
+        //    }
+        //    else
+        //    {
+        //        return $"There is no story with name {story.Title} on the list!";
+        //    }
+        //}
 
         public string PrintHistory()
         {
@@ -162,41 +160,15 @@ namespace T17.Models.Models
             return sb.ToString();
         }
 
-        public override string ToString()
+        public string PrintDetails()
         {
             var sb = new StringBuilder();
 
-            sb.AppendLine($"Board {this.name}");
-            sb.AppendLine("Stories:");
-            if (stories.Count < 1)
+            sb.AppendLine($"Board: {this.Name}");
+            foreach (var item in this.WorkItems)
             {
-                sb.AppendLine("No members are part of this team!");
+                sb.AppendLine($"{item.PrintDetails()}");
             }
-            else
-            {
-                sb.AppendLine(string.Join(Environment.NewLine, stories));
-            }
-
-            sb.AppendLine("Bugs:");
-            if (bugs.Count < 1)
-            {
-                sb.AppendLine("No boards are part of this team!");
-            }
-            else
-            {
-                sb.AppendLine(string.Join(Environment.NewLine, bugs));
-            }
-
-            sb.AppendLine("Feedback:");
-            if (feedbacks.Count < 1)
-            {
-                sb.AppendLine("No members are part of this team!");
-            }
-            else
-            {
-                sb.AppendLine(string.Join(Environment.NewLine, feedbacks));
-            }
-
             return sb.ToString().Trim();
         }
     }

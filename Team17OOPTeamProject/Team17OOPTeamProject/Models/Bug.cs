@@ -11,25 +11,21 @@ namespace Team17OOPTeamProject.Models
 {
     public class Bug : WorkItem, IBug
     {
-        //Fields 
-        private BugStatus bugStatus;
-
         //Constructor
         public Bug(string title, string description, Priority priority, Severity severity, List<string> stepsToProduce)
             : base(title, description)
         {
             this.BugStatus = BugStatus.Active;
-            this.BugStatus = bugStatus;
             this.StepsToProduce = stepsToProduce;
             this.Priority = priority;
             this.Severity = severity;
         }
-
         //Properties
         public Priority Priority { get; set; }
         public Severity Severity { get; set; }
         public BugStatus BugStatus { get; set; }
         public List<string> StepsToProduce { get; set; }
+        //Methods
         public override string PrintDetails()
         {
             var sb = new StringBuilder();

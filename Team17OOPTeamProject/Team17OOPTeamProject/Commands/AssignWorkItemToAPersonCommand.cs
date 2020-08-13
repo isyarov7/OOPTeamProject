@@ -38,13 +38,13 @@ namespace WIM.T17.Commands
                 if (item is IStory)
                 {
                     IStory story = (IStory)item;
-                    member.Stories.Add(item);
+                    //member.Stories.Add(item);
                     story.Assignee = member;
                 }
                 else if (item is IBug)
                 {
                     IBug story = (IBug)item;
-                    member.Bugs.Add(item);
+                    //member.Bugs.Add(item);
                     story.Assignee = member;
                 }
                 else

@@ -44,7 +44,7 @@ namespace WIM.T17.Commands
 
 
 
-                board.AddWorkItemToBoadrd(bug);
+                //board.AddWorkItemToBoadrd(bug);
                 
                 bug.History.Add($"Bug: {bug.Title} successfully added to board: {board.Name}!");
                 board.History.Add($"Bug: {bug.Title} was successfully added to board {board.Name}!");

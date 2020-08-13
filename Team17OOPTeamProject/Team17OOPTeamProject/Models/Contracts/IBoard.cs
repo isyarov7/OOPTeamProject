@@ -9,16 +9,9 @@ namespace T17.Models.Models.Contracts
     public interface IBoard
     {
         public string Name { get; }
-
-        public List<IWorkItem> Bugs { get; }
-
-        public List<IWorkItem> Stories { get; }
-
-        public List<IWorkItem> Feedbacks { get; }
-
         public List<string> History { get; }
         public List<IWorkItem> WorkItems { get; set; }
-        public void AddWorkItemToBoadrd(IWorkItem workItem);
-        
+        public string PrintDetails();
+        public string PrintHistory();
     }
 }

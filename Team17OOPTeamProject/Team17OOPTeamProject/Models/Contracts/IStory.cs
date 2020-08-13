@@ -12,9 +12,7 @@ namespace Team17OOPTeamProject.Models.Contracts
     {
         public Size Size { get; set; }
         public StoryStatus StoryStatus { get; set; }
-
         public Priority Priority { get; set; }
-
         public IMember Assignee { get; set; }
     }
 }

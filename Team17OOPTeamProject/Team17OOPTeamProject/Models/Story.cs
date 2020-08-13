@@ -11,35 +11,18 @@ namespace Team17OOPTeamProject.Models
 {
     public class Story : WorkItem, IStory
     {
-        private StoryStatus storyStatus;
-        private Size size;
-        private Priority priority;
         public Story(string title, string description, Priority priority, Size size)
            : base(title, description)
         {
-            this.storyStatus = StoryStatus.NotDone;
-            this.StoryStatus = storyStatus;
+            this.StoryStatus = StoryStatus.NotDone;
             this.Size = size;
-            this.Priority = priority;
-            
+            this.Priority = priority;           
         }
 
         //Properties
-        public Size Size
-        { 
-            get { return this.size; }
-            set { this.size = value; }
-        }
-        public Priority Priority
-        {
-            get { return this.priority; }
-            set { this.priority = value; }
-        }
-        public StoryStatus StoryStatus
-        {
-            get { return this.storyStatus; }
-            set { this.storyStatus = value; }
-        }
+        public Size Size { get; set; }
+        public Priority Priority { get; set; }
+        public StoryStatus StoryStatus { get; set; }
         public override string PrintDetails()
         {
             var sb = new StringBuilder();
