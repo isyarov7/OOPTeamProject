@@ -32,6 +32,7 @@ namespace Team17OOPTeamProject
             }
         }
         public FeedbackStatus FeedbackStatus { get; set; }
+        //Methods
         public override string PrintDetails()
         {
             var sb = new StringBuilder();

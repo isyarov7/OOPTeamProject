@@ -39,56 +39,7 @@ namespace T17.Models.Models
         public List<IBoard> Boards { get; set; }
 
         public List<string> History { get; set; }
-        //public string AddMember(Member member)
-        //{
-        //    if (!members.Contains(member))
-        //    {
-        //        members.Add(member);
-        //        history.Add($"Member with name: {member.Name} has been succesfully added!");
-        //        return $"Member with name: {member.Name} has been succesfully added!";
-        //    }
-        //    return $"Member with name: {member.Name} already exists!";
-        //}
-
-        //public string RemoveMember(Member member)
-        //{
-        //    if (members.Contains(member))
-        //    {
-        //        members.Remove(member);
-        //        history.Add($"Member with name: {member.Name} has been succesfully removed!");
-        //        return $"Member with name: {member.Name} has been succesfully removed!";
-        //    }
-        //    else
-        //    {
-        //        return $"Member with name: {member.Name} does not exists!";
-        //    }
-        //}
-
-        //public string AddBoard(Board board)
-        //{
-        //    if (!boards.Contains(board))
-        //    {
-        //        boards.Add(board);
-        //        history.Add($"Board with name: {board.Name} has been succesfully added!");
-        //        return $"Board with name: {board.Name} has been succesfully added!";
-        //    }
-        //    return $"Board with name: {board.Name} already exists!";
-        //}
-
-        //public string RemoveBoard(Board board)
-        //{
-        //    if (boards.Contains(board))
-        //    {
-        //        boards.Remove(board);
-        //        history.Add($"Board with name: {board.Name} has been succesfully removed!");
-        //        return $"Board with name: {board.Name} has been succesfully removed!";
-        //    }
-        //    else
-        //    {
-        //        return $"Board with name: {board.Name} does not exist!";
-        //    }
-        //}
-
+        //Methods
         public string PrintHistory()
         {
             if (this.History.Count == 0)

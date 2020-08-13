@@ -42,30 +42,6 @@ namespace Team17OOPTeamProject.Models
                 counter++;
             }
             return sb.ToString();
-        }
-
-        //TODO :  //Move to Commands!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11111 //
-        //public string AddAssignee(Member member)
-        //{
-        //    if (!assignee.Contains(member))
-        //    {
-        //        assignee.Add(member);
-        //        this.history.Add($"Member: {member.Name} is succesfully added!");
-        //        return $"Member: { member.Name} is succesfully added!";
-        //    }
-        //    return $"Member {member.Name} is already on the list!";
-        //}
-
-        //public string RemoveAssignee(Member member)
-        //{
-        //    if (assignee.Contains(member))
-        //    {
-        //        assignee.Remove(member);
-        //        this.history.Add($"Member: {member.Name} is succesfully removed!");
-        //        return $"Member: {member.Name} Is succesfully removed!";
-        //    }
-        //    else
-        //        return $"There is no member with name {member.Name} on the list!";
-        //}
+        }     
     }
 }
