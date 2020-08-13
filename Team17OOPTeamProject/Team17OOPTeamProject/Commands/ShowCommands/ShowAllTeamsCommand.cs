@@ -15,6 +15,7 @@ namespace T17.Models.Commands
 
         public override string Execute()
         {
+            Console.WriteLine("***All teams***");
             return this.Database.Teams.Count > 0
                 ? string.Join(Environment.NewLine, this.Database.Teams.Select(x => x.Name)).Trim()
                 : "There are no registered teams.";

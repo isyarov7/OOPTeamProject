@@ -16,27 +16,27 @@ namespace WIM.T17.Commands
         public override string Execute()
         {
 
-            string name, teamName;
+            string boardName, teamName;
 
             try
             {
-                name = CommandParameters[0];
-                if (name.Length < 3)
+                boardName = CommandParameters[0];
+                if (boardName.Length < 3)
                 {
                     throw new ArgumentOutOfRangeException("The name of board should contains at least 4 symbols!");
                 }
-                var board = this.Factory.CreateBoard(name);
+                var board = this.Factory.CreateBoard(boardName);
 
                 teamName = CommandParameters[1];
 
                 var team = this.Database.Teams.Where(t => t.Name == teamName).FirstOrDefault();
 
                 team.Boards.Add(board);
+                team.History.Add($"{board} board was successfully added to team: {team}");
+                board.History.Add($"{board} board was successfully added to team: {team}");
                 this.Database.Boards.Add(board);
 
-                team.History.Add($"New board: {name} was successfully created!");
-
-                return $"New board: {name} was successfully created!";
+                return $"New board: {boardName} was successfully created!";
             }
             catch
             {

@@ -29,7 +29,14 @@ namespace WIM.T17.Commands
                 Enum.TryParse<FeedbackStatus>(this.CommandParameters[2], true, out FeedbackStatus status);
 
                 feedback.FeedbackStatus = status;
+                if(feedback.FeedbackStatus == FeedbackStatus.Done)
+                {
+                    feedback.History.Add($"This feedback {feedback.Title} status is: {status} ✅");
+                    Console.WriteLine($"This feedback {feedback.Title} status is: {status} ✅");
+                    this.Database.Feedback.Remove(feedback);
+                }
 
+                feedback.History.Add($"This feedback {feedback.Title} status was changed to: {status}!");
                 return $"This feedback {feedback.Title} status was changed to: {status}!";
             }
             catch

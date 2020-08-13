@@ -5,17 +5,16 @@ using T17.Models.Commands.Abstracts;
 
 namespace T17.Models.Commands
 {
-    public class ShowAllPeopleCommand : Command
+    public class ShowTeamsActivityCommand : Command
     {
-        public ShowAllPeopleCommand(IList<string> commandParameters)
+        public ShowTeamsActivityCommand(IList<string> commandParameters)
             : base(commandParameters)
         {
         }
-
         public override string Execute()
         {
-            return this.Database.Member.Count > 0
-                ? string.Join(Environment.NewLine, this.Database.Member).Trim()
+            return this.Database.Teams.Count > 0
+                ? string.Join(Environment.NewLine, this.Database.Teams).Trim()
                 : "There are no registered members.";
         }
     }

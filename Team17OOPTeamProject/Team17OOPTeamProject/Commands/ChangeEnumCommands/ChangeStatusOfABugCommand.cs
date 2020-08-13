@@ -5,7 +5,7 @@ using System.Security.Principal;
 using System.Text;
 using T17.Models.Commands.Abstracts;
 using Team17OOPTeamProject.Models.Enums;
-
+using System.Text.Encodings.Web;
 namespace WIM.T17.Commands
 {
     public class ChangeStatusOfABugCommand : Command
@@ -27,10 +27,16 @@ namespace WIM.T17.Commands
                     return "There is no such a bug!";
                 }
 
-                Enum.TryParse<BugStatus>(this.CommandParameters[2], true, out BugStatus bugStatusType);
+                Enum.TryParse<BugStatus>(this.CommandParameters[1], true, out BugStatus bugStatusType);
 
                 bug.BugStatus = bugStatusType;
 
+                if(bug.BugStatus == BugStatus.Fixed)
+                {  
+                    bug.History.Add($"This bug {bug.Title} status is: {bugStatusType}!");
+                    this.Database.Bugs.Remove(bug);
+                    return $"This bug {bugName} was removed successfully ✅";
+                }
 
                 bug.History.Add($"This bug {bug.Title} status was changed to: {bug.BugStatus}!");
 

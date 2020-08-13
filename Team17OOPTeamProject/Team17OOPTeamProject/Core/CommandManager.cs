@@ -6,6 +6,7 @@ using T17.Models.Commands;
 using T17.Models.Core.Contracts;
 using T17.Models.Commands.Contracts;
 using WIM.T17.Commands;
+using WIM.T17.Commands.ShowCommands;
 
 namespace T17.Models.Core
 {
@@ -22,17 +23,17 @@ namespace T17.Models.Core
 
             return commandName switch
             {
-            "createperson" => new CreatePersonCommand(commandParameters),
-            "showallpeople" => new ShowAllPeopleCommand(commandParameters),
-            "showpersonsactivity" => new ShowPersonsActivityCommand(commandParameters),
-            "createnewteam" => new CreateANewTeamCommand(commandParameters),
-            "showallteams" => new ShowAllTeamsCommand(commandParameters),
-            "showteamsactivity" => new ShowTeamsActivityCommand(commandParameters),
-            "addpersontoteam" => new AddPersonToTeamCommand(commandParameters),
-            "showallteammembers" => new ShowAllTeamMembersCommand(commandParameters),
-            "createnewboardinteam" => new CreateNewBoardInTeamCommand(commandParameters),
-            "showallteamboards" => new ShowAllTeamBoardsCommand(commandParameters),
-            //"showboardsactivity" => new ShowBoardsActivityCommand(commandParameters),
+            "CreatePerson" => new CreatePersonCommand(commandParameters),
+            "ShowAllMembers" => new ShowAllPeopleCommand(commandParameters),
+            "ShowPeopleActivity" => new ShowPersonsActivityCommand(commandParameters),
+            "CreateTeam" => new CreateANewTeamCommand(commandParameters),
+            "ShowAllTeams" => new ShowAllTeamsCommand(commandParameters),
+            "ShowTeamsActivity" => new ShowTeamsActivityCommand(commandParameters),
+            "AddPersonToTeam" => new AddPersonToTeamCommand(commandParameters),
+            "ShowTeamMembers" => new ShowAllTeamMembersCommand(commandParameters),
+            "CreateBoardInTeam" => new CreateNewBoardInTeamCommand(commandParameters),
+            "ShowTeamBoards" => new ShowAllTeamBoardsCommand(commandParameters),
+            "ShowBoardsActivity" => new ShowBoardsActivityCommand(commandParameters),
             "addbugtoboard" => new AddBugToBoardCommand(commandParameters),
             "createnewbug" => new CreateBugCommand(commandParameters),
             "createnewstory" => new CreateNewStoryCommand(commandParameters),
