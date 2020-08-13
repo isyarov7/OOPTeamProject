@@ -16,6 +16,7 @@ namespace WIM.T17.Commands.ShowCommands
             return this.Database.Boards.Count > 0
                 ? string.Join(Environment.NewLine, this.Database.Boards).Trim()
                 : "There are no registered members.";
+
         }
     }
 }
