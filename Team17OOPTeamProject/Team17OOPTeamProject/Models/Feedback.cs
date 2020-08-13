@@ -12,19 +12,14 @@ namespace Team17OOPTeamProject
         //Fields
         private int rating;
 
-        private FeedbackStatus feedbackStatus = FeedbackStatus.New;
+        private FeedbackStatus feedbackStatus;
         //Constructor
-        public Feedback(string title, int rating)
-             : base(title)
+        public Feedback(string title,string description, int rating)
+             : base(title, description)
         {
+            this.feedbackStatus = FeedbackStatus.New;
             this.FeedbackStatus = feedbackStatus;
             this.Rating = rating;
-        }
-
-        public Feedback(string title, string description, int rating)
-            : this(title, rating)
-        {
-            this.Description = description;
         }
         //Properties
         public int Rating
@@ -32,14 +27,27 @@ namespace Team17OOPTeamProject
             get => this.rating;
             set
             {
-                if (value < 0)
+                if (value < 0 || value > 5)
                 {
-                    this.rating = 0;
+                    throw new ArgumentException("Rating must be between 0 and 5.");
                 }
                 this.rating = value;
             }
         }
 
-        public FeedbackStatus FeedbackStatus { get; set; }
+        public FeedbackStatus FeedbackStatus
+        {
+            get { return this.feedbackStatus; }
+            set { this.feedbackStatus = value; }
+        }
+        public override string PrintDetails()
+        {
+            var sb = new StringBuilder();
+            sb.AppendLine("Type of WorkItem: Feedback");
+            sb.AppendLine(base.PrintDetails());
+            sb.AppendLine($"Feedback status: {this.FeedbackStatus}");
+            sb.AppendLine($"Feedback rating: {this.Rating}");
+            return sb.ToString();
+        }
     }
 }

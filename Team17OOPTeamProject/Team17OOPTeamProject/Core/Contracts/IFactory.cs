@@ -19,7 +19,7 @@ namespace T17.Models.Core.Contracts
 
         Board CreateBoard(string name);
 
-        Bug CreateBug(string title, string description, Priority priority, Severity severity, BugStatus bugStatus, List<string> stepsToProduce);
+        Bug CreateBug(string title, string description, Priority priority, Severity severity, List<string> stepsToProduce);
 
         Story CreateStory(string title, string description, Priority priority, Size size);
 

@@ -11,8 +11,10 @@ namespace Team17OOPTeamProject.Models.Contracts
 
         public string Description { get; }
         
-        public IReadOnlyDictionary<string, string> Comment { get; }
+        public Dictionary<string, string> Comments { get; }
 
         public List<string> History { get; }
+        public string PrintHistory();
+        public string PrintDetails();
     }
 }

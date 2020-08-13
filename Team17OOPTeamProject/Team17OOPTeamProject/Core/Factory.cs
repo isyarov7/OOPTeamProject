@@ -42,9 +42,9 @@ namespace T17.Models.Core
             Board board = new Board(name);
             return board;
         }
-        public Bug CreateBug(string title, string description, Priority priority, Severity severity, BugStatus bugStatus, List<string> stepsToProduce)
+        public Bug CreateBug(string title, string description, Priority priority, Severity severity, List<string> stepsToProduce)
         {
-            Bug bug = new Bug(title, description, priority, severity, bugStatus, stepsToProduce);
+            Bug bug = new Bug(title, description, priority, severity, stepsToProduce);
             return bug;
         }
         public Story CreateStory(string title, string description, Priority priority, Size size)

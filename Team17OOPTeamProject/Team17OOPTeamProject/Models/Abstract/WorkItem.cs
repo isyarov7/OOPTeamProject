@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using T17.Models.Models.Contracts;
 using Team17OOPTeamProject.Models.Contracts;
 using Team17OOPTeamProject.Models.Enums;
 
@@ -9,21 +10,22 @@ namespace Team17OOPTeamProject.Models.Abstract
     public abstract class WorkItem : IWorkItem
     {
         //Fields
-        protected string title;
-        protected string description;
-        protected Dictionary<string, string> comment;
-        protected List<string> history;
+        private string title;
+        private string description;
+        private Dictionary<string, string> comments;
+        private List<string> history;
+        private IMember assignee;
 
         //Constructor
-        public WorkItem(string title)
+        public WorkItem(string title, string description)
         {
+            this.comments = new Dictionary<string, string>();
+            this.Comments = comments;
             this.history = new List<string>();
+            this.History = history;
             this.Title = title;
-        }
-
-        public WorkItem(string title, string description) : this(title)
-        {
             this.Description = description;
+            this.Assignee = Assignee;
         }
 
         //Properties
@@ -59,22 +61,76 @@ namespace Team17OOPTeamProject.Models.Abstract
                 this.description = value;
             }
         }
-        public IReadOnlyDictionary<string, string> Comment => this.comment;
+        public Dictionary<string, string> Comments 
+        {
+            get { return this.comments; }
+            set { this.comments = value; }
+        }
 
-        public List<string> History => this.history;
+        public List<string> History
+        {
+            get { return this.history; }
+            set { this.history = value; }
+        }
+
+        public IMember Assignee
+        {
+            get { return this.assignee; }
+            set { this.assignee = value; }
+        }
 
         //Methods 
         public string PrintHistory()
         {
+            var sb = new StringBuilder();
             if (history.Count == 0)
             {
-                Console.WriteLine($"The history of {this.Title} is empty!");
+                sb.AppendLine($"The history of {this.Title} is empty!");
             }
-            var sb = new StringBuilder();
-            sb.AppendLine("History:");
-            foreach (var item in this.history)
+            else
             {
-                sb.AppendLine(item);
+                
+                sb.AppendLine("History:");
+                foreach (var item in this.history)
+                {
+                    sb.AppendLine(item);
+                }
+            }
+            return sb.ToString();
+        }
+
+        public virtual string PrintDetails()
+        {
+            var sb = new StringBuilder();
+            sb.AppendLine($"Title: {this.Title}");
+            sb.AppendLine($"Description: {this.Description}");
+            if (this.History.Count > 0)
+            {
+                sb.AppendLine("Activity history:");
+                int counter = 1;
+                foreach (var item in this.History)
+                {
+                    sb.AppendLine($"{counter}. {item}");
+                    counter++;
+                }
+            }
+            else
+            {
+                sb.AppendLine("There is no activity history.");
+            }
+            if (this.Comments.Count > 0)
+            {
+                sb.AppendLine("Comments:");
+                int counter = 1;
+                foreach (var item in this.Comments)
+                {
+                    sb.AppendLine($"{counter}. {item.Key} {item.Value}");
+                        counter++;
+                }
+            }
+            else
+            {
+                sb.AppendLine("There is no comments.");
             }
             return sb.ToString();
         }

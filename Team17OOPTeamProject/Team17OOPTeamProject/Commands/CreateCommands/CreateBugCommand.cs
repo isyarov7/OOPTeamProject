@@ -23,16 +23,15 @@ namespace T17.Models.Commands
         {
 
             if (CommandParameters.Count < 5)
-                throw new ArgumentException("You have to submit 6 parameters!");
+                throw new ArgumentException("You have to submit 5 parameters!");
 
             string title = this.CommandParameters[0];
             string description = this.CommandParameters[1];
             Enum.TryParse<Priority>(this.CommandParameters[2], true, out Priority priority);
             Enum.TryParse<Severity>(this.CommandParameters[3], true, out Severity severity);
-            Enum.TryParse<BugStatus>(this.CommandParameters[4], true, out BugStatus bugStatus);
-            List<string> stepsToProduce = this.CommandParameters[5].Trim().Split(',').ToList();
+            List<string> stepsToProduce = this.CommandParameters[4].Trim().Split(',').ToList();
 
-            var bug = this.Factory.CreateBug(title, description, priority, severity, bugStatus, stepsToProduce);
+            var bug = this.Factory.CreateBug(title, description, priority, severity, stepsToProduce);
             this.Database.Bugs.Add(bug);
             
             bug.History.Add($"Bug with title: {bug.Title} was created!");
