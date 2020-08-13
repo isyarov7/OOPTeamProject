@@ -15,24 +15,26 @@ namespace T17.Models.Commands
         }
         public override string Execute()
         {
-            string name;
-            string teamName;
-
             try
             {
-                name = this.CommandParameters[0];
+                string name = this.CommandParameters[0];
                 var member = this.Database.Member.Where(m => m.Name == name).FirstOrDefault();
                 if (member == null)
                 {
                     return "There is no such member!";
                 }
-                teamName = this.CommandParameters[1];
+
+                string teamName = this.CommandParameters[1];
                 var team = this.Database.Teams.Where(t => t.Name == teamName).FirstOrDefault();
                 if (team == null)
                 {
                     return "There is no such team!";
                 }
+
                 team.Members.Add(member);
+                team.History.Add($"Member: {name} was added to team: {teamName}!");
+                member.History.Add($"Member: {name} was added to team: {teamName}!");
+
                 return $"Member: {name} was added to team: {teamName}!";
             }
             catch
