@@ -7,6 +7,7 @@ using T17.Models.Core.Contracts;
 using T17.Models.Commands.Contracts;
 using WIM.T17.Commands;
 using WIM.T17.Commands.ShowCommands;
+using WIM.T17.Commands.AddCommands;
 
 namespace T17.Models.Core
 {
@@ -34,10 +35,12 @@ namespace T17.Models.Core
             "CreateBoardInTeam" => new CreateNewBoardInTeamCommand(commandParameters),
             "ShowTeamBoards" => new ShowAllTeamBoardsCommand(commandParameters),
             "ShowBoardsActivity" => new ShowBoardsActivityCommand(commandParameters),
-            "addbugtoboard" => new AddBugToBoardCommand(commandParameters),
-            "createnewbug" => new CreateBugCommand(commandParameters),
-            "createnewstory" => new CreateNewStoryCommand(commandParameters),
-            "createnewfeedback" => new CreateNewFeedbackCommand(commandParameters),
+            "AddBugToBoard" => new AddBugToBoardCommand(commandParameters),
+            "AddStoryToBoard" => new AddStoryToBoardCommand(commandParameters),
+            "AddFeedbackToBoard" => new AddFeedbackToBoardCommand(commandParameters),
+            "CreateBug" => new CreateBugCommand(commandParameters),
+            "CreateStory" => new CreateNewStoryCommand(commandParameters),
+            "CreateFeedback" => new CreateNewFeedbackCommand(commandParameters),
             "changebugpriority" => new ChangeBugPriorityCommand(commandParameters),
             "changestorypriority" => new ChangeStoryPriorityCommand(commandParameters),
             "changeseverityofabug" => new ChangeSeverityOfABugCommand(commandParameters),
@@ -48,7 +51,7 @@ namespace T17.Models.Core
             "changefeedbackstatus" => new ChangeFeedbackStatusCommand(commandParameters),
             "assignworkitemtoaperson" => new AssignWorkItemToAPersonCommand(commandParameters),
             //"unassignworkitemtoaperson" => new UnassignWorkItemToAPersonCommand(commandParameters),
-            //"addcommenttoaworkitem" => new AddCommentToAWorkItemCommand(commandParameters),
+            //"AddCommentToWorkItem" => new AddCommentToAWorkItemCommand(commandParameters),
             //TODO
             //     List work items with options:
 

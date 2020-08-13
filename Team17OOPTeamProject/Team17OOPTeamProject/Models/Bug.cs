@@ -36,7 +36,7 @@ namespace Team17OOPTeamProject.Models
         public Priority Priority { get; set; }
 
         public Severity Severity { get;  set; }
-
+        //TODO
         public IMember Assignee { get; set; }
         public BugStatus BugStatus { get;  set; }
 

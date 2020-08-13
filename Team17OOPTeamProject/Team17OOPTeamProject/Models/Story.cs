@@ -32,7 +32,7 @@ namespace Team17OOPTeamProject.Models
 
         public Priority Priority { get; set; }
         public StoryStatus StoryStatus { get; set; }
-
+        //TODO  
         public IMember Assignee { get; set; }
     }
 }
