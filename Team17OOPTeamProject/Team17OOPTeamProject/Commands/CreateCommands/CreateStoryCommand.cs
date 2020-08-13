@@ -26,11 +26,11 @@ namespace WIM.T17.Commands
             Enum.TryParse<Size>(this.CommandParameters[3], true, out Size size);
 
             var story = this.Factory.CreateStory(title, description, priority, size);
-            this.Database.Story.Add(story);
+            this.Database.Stories.Add(story);
 
             story.History.Add($"Story with title: {title} was created!");
 
-            return $"Story with ID {this.Database.Story.Count} was created.";
+            return $"Story with ID {this.Database.Stories.Count} was created.";
         }
     }
 }

@@ -18,14 +18,14 @@ namespace WIM.T17.Commands
             try
             {
                 string feedbackName = this.CommandParameters[0];
-                var feedback = this.Database.Feedback.Where(m => m.Title == feedbackName).FirstOrDefault();
+                var feedback = this.Database.Feedbacks.Where(m => m.Title == feedbackName).FirstOrDefault();
                 if (feedback == null)
                 {
                     return "There is no such a story!";
                 }
 
                 int feedbackRating = int.Parse(this.CommandParameters[1]);
-                var rating = this.Database.Feedback.Where(x => x.Rating == feedbackRating);
+                var rating = this.Database.Feedbacks.Where(x => x.Rating == feedbackRating);
                 feedback.History.Add($"This feedback {feedback.Title} rating was changed to: {feedbackRating}!");
                 return $"This feedback {feedback.Title} rating was changed to: {feedbackRating}!";
             }

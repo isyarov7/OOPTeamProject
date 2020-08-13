@@ -20,9 +20,9 @@ namespace T17.Models.Commands
                 string name = this.CommandParameters[0];
 
                 IMember member = this.Factory.CreateMember(name);
-                this.Database.Member.Add(member);
-                member.History.Add($"Person with ID {this.Database.Member.Count} was created.");
-                return $"Person with ID {this.Database.Member.Count} was created.";
+                this.Database.Members.Add(member);
+                member.History.Add($"Person with ID {this.Database.Members.Count} was created.");
+                return $"Person with ID {this.Database.Members.Count} was created.";
             }
             catch
             {

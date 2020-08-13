@@ -8,9 +8,9 @@ using Team17OOPTeamProject.Models.Enums;
 
 namespace WIM.T17.Commands
 {
-    public class ChangeSeverityOfABugCommand : Command
+    public class ChangeBugSeverityCommand : Command
     {
-        public ChangeSeverityOfABugCommand(IList<string> commandParameters)
+        public ChangeBugSeverityCommand(IList<string> commandParameters)
             : base(commandParameters)
         {
         }

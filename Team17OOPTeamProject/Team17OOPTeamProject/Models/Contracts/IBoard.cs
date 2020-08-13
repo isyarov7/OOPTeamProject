@@ -9,7 +9,7 @@ namespace T17.Models.Models.Contracts
     public interface IBoard
     {
         public string Name { get; }
-        public List<string> History { get; }
+        public List<string> History { get; set; }
         public List<IWorkItem> WorkItems { get; set; }
         public string PrintDetails();
         public string PrintHistory();

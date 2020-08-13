@@ -19,7 +19,7 @@ namespace WIM.T17.Commands
             try
             {
                 string storyName = this.CommandParameters[0];
-                var story = this.Database.Story.Where(m => m.Title == storyName).FirstOrDefault();
+                var story = this.Database.Stories.Where(m => m.Title == storyName).FirstOrDefault();
                 if (story == null)
                 {
                     return "There is no such a story!";

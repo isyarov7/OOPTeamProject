@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using T17.Models.Commands.Abstracts;
-using Team17OOPTeamProject.Models.Contracts;
 
 namespace WIM.T17.Commands
 {
-    public class AssignWorkItemToPersonCommand : Command
+    public class UnassignWorkItemFromPersonCommand : Command
     {
-        public AssignWorkItemToPersonCommand(IList<string> commandParameters)
-              : base(commandParameters)
+        public UnassignWorkItemFromPersonCommand(IList<string> commandParameters)
+                : base(commandParameters)
         {
         }
         public override string Execute()
@@ -26,16 +25,16 @@ namespace WIM.T17.Commands
                 if (workItemType == "Bug")
                 {
                     var bug = this.Database.Bugs.Where(x => x.Title == currenteWorkItem).FirstOrDefault();
-                    person.WorkItems.Add(bug);
-                    person.History.Add($"Bug {bug.Title} added to person: {person.Name}");
-                    return $"Item {bug.Title} has been successfully assigned to {person.Name}.";
+                    person.WorkItems.Remove(bug);
+                    person.History.Add($"Bug {bug.Title} removed from person: {person.Name}");
+                    return $"Item {bug.Title} has been successfully unassigned from {person.Name}.";
                 }
                 else if (workItemType == "Story")
                 {
                     var story = this.Database.Stories.Where(x => x.Title == currenteWorkItem).FirstOrDefault();
-                    person.WorkItems.Add(story);
-                    person.History.Add($"Bug {story.Title} added to person: {person.Name}");
-                    return $"Item {story.Title} has been successfully assigned to {person.Name}.";
+                    person.WorkItems.Remove(story);
+                    person.History.Add($"Bug {story.Title} removed from person: {person.Name}");
+                    return $"Item {story.Title} has been successfully unassigned from {person.Name}.";
                 }
                 else
                 {
@@ -44,7 +43,7 @@ namespace WIM.T17.Commands
             }
             catch
             {
-                throw new ArgumentException("Failed to parse AssignWorkItemToPerson command parameters.");
+                throw new ArgumentException("Failed to parse UnassignWorkItemToPerson command parameters.");
             }
         }
     }

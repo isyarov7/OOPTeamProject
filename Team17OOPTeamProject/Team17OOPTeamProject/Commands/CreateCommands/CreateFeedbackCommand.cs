@@ -24,11 +24,11 @@ namespace WIM.T17.Commands
             int rating = int.Parse(this.CommandParameters[2]);
 
             var feedback = this.Factory.CreateFeedback(title, description, rating);
-            this.Database.Feedback.Add(feedback);
+            this.Database.Feedbacks.Add(feedback);
 
             feedback.History.Add($"Feedback with title: {title} was created!");
 
-            return $"Feedback with ID {this.Database.Feedback.Count} was created.";
+            return $"Feedback with ID {this.Database.Feedbacks.Count} was created.";
         }
     }
 }

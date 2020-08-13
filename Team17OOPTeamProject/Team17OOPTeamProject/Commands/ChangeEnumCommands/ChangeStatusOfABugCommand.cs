@@ -8,9 +8,9 @@ using Team17OOPTeamProject.Models.Enums;
 using System.Text.Encodings.Web;
 namespace WIM.T17.Commands
 {
-    public class ChangeStatusOfABugCommand : Command
+    public class ChangeBugStatusCommand : Command
     {
-        public ChangeStatusOfABugCommand(IList<string> commandParameters)
+        public ChangeBugStatusCommand(IList<string> commandParameters)
             : base(commandParameters)
         {
         }

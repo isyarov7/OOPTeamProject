@@ -25,33 +25,10 @@ namespace T17.Models.Core
             }
         }
         public List<IBug> Bugs { get; set; } = new List<IBug>();
-        public List<IFeedback> Feedback { get; set; } = new List<IFeedback>();
-        public List<IStory> Story { get; set; } = new List<IStory>();
+        public List<IFeedback> Feedbacks { get; set; } = new List<IFeedback>();
+        public List<IStory> Stories { get; set; } = new List<IStory>();
         public List<ITeam> Teams { get; set; } = new List<ITeam>();
-        public List<IMember> Member { get; set; } = new List<IMember>();
-        public List<IBoard> Boards { get; set; } = new List<IBoard>();
-        public IWorkItem GetName(string name)
-        {
-            var itemStory = Story.FirstOrDefault(x => x.Title == name);
-            var itemBug = Bugs.FirstOrDefault(x => x.Title == name);
-            var itemFeedback = Feedback.FirstOrDefault(x => x.Title == name);
-
-            if (itemStory != null)
-            {
-                return itemStory;
-            }
-            
-            if (itemBug != null)
-            {
-                return itemBug;
-            }
-            
-            if (itemFeedback != null)
-            {
-                return itemFeedback;
-            }
-            
-            return null;
-        }
+        public List<IMember> Members { get; set; } = new List<IMember>();
+        public List<IBoard> Boards { get; set; } = new List<IBoard>();     
     }
 }

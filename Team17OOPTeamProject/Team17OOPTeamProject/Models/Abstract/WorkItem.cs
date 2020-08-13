@@ -12,14 +12,14 @@ namespace Team17OOPTeamProject.Models.Abstract
         //Fields
         private string title;
         private string description;
-        private Dictionary<string, string> comments;
+        private Dictionary<DateTime, string> comments;
         private List<string> history;
         private IMember assignee;
 
         //Constructor
         public WorkItem(string title, string description)
         {
-            this.comments = new Dictionary<string, string>();
+            this.comments = new Dictionary<DateTime, string>();
             this.Comments = comments;
             this.history = new List<string>();
             this.History = history;
@@ -61,7 +61,7 @@ namespace Team17OOPTeamProject.Models.Abstract
                 this.description = value;
             }
         }
-        public Dictionary<string, string> Comments 
+        public Dictionary<DateTime, string> Comments 
         {
             get { return this.comments; }
             set { this.comments = value; }

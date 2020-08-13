@@ -19,7 +19,7 @@ namespace WIM.T17.Commands
             try
             {
                 string storyName = this.CommandParameters[0];
-                var story = this.Database.Story.Where(m => m.Title == storyName).FirstOrDefault();
+                var story = this.Database.Stories.Where(m => m.Title == storyName).FirstOrDefault();
                 if (story == null)
                 {
                     return "There is no such a story!";
@@ -32,7 +32,7 @@ namespace WIM.T17.Commands
                 if(story.StoryStatus == StoryStatus.Done)
                 {
                     story.History.Add($"This story {story.Title} status is: {status} ✅");
-                    this.Database.Story.Remove(story);
+                    this.Database.Stories.Remove(story);
                     return $"This story {storyName} was removed successfully ✅";
                     
                 }

@@ -18,7 +18,7 @@ namespace WIM.T17.Commands.AddCommands
             try
             {
                 string feedbackName = this.CommandParameters[0];
-                var feedback = this.Database.Feedback.Where(m => m.Title == feedbackName).FirstOrDefault();
+                var feedback = this.Database.Feedbacks.Where(m => m.Title == feedbackName).FirstOrDefault();
                 if (feedback == null)
                 {
                     return "There is no such feedback!";

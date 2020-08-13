@@ -11,7 +11,7 @@ namespace Team17OOPTeamProject.Models.Contracts
 
         public string Description { get; }
         
-        public Dictionary<string, string> Comments { get; }
+        public Dictionary<DateTime, string> Comments { get; }
 
         public List<string> History { get; }
         public string PrintHistory();

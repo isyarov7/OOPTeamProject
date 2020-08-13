@@ -6,9 +6,9 @@ using T17.Models.Commands.Abstracts;
 
 namespace T17.Models.Commands
 {
-    public class ShowAllTeamsCommand : Command
+    public class ShowAllMembersCommand : Command
     {
-        public ShowAllTeamsCommand(IList<string> commandParameters)
+        public ShowAllMembersCommand(IList<string> commandParameters)
             : base(commandParameters)
         {
         }
@@ -16,8 +16,8 @@ namespace T17.Models.Commands
         public override string Execute()
         {
             var sb = new StringBuilder();
-            sb.AppendLine("***All Teams***");
-            foreach (var item in this.Database.Teams)
+            sb.AppendLine("***All People***");
+            foreach (var item in this.Database.Members)
             {
                 sb.AppendLine(item.PrintDetails());
                 sb.AppendLine("#############");

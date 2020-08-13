@@ -9,11 +9,10 @@ namespace T17.Models.Core.Contracts
     public interface IDatabase
     {
         List<IBug> Bugs { get; }
-        List<IFeedback> Feedback { get; }
-        List<IStory> Story { get; }
+        List<IFeedback> Feedbacks { get; }
+        List<IStory> Stories { get; }
         List<ITeam> Teams { get; }
-        List<IMember> Member { get; }
+        List<IMember> Members { get; }
         List<IBoard> Boards { get; }
-        public IWorkItem GetName(string name);
     }
 }

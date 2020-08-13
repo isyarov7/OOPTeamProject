@@ -19,7 +19,7 @@ namespace WIM.T17.Commands
             try
             {
                 string feedbackName = this.CommandParameters[0];
-                var feedback = this.Database.Feedback.Where(m => m.Title == feedbackName).FirstOrDefault();
+                var feedback = this.Database.Feedbacks.Where(m => m.Title == feedbackName).FirstOrDefault();
                 if (feedback == null)
                 {
                     return "There is no such a feedback!";
@@ -31,7 +31,7 @@ namespace WIM.T17.Commands
                 if(feedback.FeedbackStatus == FeedbackStatus.Done)
                 {
                     feedback.History.Add($"This feedback {feedback.Title} status is: {status} ✅");
-                    this.Database.Feedback.Remove(feedback);
+                    this.Database.Feedbacks.Remove(feedback);
                     return $"This feedback {feedbackName} status is: {status} ✅";
                     
                 }

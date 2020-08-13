@@ -16,12 +16,10 @@ namespace WIM.T17.Commands
 
         public override string Execute()
         {
-            string teamName;
             try
             {
-                teamName = CommandParameters[0];
+                string teamName = CommandParameters[0];
                 var team = this.Database.Teams.Where(x => x.Name == teamName).FirstOrDefault();
-
                 if (team == null)
                 {
                     throw new ArgumentException("There is no such team!");
@@ -32,8 +30,15 @@ namespace WIM.T17.Commands
                     return "There are no registered members.";
                 }
 
-                Console.WriteLine($"***TEAM: {teamName}*** \n***MEMBERS***");
-                return string.Join(Environment.NewLine, team.Members.Select(x => x.Name)).Trim();
+                var sb = new StringBuilder();
+                sb.AppendLine($"***TEAM: {teamName}***");
+                sb.AppendLine("***MEMBERS***");
+                foreach (var item in team.Members)
+                {
+                    sb.AppendLine(item.PrintDetails());
+                    sb.AppendLine("#############");
+                }
+                return sb.ToString();
             }
             catch
             {

@@ -18,7 +18,7 @@ namespace T17.Models.Commands
             try
             {
                 string name = this.CommandParameters[0];
-                var member = this.Database.Member.Where(m => m.Name == name).FirstOrDefault();
+                var member = this.Database.Members.Where(m => m.Name == name).FirstOrDefault();
                 if (member == null)
                 {
                     return "There is no such member!";
