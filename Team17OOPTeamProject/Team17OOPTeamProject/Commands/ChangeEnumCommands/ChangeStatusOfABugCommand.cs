@@ -17,10 +17,9 @@ namespace WIM.T17.Commands
 
         public override string Execute()
         {
-            string bugName;
             try
             {
-                bugName = this.CommandParameters[0];
+                string bugName = this.CommandParameters[0];
                 var bug = this.Database.Bugs.Where(m => m.Title == bugName).FirstOrDefault();
                 if (bug == null)
                 {

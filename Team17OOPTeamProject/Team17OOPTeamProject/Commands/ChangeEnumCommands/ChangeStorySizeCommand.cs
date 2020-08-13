@@ -16,17 +16,16 @@ namespace WIM.T17.Commands
 
         public override string Execute()
         {
-            string storyName;
             try
             {
-                storyName = this.CommandParameters[0];
+                string storyName = this.CommandParameters[0];
                 var story = this.Database.Story.Where(m => m.Title == storyName).FirstOrDefault();
                 if (story == null)
                 {
                     return "There is no such a story!";
                 }
 
-                Enum.TryParse<Size>(this.CommandParameters[2], true, out Size size);
+                Enum.TryParse<Size>(this.CommandParameters[1], true, out Size size);
 
                 story.Size = size;
 

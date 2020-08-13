@@ -16,25 +16,25 @@ namespace WIM.T17.Commands
 
         public override string Execute()
         {
-            string storyName;
             try
             {
-                storyName = this.CommandParameters[0];
+                string storyName = this.CommandParameters[0];
                 var story = this.Database.Story.Where(m => m.Title == storyName).FirstOrDefault();
                 if (story == null)
                 {
                     return "There is no such a story!";
                 }
 
-                Enum.TryParse<StoryStatus>(this.CommandParameters[2], true, out StoryStatus status);
+                Enum.TryParse<StoryStatus>(this.CommandParameters[1], true, out StoryStatus status);
 
                 story.StoryStatus = status;
 
                 if(story.StoryStatus == StoryStatus.Done)
                 {
-                    story.History.Add($"This feedback {story.Title} status is: {status} ✅");
-                    Console.WriteLine($"This feedback {story.Title} status is: {status} ✅");
+                    story.History.Add($"This story {story.Title} status is: {status} ✅");
                     this.Database.Story.Remove(story);
+                    return $"This story {storyName} was removed successfully ✅";
+                    
                 }
 
                 story.History.Add($"This story {story.Title} status was changed to: {story.StoryStatus}!");

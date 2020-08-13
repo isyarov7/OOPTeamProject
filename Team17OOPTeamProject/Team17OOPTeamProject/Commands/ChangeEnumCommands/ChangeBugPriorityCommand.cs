@@ -17,20 +17,18 @@ namespace WIM.T17.Commands
 
         public override string Execute()
         {
-            string bugName;
             try
             {
-                bugName = this.CommandParameters[0];
+                string bugName = this.CommandParameters[0];
                 var bug = this.Database.Bugs.Where(m => m.Title == bugName).FirstOrDefault();
                 if (bug == null)
                 {
                     return "There is no such a bug!";
                 }
 
-                Enum.TryParse<Priority>(this.CommandParameters[2], true, out Priority priorityType);
+                Enum.TryParse<Priority>(this.CommandParameters[1], true, out Priority priorityType);
 
                 bug.Priority = priorityType;
-
 
                 bug.History.Add($"This bug {bug.Title} priority was changed to: {bug.Priority}!");
 

@@ -16,17 +16,16 @@ namespace WIM.T17.Commands
 
         public override string Execute()
         {
-            string storyName;
             try
             {
-                storyName = this.CommandParameters[0];
+                string storyName = this.CommandParameters[0];
                 var story = this.Database.Story.Where(m => m.Title == storyName).FirstOrDefault();
                 if (story == null)
                 {
                     return "There is no such a story!";
                 }
 
-                Enum.TryParse<Priority>(this.CommandParameters[2], true, out Priority priorityType);
+                Enum.TryParse<Priority>(this.CommandParameters[1], true, out Priority priorityType);
 
                 story.Priority = priorityType;
 

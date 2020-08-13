@@ -17,20 +17,18 @@ namespace WIM.T17.Commands
 
         public override string Execute()
         {
-            string bugName;
             try
             {
-                bugName = this.CommandParameters[0];
+                string bugName = this.CommandParameters[0];
                 var bug = this.Database.Bugs.Where(m => m.Title == bugName).FirstOrDefault();
                 if (bug == null)
                 {
                     return "There is no such a bug!";
                 }
 
-                Enum.TryParse<Severity>(this.CommandParameters[2], true, out Severity severityType);
+                Enum.TryParse<Severity>(this.CommandParameters[1], true, out Severity severityType);
 
                 bug.Severity = severityType;
-
 
                 bug.History.Add($"This bug {bug.Title} severity was changed to: {bug.Severity}!");
 

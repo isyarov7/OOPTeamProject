@@ -15,20 +15,18 @@ namespace WIM.T17.Commands
 
         public override string Execute()
         {
-            string feedbackName;
-            int feedbackRating;
             try
             {
-                feedbackName = this.CommandParameters[0];
+                string feedbackName = this.CommandParameters[0];
                 var feedback = this.Database.Feedback.Where(m => m.Title == feedbackName).FirstOrDefault();
                 if (feedback == null)
                 {
                     return "There is no such a story!";
                 }
 
-                feedbackRating = int.Parse(this.CommandParameters[1]);
+                int feedbackRating = int.Parse(this.CommandParameters[1]);
                 var rating = this.Database.Feedback.Where(x => x.Rating == feedbackRating);
-
+                feedback.History.Add($"This feedback {feedback.Title} rating was changed to: {feedbackRating}!");
                 return $"This feedback {feedback.Title} rating was changed to: {feedbackRating}!";
             }
             catch
