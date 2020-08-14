@@ -14,9 +14,14 @@ namespace WIM.T17.Tests.BugTests
     class BugTest
     {
         [TestMethod]
-        public void IsTitleTheSameAsExpected()
+        public void CorrectlyAssignesPassedValues()
         {
-            Bug bug = new Bug("Title", "description", Priority.High, Severity.Critical, BugStatus.Active, new List<string>() {"steps"});
+            //Arrange
+            string bugTitle = "Title";
+            string description = "bug description";
+            Priority priority = Priority.High;
+            Severity severity = Severity.Critical;
+            Bug bug = new Bug("Title", "description", Priority.High, Severity.Critical, "steps");
 
             string expected = "Title";
             string actual = bug.Title;

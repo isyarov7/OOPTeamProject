@@ -8,6 +8,7 @@ using T17.Models.Commands.Contracts;
 using WIM.T17.Commands;
 using WIM.T17.Commands.ShowCommands;
 using WIM.T17.Commands.AddCommands;
+using WIM.T17.Commands.SortCommands;
 
 namespace T17.Models.Core
 {
@@ -57,7 +58,9 @@ namespace T17.Models.Core
             "ShowBoardsActivity" => new ShowBoardActivityCommand(commandParameters),
             "AssignWorkItemToPerson" => new AssignWorkItemToPersonCommand(commandParameters),
             "UnassingWorkItemFromPerson" => new UnassignWorkItemFromPersonCommand(commandParameters),
-            //"SortByTitle" => new SortByTitleCommand(commandParameters),
+            "SortByTitle" => new SortByTitleCommand(commandParameters),
+            //"SortByPriority" => new SortByPriorityCommand(commandParameters),
+            "SortByRating" => new SortByRatingCommand(commandParameters),
                 _ => throw new InvalidOperationException("Command does not exist")
             };
     }

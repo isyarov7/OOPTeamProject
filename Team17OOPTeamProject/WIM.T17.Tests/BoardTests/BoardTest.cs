@@ -14,7 +14,7 @@ namespace WIM.T17.Tests.BoardTests
     {
         [TestClass]
         public class BoardTests
-        {
+        { 
             [TestMethod]
             public void IsNameSameAsExpected()
             {
@@ -44,7 +44,7 @@ namespace WIM.T17.Tests.BoardTests
             public void AssignBugCorrectly()
             {
                 Board board = new Board("Gosho");
-                Bug bug = new Bug("Title", "description", Priority.High, Severity.Critical, BugStatus.Active, new List<string>() { "steps" });
+                Bug bug = new Bug("Title", "description", Priority.High, Severity.Critical,  "steps");
 
                 board.AddBug(bug);
 

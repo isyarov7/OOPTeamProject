@@ -1,33 +1,52 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Text;
-//using T17.Models.Commands.Abstracts;
-//using T17.Models.Models.Contracts;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using T17.Models.Commands.Abstracts;
+using T17.Models.Models.Contracts;
+using Team17OOPTeamProject.Models.Contracts;
 
-//namespace WIM.T17.Commands.ShowCommands
-//{
-//    public class SortByTitleCommand : Command
-//    {
-//        public SortByTitleCommand(IList<string> commandParameters)
-//           : base(commandParameters)
-//        {
-//        }
+namespace WIM.T17.Commands.ShowCommands
+{
+    public class SortByTitleCommand : Command
+    {
+        public SortByTitleCommand(IList<string> commandParameters)
+           : base(commandParameters)
+        {
+        }
 
-//        public override string Execute()
-//        {
-//            //try
-//            //{
-//            //    string title = this.CommandParameters[0];
+        public override string Execute()
+        {
+            List<IWorkItem> titleSort = new List<IWorkItem>();
 
-//            //    IMember member = this.Factory.CreateMember(name);
-//            //    this.Database.Members.Add(member);
-//            //    member.History.Add($"Person with ID {this.Database.Members.Count} was created.");
-//            //    return $"Person with ID {this.Database.Members.Count} was created.";
-//            //}
-//            //catch
-//            //{
-//            //    throw new ArgumentException("Failed to parse CreateMember command parameters.");
-//            //}
-//        }
-//    }
-//}
+            var bugTitle = this.Database.Bugs;
+            var feedbackTitle = this.Database.Feedbacks;
+            var storyTitle = this.Database.Stories;
+
+            foreach (var bug in bugTitle)
+            {
+                titleSort.Add(bug);
+            }
+
+            foreach (var feedback in feedbackTitle)
+            {
+                titleSort.Add(feedback);
+            }
+
+            foreach (var story in storyTitle)
+            {
+                titleSort.Add(story);
+            }
+
+            titleSort = titleSort.OrderBy(title => title.Title).ToList();
+
+            var sb = new StringBuilder();
+            sb.AppendLine("***SORT BY TITLES***");
+            foreach (var item in titleSort)
+            {
+                sb.AppendLine(item.Title);
+            }
+            return sb.ToString();          
+        }
+    }
+}
