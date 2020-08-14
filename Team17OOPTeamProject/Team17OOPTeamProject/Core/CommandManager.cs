@@ -59,7 +59,9 @@ namespace T17.Models.Core
             "AssignWorkItemToPerson" => new AssignWorkItemToPersonCommand(commandParameters),
             "UnassingWorkItemFromPerson" => new UnassignWorkItemFromPersonCommand(commandParameters),
             "SortByTitle" => new SortByTitleCommand(commandParameters),
-            //"SortByPriority" => new SortByPriorityCommand(commandParameters),
+            "SortByPriority" => new SortByPriorityCommand(commandParameters),
+            "SortBySeverity" => new SortBySeverityCommand(commandParameters),
+            "SortBySize" => new SortBySizeCommand(commandParameters),
             "SortByRating" => new SortByRatingCommand(commandParameters),
                 _ => throw new InvalidOperationException("Command does not exist")
             };

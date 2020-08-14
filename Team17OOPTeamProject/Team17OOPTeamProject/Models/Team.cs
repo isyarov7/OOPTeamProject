@@ -26,9 +26,10 @@ namespace T17.Models.Models
             private set
             {
                 if (string.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentException("Name can't be null.");
-                }
+                    throw new ArgumentException("Name cannot be null!");
+
+                if (value.Length < 5 || value.Length > 15)
+                    throw new ArgumentException("Name should be between 5 and 15 symbols.");
 
                 this.name = value;
             }

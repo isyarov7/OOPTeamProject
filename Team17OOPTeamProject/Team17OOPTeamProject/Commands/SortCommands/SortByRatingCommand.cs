@@ -17,28 +17,15 @@ namespace WIM.T17.Commands.SortCommands
 
         public override string Execute()
         {
-
-            List<IFeedback> ratingSort = new List<IFeedback>();
-            
-
-            var feedbackRating = this.Database.Feedbacks;
-
-            foreach (var feedback in feedbackRating)
-            {
-                ratingSort.Add(feedback);
-            }
-
-
-            ratingSort = ratingSort.OrderBy(x => x.Rating).ToList();
+            var feedbackRating = this.Database.Feedbacks.OrderBy(x => x.Rating).ToList();
 
             var sb = new StringBuilder();
             sb.AppendLine("***SORT BY RATING***");
-            foreach (var item in ratingSort)
+            foreach (var item in feedbackRating)
             {
-                sb.AppendLine(item.Rating.ToString());
+                sb.AppendLine($"{item.Title}: {item.Rating}");
             }
             return sb.ToString();
-
         }
     }
 }
