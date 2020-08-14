@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using T17.Models.Models.Contracts;
-using Team17OOPTeamProject;
-using Team17OOPTeamProject.Models;
 using Team17OOPTeamProject.Models.Contracts;
+using T17.Models.Models.Contracts;
 
 namespace T17.Models.Models
 {

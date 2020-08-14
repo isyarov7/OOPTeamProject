@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
-using T17.Models.Commands.Contracts;
 using T17.Models.Core.Contracts;
 
 namespace T17.Models.Core

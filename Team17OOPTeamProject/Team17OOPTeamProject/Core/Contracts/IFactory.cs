@@ -5,7 +5,6 @@ using T17.Models.Models;
 using T17.Models.Models.Contracts;
 using Team17OOPTeamProject;
 using Team17OOPTeamProject.Models;
-using Team17OOPTeamProject.Models.Contracts;
 using Team17OOPTeamProject.Models.Enums;
 
 namespace T17.Models.Core.Contracts
@@ -19,7 +18,7 @@ namespace T17.Models.Core.Contracts
 
         Board CreateBoard(string name);
 
-        Bug CreateBug(string title, string description, Priority priority, Severity severity, List<string> stepsToProduce);
+        Bug CreateBug(string title, string description, Priority priority, Severity severity, string stepsToProduce);
 
         Story CreateStory(string title, string description, Priority priority, Size size);
 

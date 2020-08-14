@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
-using T17.Models.Models;
-using T17.Models.Models.Contracts;
 using Team17OOPTeamProject.Models.Abstract;
 using Team17OOPTeamProject.Models.Contracts;
 using Team17OOPTeamProject.Models.Enums;
@@ -12,7 +9,7 @@ namespace Team17OOPTeamProject.Models
     public class Bug : WorkItem, IBug
     {
         //Constructor
-        public Bug(string title, string description, Priority priority, Severity severity, List<string> stepsToProduce)
+        public Bug(string title, string description, Priority priority, Severity severity, string stepsToProduce)
             : base(title, description)
         {
             this.BugStatus = BugStatus.Active;
@@ -24,7 +21,7 @@ namespace Team17OOPTeamProject.Models
         public Priority Priority { get; set; }
         public Severity Severity { get; set; }
         public BugStatus BugStatus { get; set; }
-        public List<string> StepsToProduce { get; set; }
+        public string StepsToProduce { get; set; }
         //Methods
         public override string PrintDetails()
         {

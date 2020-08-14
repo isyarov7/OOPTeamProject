@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using T17.Models.Commands.Abstracts;
-using Team17OOPTeamProject.Models.Contracts;
 
 namespace WIM.T17.Commands
 {

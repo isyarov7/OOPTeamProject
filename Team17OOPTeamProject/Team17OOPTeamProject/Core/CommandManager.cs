@@ -57,13 +57,7 @@ namespace T17.Models.Core
             "AssignWorkItemToPerson" => new AssignWorkItemToPersonCommand(commandParameters),
             "UnassingWorkItemFromPerson" => new UnassignWorkItemFromPersonCommand(commandParameters),
             "AddCommentToWorkItem" => new AddCommentToWorkItemCommand(commandParameters),
-            //TODO
-            //     List work items with options:
-
-            //o List all
-
-            //o Filter bugs/ stories / feedback only o Filter by status and/ or assignee o Sort by title / priority / severity / size / rating
-
+            //"SortByTitle" => new SortByTitleCommand(commandParameters),
                 _ => throw new InvalidOperationException("Command does not exist")
             };
     }

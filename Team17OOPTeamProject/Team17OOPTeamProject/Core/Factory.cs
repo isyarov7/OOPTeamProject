@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
 using T17.Models.Core.Contracts;
 using T17.Models.Models;
-using T17.Models.Models.Contracts;
 using Team17OOPTeamProject;
 using Team17OOPTeamProject.Models;
-using Team17OOPTeamProject.Models.Contracts;
 using Team17OOPTeamProject.Models.Enums;
 
 namespace T17.Models.Core
@@ -42,7 +39,7 @@ namespace T17.Models.Core
             Board board = new Board(name);
             return board;
         }
-        public Bug CreateBug(string title, string description, Priority priority, Severity severity, List<string> stepsToProduce)
+        public Bug CreateBug(string title, string description, Priority priority, Severity severity, string stepsToProduce)
         {
             Bug bug = new Bug(title, description, priority, severity, stepsToProduce);
             return bug;
