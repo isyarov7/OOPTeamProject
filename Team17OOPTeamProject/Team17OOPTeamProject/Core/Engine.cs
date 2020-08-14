@@ -29,7 +29,7 @@ namespace T17.Models.Core
 
         public void Run()
         {
-            Console.WriteLine("Split your parameters with ;");
+            Console.WriteLine("Please split your parameters with ;");
             while (true)
             {
                 // Read -> Process -> Print -> Repeat
