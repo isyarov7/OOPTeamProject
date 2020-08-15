@@ -20,6 +20,8 @@ namespace WIM.T17.Commands
             {
                 if (CommandParameters.Count < 2) 
                     throw new ArgumentException("You should have 2 parameters!");
+                if (CommandParameters.Count > 2)
+                    throw new ArgumentException("You should have 2 parameters!");
 
                 string bugName = this.CommandParameters[0];
                 var bug = this.Database.Bugs.Where(m => m.Title == bugName).FirstOrDefault();

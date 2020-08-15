@@ -17,9 +17,9 @@ namespace T17.Models.Commands
         {
             try
             {
-                if (CommandParameters.Count > 2)
+                if (CommandParameters.Count > 1)
                     throw new ArgumentException("You should have 1 parameter!");
-                if (CommandParameters.Count < 2)
+                if (CommandParameters.Count < 1)
                     throw new ArgumentException("You should have 1 parameter!");
 
                 string name = this.CommandParameters[0];

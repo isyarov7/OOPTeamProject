@@ -18,6 +18,8 @@ namespace WIM.T17.Commands.AddCommands
             {
                 if (CommandParameters.Count < 2)
                     throw new ArgumentException("You should have 2 parameters!");
+                if (CommandParameters.Count > 2)
+                    throw new ArgumentException("You should have 2 parameters!");
 
                 string storyName = this.CommandParameters[0];
                 var story = this.Database.Stories.Where(m => m.Title == storyName).FirstOrDefault();

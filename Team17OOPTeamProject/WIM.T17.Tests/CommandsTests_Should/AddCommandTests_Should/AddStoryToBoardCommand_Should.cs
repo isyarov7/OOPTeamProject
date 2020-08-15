@@ -2,25 +2,22 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using System.Threading.Tasks.Sources;
-using T17.Models.Core;
-using T17.Models.Core.Contracts;
 using T17.Models.Models;
 using T17.Models.Models.Contracts;
 using Team17OOPTeamProject.Models;
 using Team17OOPTeamProject.Models.Contracts;
 using Team17OOPTeamProject.Models.Enums;
 using WIM.T17.Commands;
+using WIM.T17.Commands.AddCommands;
 
 namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
 {
     [TestClass]
-    public class AddBugToBoardCommand_Should : BaseTestClass
+    public class AddStoryToBoardCommand_Should : BaseTestClass
     {
         [TestMethod]
-        public void AddsBugToBoardCommand_Should()
+        public void AddsStoryToBoardCommand_Should()
         {
             string teamName = "Tigrite";
             ITeam team = new Team(teamName);
@@ -28,32 +25,32 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
             string boardName = "Board";
             IBoard board = new Board(boardName);
 
-            string bugTitle = "MnogoLoshBug";
-            string description = "Bug description";
+            string storyTitle = "StoryTitle";
+            string description = "Story description";
             Priority priority = Priority.High;
-            Severity severity = Severity.Critical;
+            Size size = Size.Small;
             List<string> stepsToProduce = new List<string> { "Noting", "to", "produce." };
-            IBug bug = new Bug(bugTitle, description, priority, severity, stepsToProduce);
+            IStory story = new Story(storyTitle, description, priority, size);
 
             database.Teams.Add(team);
             database.Boards.Add(board);
             team.Boards.Add(board);
-            database.Bugs.Add(bug);
+            database.Stories.Add(story);
 
             List<string> parameters = new List<string>
             {
-                bugTitle,
+                storyTitle,
                 boardName
             };
 
-            AddBugToBoardCommand command = new AddBugToBoardCommand(parameters);
+            AddStoryToBoardCommand command = new AddStoryToBoardCommand(parameters);
             command.Execute();
-            Assert.IsTrue(board.WorkItems.Any(x => x.Title == bugTitle));
+            Assert.IsTrue(board.WorkItems.Any(x => x.Title == storyTitle));
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]   
-        public void ThrowExeptionWhenCommandParametersAreLessThanItShouldCorrectly()
+        [ExpectedException(typeof(ArgumentException))]
+        public void ThrowExeptionWhenCommandParametersAreLessThanItShould()
         {
             string teamName = "Tigrite";
             ITeam team = new Team(teamName);
@@ -61,26 +58,26 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
             string boardName = "Board";
             IBoard board = new Board(boardName);
 
-            string bugTitle = "MnogoLoshBug";
-            string description = "Bug description";
+            string storyTitle = "StoryTitle";
+            string description = "Story description";
             Priority priority = Priority.High;
-            Severity severity = Severity.Critical;
-            List<string> stepsToProduce = new List<string> { "Nothing" };
-            IBug bug = new Bug(bugTitle, description, priority, severity, stepsToProduce);
+            Size size = Size.Small;
+            List<string> stepsToProduce = new List<string> { "Noting", "to", "produce." };
+            IStory story = new Story(storyTitle, description, priority, size);
 
             database.Teams.Add(team);
             database.Boards.Add(board);
             team.Boards.Add(board);
-            database.Bugs.Add(bug);
+            database.Stories.Add(story);
 
             List<string> parameters = new List<string>
             {
-                bugTitle
+                storyTitle
             };
 
-            AddBugToBoardCommand command = new AddBugToBoardCommand(parameters);
+            AddStoryToBoardCommand command = new AddStoryToBoardCommand(parameters);
             command.Execute();
-            Assert.IsTrue(board.WorkItems.Any(x => x.Title == bugTitle));
+            Assert.IsTrue(board.WorkItems.Any(x => x.Title == storyTitle));
         }
 
         [TestMethod]
@@ -93,30 +90,28 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
             string boardName = "Board";
             IBoard board = new Board(boardName);
 
-            string bugTitle = "MnogoLoshBug";
-            string description = "Bug description";
+            string storyTitle = "StoryTitle";
+            string description = "Story description";
             Priority priority = Priority.High;
-            Severity severity = Severity.Critical;
-            List<string> stepsToProduce = new List<string> { "Nothing" };
-            IBug bug = new Bug(bugTitle, description, priority, severity, stepsToProduce);
+            Size size = Size.Small;
+            List<string> stepsToProduce = new List<string> { "Noting", "to", "produce." };
+            IStory story = new Story(storyTitle, description, priority, size);
 
             database.Teams.Add(team);
             database.Boards.Add(board);
             team.Boards.Add(board);
-            database.Bugs.Add(bug);
-
-            string thirdParameter = "ThirdParameter";
+            database.Stories.Add(story);
 
             List<string> parameters = new List<string>
             {
-                bugTitle,
+                storyTitle,
                 boardName,
-                thirdParameter
+                storyTitle
             };
 
-            AddBugToBoardCommand command = new AddBugToBoardCommand(parameters);
+            AddStoryToBoardCommand command = new AddStoryToBoardCommand(parameters);
             command.Execute();
-            Assert.IsTrue(board.WorkItems.Any(x => x.Title == bugTitle));
+            Assert.IsTrue(board.WorkItems.Any(x => x.Title == storyTitle));
         }
     }
 }

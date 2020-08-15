@@ -23,7 +23,7 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
             string description = "Bug description";
             Priority priority = Priority.High;
             Severity severity = Severity.Critical;
-            string stepsToProduce = "steps to produce";
+            List<string> stepsToProduce = new List<string> { "steps" };
             IBug bug = new Bug(bugTitle, description, priority, severity, stepsToProduce);
 
             database.Bugs.Add(bug);

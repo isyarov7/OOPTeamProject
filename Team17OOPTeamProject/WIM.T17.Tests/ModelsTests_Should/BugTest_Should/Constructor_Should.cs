@@ -1,6 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualBasic.CompilerServices;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Team17OOPTeamProject.Models;
 using Team17OOPTeamProject.Models.Enums;
@@ -18,18 +20,17 @@ namespace WIM.T17.Tests.BugTest_Should
             string description = "Very nice bug";
             Priority priority = Priority.High;
             Severity severity = Severity.Critical;
-            string stepsToProduce = "Bug steps to produce";
-            
+            List<string> stepsToProduce = new List<string> { "steps" };
 
             //Act
-            var bug = new Bug(title, description, priority, severity,stepsToProduce);
+            var bug = new Bug(title, description, priority, severity, stepsToProduce);
 
             //Assert
             Assert.AreEqual(bug.Title, "BugTitleShould");
             Assert.AreEqual(bug.Description, "Very nice bug");
             Assert.AreEqual(bug.Priority, Priority.High);
             Assert.AreEqual(bug.Severity, Severity.Critical);
-            Assert.AreEqual(bug.StepsToProduce, "Bug steps to produce");
+            Assert.AreEqual(bug.StepsToProduce[0], "steps");
             Assert.AreEqual(bug.BugStatus, BugStatus.Active);
         }
 
@@ -42,7 +43,7 @@ namespace WIM.T17.Tests.BugTest_Should
             string description = "Very nice story";
             Priority priority = Priority.High;
             Severity severity = Severity.Critical;
-            string stepsToProduce = "Bug steps to produce";
+            List<string> stepsToProduce = new List<string> { "steps" };
 
             //Act
             var bug = new Bug(title, description, priority, severity, stepsToProduce);
@@ -57,7 +58,7 @@ namespace WIM.T17.Tests.BugTest_Should
             string description = "Very nice story";
             Priority priority = Priority.High;
             Severity severity = Severity.Critical;
-            string stepsToProduce = "Bug steps to produce";
+            List<string> stepsToProduce = new List<string> { "steps" };
 
             //Act
             var bug = new Bug(title, description, priority, severity, stepsToProduce);
@@ -72,7 +73,7 @@ namespace WIM.T17.Tests.BugTest_Should
             string description = "Very nice bug";
             Priority priority = Priority.High;
             Severity severity = Severity.Critical;
-            string stepsToProduce = "Bug steps to produce";
+            List<string> stepsToProduce = new List<string> { "steps" };
 
             //Act
             var bug = new Bug(title, description, priority, severity, stepsToProduce);
@@ -86,7 +87,7 @@ namespace WIM.T17.Tests.BugTest_Should
             string description = "Very nice bug";
             Priority priority = Priority.High;
             Severity severity = Severity.Critical;
-            string stepsToProduce = "Bug steps to produce";
+            List<string> stepsToProduce = new List<string> { "steps" };
 
             //Act
             var bug = new Bug(title, description, priority, severity, stepsToProduce);
@@ -104,7 +105,7 @@ namespace WIM.T17.Tests.BugTest_Should
             string description = "Very";
             Priority priority = Priority.High;
             Severity severity = Severity.Critical;
-            string stepsToProduce = "Bug steps to produce";
+            List<string> stepsToProduce = new List<string> { "steps" };
 
             //Act
             var bug = new Bug(title, description, priority, severity, stepsToProduce);
@@ -125,7 +126,7 @@ namespace WIM.T17.Tests.BugTest_Should
                 "Very nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice story";
             Priority priority = Priority.High;
             Severity severity = Severity.Critical;
-            string stepsToProduce = "Bug steps to produce";
+            List<string> stepsToProduce = new List<string> { "steps" };
 
             //Act
             var bug = new Bug(title, description, priority, severity, stepsToProduce);

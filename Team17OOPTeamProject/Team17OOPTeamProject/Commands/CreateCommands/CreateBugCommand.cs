@@ -28,7 +28,7 @@ namespace T17.Models.Commands
             string description = this.CommandParameters[1];
             Enum.TryParse<Priority>(this.CommandParameters[2], true, out Priority priority);
             Enum.TryParse<Severity>(this.CommandParameters[3], true, out Severity severity);
-            string stepsToProduce = this.CommandParameters[4];
+            List<string> stepsToProduce = this.CommandParameters[4].Split(' ').ToList();
 
             var bug = this.Factory.CreateBug(title, description, priority, severity, stepsToProduce);
             this.Database.Bugs.Add(bug);
