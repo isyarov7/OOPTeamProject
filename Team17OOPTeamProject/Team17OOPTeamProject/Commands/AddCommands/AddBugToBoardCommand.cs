@@ -29,7 +29,7 @@ namespace WIM.T17.Commands
                 var board = this.Database.Boards.Where(t => t.Name == boardName).FirstOrDefault();
                 if (board == null)
                 {
-                    return "There is no such team!";
+                    return "There is no such board!";
                 }
 
                 board.WorkItems.Add(bug);

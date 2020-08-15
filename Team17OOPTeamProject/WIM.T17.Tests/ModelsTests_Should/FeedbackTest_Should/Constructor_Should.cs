@@ -2,10 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Team17OOPTeamProject.Models;
-using Team17OOPTeamProject.Models.Enums;
+using Team17OOPTeamProject;
 
-namespace WIM.T17.Tests.BugTest_Should
+namespace WIM.T17.Tests.FeedbackTest_Should
 {
     [TestClass]
     public class Constructor_Should
@@ -14,23 +13,18 @@ namespace WIM.T17.Tests.BugTest_Should
         public void PassValues_Should()
         {
             //Arrage
-            string title = "BugTitleShould";
-            string description = "Very nice bug";
-            Priority priority = Priority.High;
-            Severity severity = Severity.Critical;
-            string stepsToProduce = "Bug steps to produce";
-            
+            string title = "FeedbackTitleShould";
+            string description = "Very nice feedback";
+            int rating = 5;
+
 
             //Act
-            var bug = new Bug(title, description, priority, severity,stepsToProduce);
+            var feedback = new Feedback(title, description, rating);
 
             //Assert
-            Assert.AreEqual(bug.Title, "BugTitleShould");
-            Assert.AreEqual(bug.Description, "Very nice bug");
-            Assert.AreEqual(bug.Priority, Priority.High);
-            Assert.AreEqual(bug.Severity, Severity.Critical);
-            Assert.AreEqual(bug.StepsToProduce, "Bug steps to produce");
-            Assert.AreEqual(bug.BugStatus, BugStatus.Active);
+            Assert.AreEqual(feedback.Title, "FeedbackTitleShould");
+            Assert.AreEqual(feedback.Description, "Very nice feedback");
+            Assert.AreEqual(feedback.Rating, 5);
         }
 
         [TestMethod]
@@ -38,17 +32,13 @@ namespace WIM.T17.Tests.BugTest_Should
         public void ThrowWhenTitleIsShort_Should()
         {
             //Arrage
-            string title = "Bug";
-            string description = "Very nice story";
-            Priority priority = Priority.High;
-            Severity severity = Severity.Critical;
-            string stepsToProduce = "Bug steps to produce";
+            string title = "Fee";
+            string description = "Very nice feedback";
+            int rating = 5;
+
 
             //Act
-            var bug = new Bug(title, description, priority, severity, stepsToProduce);
-
-            //Assert
-            Assert.AreEqual(bug.Title, "Bug");
+            var feedback = new Feedback(title, description, rating);
         }
 
         [TestMethod]
@@ -57,13 +47,11 @@ namespace WIM.T17.Tests.BugTest_Should
         {
             //Arrage
             string title = "StoryTiStoryTitleIsOutOfRangeStoryTitleIsOutOfRangeStoryTitleIsOutOfRangetleIsOutOfRangeStoryTitleIsOutOfRangeStoryTitleIsOutOfRangeStoryTitleIsOutOfRangeStoryTitleIsOutOfRange";
-            string description = "Very nice story";
-            Priority priority = Priority.High;
-            Severity severity = Severity.Critical;
-            string stepsToProduce = "Bug steps to produce";
+            string description = "Very nice feedback";
+            int rating = 5;
 
             //Act
-            var bug = new Bug(title, description, priority, severity, stepsToProduce);
+            var feedback = new Feedback(title, description, rating);
         }
 
         [TestMethod]
@@ -72,33 +60,26 @@ namespace WIM.T17.Tests.BugTest_Should
         {
             //Arrage
             string title = null;
-            string description = "Very nice bug";
-            Priority priority = Priority.High;
-            Severity severity = Severity.Critical;
-            string stepsToProduce = "Bug steps to produce";
+            string description = "Very nice feedback";
+            int rating = 5;
 
             //Act
-            var bug = new Bug(title, description, priority, severity, stepsToProduce);
-
-            //Assert
-            Assert.AreEqual(bug.Title, null);
+            var feedback = new Feedback(title, description, rating);
         }
 
         [TestMethod]
         public void DescriptionPassValues_Should()
         {
             //Arrage
-            string title = "BugTitleShould";
-            string description = "Very nice bug";
-            Priority priority = Priority.High;
-            Severity severity = Severity.Critical;
-            string stepsToProduce = "Bug steps to produce";
+            string title = "FeedbackTitleShould";
+            string description = "Very nice feedback";
+            int rating = 5;
 
             //Act
-            var bug = new Bug(title, description, priority, severity, stepsToProduce);
+            var feedback = new Feedback(title, description, rating);
 
             //Assert         
-            Assert.AreEqual(bug.Description, "Very nice bug");
+            Assert.AreEqual(feedback.Description, "Very nice feedback");
         }
 
         [TestMethod]
@@ -106,14 +87,12 @@ namespace WIM.T17.Tests.BugTest_Should
         public void ThrowWhenDescriptionIsShort_Should()
         {
             //Arrage
-            string title = "StoryTitle";
+            string title = "FeedbackTitle";
             string description = "Very";
-            Priority priority = Priority.High;
-            Severity severity = Severity.Critical;
-            string stepsToProduce = "Bug steps to produce";
+            int rating = 5;
 
             //Act
-            var bug = new Bug(title, description, priority, severity, stepsToProduce);
+            var feedback = new Feedback(title, description, rating);
         }
 
         [TestMethod]
@@ -129,13 +108,51 @@ namespace WIM.T17.Tests.BugTest_Should
                 "Very nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice story" +
                 "Very nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice story" +
                 "Very nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice story";
-            Priority priority = Priority.High;
-            Severity severity = Severity.Critical;
-            string stepsToProduce = "Bug steps to produce";
+            int rating = 5;
 
             //Act
-            var bug = new Bug(title, description, priority, severity, stepsToProduce);
+            var feedback = new Feedback(title, description, rating);
+        }
+
+        [TestMethod]
+        public void RatingPassValues_Should()
+        {
+            //Arrage
+            string title = "FeedbackTitleShould";
+            string description = "Very nice feedback";
+            int rating = 5;
+
+            //Act
+            var feedback = new Feedback(title, description, rating);
+
+            //Assert         
+            Assert.AreEqual(feedback.Rating, 5);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void ThrowWhenRatingIsBiggerThanFive_Should()
+        {
+            //Arrage
+            string title = "FeedbackTitle";
+            string description = "Very nice feedback";
+            int rating = 6;
+
+            //Act
+            var feedback = new Feedback(title, description, rating);
+        }
+        
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void ThrowWhenRatingIsLessThanZero_Should()
+        {
+            //Arrage
+            string title = "FeedbackTitle";
+            string description = "Very nice feedback";
+            int rating = -1;
+
+            //Act
+            var feedback = new Feedback(title, description, rating);
         }
     }
 }
-
