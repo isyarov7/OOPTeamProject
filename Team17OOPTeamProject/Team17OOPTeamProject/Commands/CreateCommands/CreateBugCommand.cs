@@ -21,7 +21,6 @@ namespace T17.Models.Commands
 
         public override string Execute()
         {
-
             if (CommandParameters.Count < 5)
                 throw new ArgumentException("You have to submit 5 parameters!");
 

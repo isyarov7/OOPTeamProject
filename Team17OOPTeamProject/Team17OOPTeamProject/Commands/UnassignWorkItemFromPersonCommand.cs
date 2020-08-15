@@ -16,6 +16,9 @@ namespace WIM.T17.Commands
         {
             try
             {
+                if (CommandParameters.Count < 3)
+                    throw new ArgumentException("You should have 3 parameters!");
+
                 string workItemType = this.CommandParameters[0];
                 string currenteWorkItem = this.CommandParameters[1];
 

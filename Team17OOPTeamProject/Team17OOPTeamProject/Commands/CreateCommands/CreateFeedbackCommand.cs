@@ -17,7 +17,7 @@ namespace WIM.T17.Commands
         {
 
             if (CommandParameters.Count < 3)
-                throw new ArgumentException("You have to submit 4 parameters!");
+                throw new ArgumentException("You have to submit 3 parameters!");
 
             string title = this.CommandParameters[0];
             string description = this.CommandParameters[1];

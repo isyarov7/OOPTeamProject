@@ -18,6 +18,9 @@ namespace WIM.T17.Commands
         {
             try
             {
+                if (CommandParameters.Count < 1)
+                    throw new ArgumentException("You should have 1 parameters!");
+
                 string teamName = CommandParameters[0];
                 var team = this.Database.Teams.Where(x => x.Name == teamName).FirstOrDefault();
                 if (team == null)

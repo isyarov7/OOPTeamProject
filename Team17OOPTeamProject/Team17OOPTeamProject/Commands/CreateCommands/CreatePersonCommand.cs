@@ -17,6 +17,9 @@ namespace T17.Models.Commands
         {
             try
             {
+                if (CommandParameters.Count < 1)
+                    throw new ArgumentException("You should have 1 parameters!");
+
                 string name = this.CommandParameters[0];
 
                 IMember member = this.Factory.CreateMember(name);

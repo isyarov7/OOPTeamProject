@@ -14,6 +14,9 @@ namespace T17.Models.Commands
         }
         public override string Execute()
         {
+            if (CommandParameters.Count < 1)
+                throw new ArgumentException("You should have 1 parameters!");
+
             string memberName = CommandParameters[0];
             var member = this.Database.Members.Where(x => x.Name == memberName).FirstOrDefault();
             if (member == null)

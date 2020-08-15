@@ -17,7 +17,7 @@ using WIM.T17.Commands;
 namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
 {
     [TestClass]
-    public class AddCommand_Should : BaseTestClass
+    public class AddBugToBoardCommand_Should : BaseTestClass
     {
         [TestMethod]
         public void AddsBugToBoardCommand_Should()
@@ -44,6 +44,38 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
             {
                 bugTitle,
                 boardName
+            };
+
+            AddBugToBoardCommand command = new AddBugToBoardCommand(parameters);
+            command.Execute();
+            Assert.IsTrue(board.WorkItems.Any(x => x.Title == bugTitle));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]   
+        public void CommandParametersPassedIncorrectly_Should()
+        {
+            string teamName = "Tigrite";
+            ITeam team = new Team(teamName);
+
+            string boardName = "Board";
+            IBoard board = new Board(boardName);
+
+            string bugTitle = "MnogoLoshBug";
+            string description = "Bug description";
+            Priority priority = Priority.High;
+            Severity severity = Severity.Critical;
+            string stepsToProduce = "steps to produce";
+            IBug bug = new Bug(bugTitle, description, priority, severity, stepsToProduce);
+
+            database.Teams.Add(team);
+            database.Boards.Add(board);
+            team.Boards.Add(board);
+            database.Bugs.Add(bug);
+
+            List<string> parameters = new List<string>
+            {
+                bugTitle
             };
 
             AddBugToBoardCommand command = new AddBugToBoardCommand(parameters);

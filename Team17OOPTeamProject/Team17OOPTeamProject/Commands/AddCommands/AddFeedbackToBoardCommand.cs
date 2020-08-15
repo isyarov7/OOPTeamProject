@@ -17,6 +17,9 @@ namespace WIM.T17.Commands.AddCommands
         {
             try
             {
+                if (CommandParameters.Count < 2)
+                    throw new ArgumentException("You should have 2 parameters!");
+
                 string feedbackName = this.CommandParameters[0];
                 var feedback = this.Database.Feedbacks.Where(m => m.Title == feedbackName).FirstOrDefault();
                 if (feedback == null)

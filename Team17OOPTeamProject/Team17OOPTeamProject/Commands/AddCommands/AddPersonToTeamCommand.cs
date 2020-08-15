@@ -17,6 +17,9 @@ namespace T17.Models.Commands
         {
             try
             {
+                if (CommandParameters.Count < 2)
+                    throw new ArgumentException("You should have 2 parameters!");
+
                 string name = this.CommandParameters[0];
                 var member = this.Database.Members.Where(m => m.Name == name).FirstOrDefault();
                 if (member == null)
