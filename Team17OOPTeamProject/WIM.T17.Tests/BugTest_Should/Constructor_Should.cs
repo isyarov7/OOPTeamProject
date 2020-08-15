@@ -14,7 +14,7 @@ namespace WIM.T17.Tests.BugTest_Should
         public void PassValues_Should()
         {
             //Arrage
-            string title = "BugTitle";
+            string title = "BugTitleShould";
             string description = "Very nice bug";
             Priority priority = Priority.High;
             Severity severity = Severity.Critical;
@@ -25,7 +25,7 @@ namespace WIM.T17.Tests.BugTest_Should
             var bug = new Bug(title, description, priority, severity,stepsToProduce);
 
             //Assert
-            Assert.AreEqual(bug.Title, "BugTitle");
+            Assert.AreEqual(bug.Title, "BugTitleShould");
             Assert.AreEqual(bug.Description, "Very nice bug");
             Assert.AreEqual(bug.Priority, Priority.High);
             Assert.AreEqual(bug.Severity, Severity.Critical);
@@ -35,10 +35,10 @@ namespace WIM.T17.Tests.BugTest_Should
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-        public void ThrowWhenNameIsShorter_Should()
+        public void ThrowWhenTitleIsShort_Should()
         {
             //Arrage
-            string title = "Sto";
+            string title = "Bug";
             string description = "Very nice story";
             Priority priority = Priority.High;
             Severity severity = Severity.Critical;
@@ -48,12 +48,12 @@ namespace WIM.T17.Tests.BugTest_Should
             var bug = new Bug(title, description, priority, severity, stepsToProduce);
 
             //Assert
-            Assert.AreEqual(bug.Title, "Sto");
+            Assert.AreEqual(bug.Title, "Bug");
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-        public void ThrowWhenNameIsLonger_Should()
+        public void ThrowWhenTitleIsLonger_Should()
         {
             //Arrage
             string title = "StoryTiStoryTitleIsOutOfRangeStoryTitleIsOutOfRangeStoryTitleIsOutOfRangetleIsOutOfRangeStoryTitleIsOutOfRangeStoryTitleIsOutOfRangeStoryTitleIsOutOfRangeStoryTitleIsOutOfRange";
@@ -64,14 +64,11 @@ namespace WIM.T17.Tests.BugTest_Should
 
             //Act
             var bug = new Bug(title, description, priority, severity, stepsToProduce);
-
-            //Assert
-            Assert.AreEqual(bug.Title, "BugTitleIsOutOfRange");
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-        public void ThrowWhenNameIsNull_Should()
+        public void ThrowWhenTitleIsNull_Should()
         {
             //Arrage
             string title = null;
@@ -91,7 +88,7 @@ namespace WIM.T17.Tests.BugTest_Should
         public void DescriptionPassValues_Should()
         {
             //Arrage
-            string title = "BugTitle";
+            string title = "BugTitleShould";
             string description = "Very nice bug";
             Priority priority = Priority.High;
             Severity severity = Severity.Critical;
@@ -100,12 +97,8 @@ namespace WIM.T17.Tests.BugTest_Should
             //Act
             var bug = new Bug(title, description, priority, severity, stepsToProduce);
 
-            //Assert
-            Assert.AreEqual(bug.Title, "BugTitle");
+            //Assert         
             Assert.AreEqual(bug.Description, "Very nice bug");
-            Assert.AreEqual(bug.Priority, Priority.High);
-            Assert.AreEqual(bug.Severity, Severity.Critical);
-            Assert.AreEqual(bug.StepsToProduce, "Bug steps to produce");
         }
 
         [TestMethod]
@@ -121,9 +114,6 @@ namespace WIM.T17.Tests.BugTest_Should
 
             //Act
             var bug = new Bug(title, description, priority, severity, stepsToProduce);
-
-            //Assert
-            Assert.AreEqual(bug.Description, "Very");
         }
 
         [TestMethod]
@@ -145,9 +135,6 @@ namespace WIM.T17.Tests.BugTest_Should
 
             //Act
             var bug = new Bug(title, description, priority, severity, stepsToProduce);
-
-            //Assert
-            Assert.AreEqual(bug.Description, "BugDescriptionIsOutOfRange");
         }
     }
 }
