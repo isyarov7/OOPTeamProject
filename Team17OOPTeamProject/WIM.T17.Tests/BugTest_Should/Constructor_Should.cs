@@ -5,7 +5,7 @@ using System.Text;
 using Team17OOPTeamProject.Models;
 using Team17OOPTeamProject.Models.Enums;
 
-namespace WIM.T17.Tests.StoryTest_Should
+namespace WIM.T17.Tests.BugTest_Should
 {
     [TestClass]
     public class Constructor_Should
@@ -14,20 +14,23 @@ namespace WIM.T17.Tests.StoryTest_Should
         public void PassValues_Should()
         {
             //Arrage
-            string title = "StoryTitle";
-            string description = "Very nice story";
+            string title = "BugTitle";
+            string description = "Very nice bug";
             Priority priority = Priority.High;
-            Size size = Size.Large;
+            Severity severity = Severity.Critical;
+            string stepsToProduce = "Bug steps to produce";
+            
 
             //Act
-            var story = new Story(title, description, priority, size);
+            var bug = new Bug(title, description, priority, severity,stepsToProduce);
 
             //Assert
-            Assert.AreEqual(story.Title, "StoryTitle");
-            Assert.AreEqual(story.Description, "Very nice story");
-            Assert.AreEqual(story.Priority, Priority.High);
-            Assert.AreEqual(story.Size, Size.Large);
-            Assert.AreEqual(story.StoryStatus, StoryStatus.NotDone);
+            Assert.AreEqual(bug.Title, "BugTitle");
+            Assert.AreEqual(bug.Description, "Very nice bug");
+            Assert.AreEqual(bug.Priority, Priority.High);
+            Assert.AreEqual(bug.Severity, Severity.Critical);
+            Assert.AreEqual(bug.StepsToProduce, "Bug steps to produce");
+            Assert.AreEqual(bug.BugStatus, BugStatus.Active);
         }
 
         [TestMethod]
@@ -38,30 +41,32 @@ namespace WIM.T17.Tests.StoryTest_Should
             string title = "Sto";
             string description = "Very nice story";
             Priority priority = Priority.High;
-            Size size = Size.Large;
+            Severity severity = Severity.Critical;
+            string stepsToProduce = "Bug steps to produce";
 
             //Act
-            var story = new Story(title, description, priority, size);
+            var bug = new Bug(title, description, priority, severity, stepsToProduce);
 
             //Assert
-            Assert.AreEqual(story.Title, "Sto");
+            Assert.AreEqual(bug.Title, "Sto");
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void ThrowWhenNameIsLonger_Should()
-        { 
+        {
             //Arrage
             string title = "StoryTiStoryTitleIsOutOfRangeStoryTitleIsOutOfRangeStoryTitleIsOutOfRangetleIsOutOfRangeStoryTitleIsOutOfRangeStoryTitleIsOutOfRangeStoryTitleIsOutOfRangeStoryTitleIsOutOfRange";
             string description = "Very nice story";
             Priority priority = Priority.High;
-            Size size = Size.Large;
+            Severity severity = Severity.Critical;
+            string stepsToProduce = "Bug steps to produce";
 
             //Act
-            var story = new Story(title, description, priority, size);
+            var bug = new Bug(title, description, priority, severity, stepsToProduce);
 
             //Assert
-            Assert.AreEqual(story.Title, "StoryTitleIsOutOfRange");
+            Assert.AreEqual(bug.Title, "BugTitleIsOutOfRange");
         }
 
         [TestMethod]
@@ -70,35 +75,37 @@ namespace WIM.T17.Tests.StoryTest_Should
         {
             //Arrage
             string title = null;
-            string description = "Very nice story";
+            string description = "Very nice bug";
             Priority priority = Priority.High;
-            Size size = Size.Large;
+            Severity severity = Severity.Critical;
+            string stepsToProduce = "Bug steps to produce";
 
             //Act
-            var story = new Story(title, description, priority, size);
+            var bug = new Bug(title, description, priority, severity, stepsToProduce);
 
             //Assert
-            Assert.AreEqual(story.Title, null);
+            Assert.AreEqual(bug.Title, null);
         }
 
         [TestMethod]
         public void DescriptionPassValues_Should()
         {
             //Arrage
-            string title = "StoryTitle";
-            string description = "Very nice story";
+            string title = "BugTitle";
+            string description = "Very nice bug";
             Priority priority = Priority.High;
-            Size size = Size.Large;
+            Severity severity = Severity.Critical;
+            string stepsToProduce = "Bug steps to produce";
 
             //Act
-            var story = new Story(title, description, priority, size);
+            var bug = new Bug(title, description, priority, severity, stepsToProduce);
 
             //Assert
-            Assert.AreEqual(story.Title, "StoryTitle");
-            Assert.AreEqual(story.Description, "Very nice story");
-            Assert.AreEqual(story.Priority, Priority.High);
-            Assert.AreEqual(story.Size, Size.Large);
-            Assert.AreEqual(story.StoryStatus, StoryStatus.NotDone);
+            Assert.AreEqual(bug.Title, "BugTitle");
+            Assert.AreEqual(bug.Description, "Very nice bug");
+            Assert.AreEqual(bug.Priority, Priority.High);
+            Assert.AreEqual(bug.Severity, Severity.Critical);
+            Assert.AreEqual(bug.StepsToProduce, "Bug steps to produce");
         }
 
         [TestMethod]
@@ -109,13 +116,14 @@ namespace WIM.T17.Tests.StoryTest_Should
             string title = "StoryTitle";
             string description = "Very";
             Priority priority = Priority.High;
-            Size size = Size.Large;
+            Severity severity = Severity.Critical;
+            string stepsToProduce = "Bug steps to produce";
 
             //Act
-            var story = new Story(title, description, priority, size);
+            var bug = new Bug(title, description, priority, severity, stepsToProduce);
 
             //Assert
-            Assert.AreEqual(story.Description, "Very");
+            Assert.AreEqual(bug.Description, "Very");
         }
 
         [TestMethod]
@@ -123,7 +131,7 @@ namespace WIM.T17.Tests.StoryTest_Should
         public void ThrowWhenDescriptionIsLonge_Should()
         {
             //Arrage
-            string title = "StoryTitle";
+            string title = "BugTitle";
             string description = "Very nice storyVery nice storyVery nice storyVery nice storyVery nice story" +
                 "Very nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice story" +
                 "Very nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice story" +
@@ -132,10 +140,15 @@ namespace WIM.T17.Tests.StoryTest_Should
                 "Very nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice story" +
                 "Very nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice story";
             Priority priority = Priority.High;
-            Size size = Size.Large;
+            Severity severity = Severity.Critical;
+            string stepsToProduce = "Bug steps to produce";
 
             //Act
-            var story = new Story(title, description, priority, size);
+            var bug = new Bug(title, description, priority, severity, stepsToProduce);
+
+            //Assert
+            Assert.AreEqual(bug.Description, "BugDescriptionIsOutOfRange");
         }
     }
 }
+
