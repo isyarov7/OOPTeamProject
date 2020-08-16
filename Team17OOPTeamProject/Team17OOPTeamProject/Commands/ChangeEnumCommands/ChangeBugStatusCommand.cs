@@ -21,6 +21,8 @@ namespace WIM.T17.Commands
             {
                 if (CommandParameters.Count < 2)
                     throw new ArgumentException("You should have 2 parameters!");
+                if (CommandParameters.Count > 2)
+                    throw new ArgumentException("You should have 2 parameters!");
 
                 string bugName = this.CommandParameters[0];
                 var bug = this.Database.Bugs.Where(m => m.Title == bugName).FirstOrDefault();
@@ -30,11 +32,18 @@ namespace WIM.T17.Commands
                 }
 
                 Enum.TryParse<BugStatus>(this.CommandParameters[1], true, out BugStatus bugStatusType);
+                if (bugStatusType == BugStatus.Active || bugStatusType == BugStatus.Fixed)
+                {
+                    bug.BugStatus = bugStatusType;
+                }
+                else
+                {
+                    throw new ArgumentException("Please provide some of the following statuses: Active, Fixed");
+                }
 
-                bug.BugStatus = bugStatusType;
 
-                if(bug.BugStatus == BugStatus.Fixed)
-                {  
+                if (bug.BugStatus == BugStatus.Fixed)
+                {
                     bug.History.Add($"This bug {bug.Title} status is: {bugStatusType}!");
                     this.Database.Bugs.Remove(bug);
                     return $"This bug {bugName} was removed successfully ✅";

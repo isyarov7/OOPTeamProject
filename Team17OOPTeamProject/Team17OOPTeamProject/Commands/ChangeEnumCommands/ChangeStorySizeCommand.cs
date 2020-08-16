@@ -20,6 +20,8 @@ namespace WIM.T17.Commands
             {
                 if (CommandParameters.Count < 2)
                     throw new ArgumentException("You should have 2 parameters!");
+                if (CommandParameters.Count > 2)
+                    throw new ArgumentException("You should have 2 parameters!");
 
                 string storyName = this.CommandParameters[0];
                 var story = this.Database.Stories.Where(m => m.Title == storyName).FirstOrDefault();
@@ -29,8 +31,14 @@ namespace WIM.T17.Commands
                 }
 
                 Enum.TryParse<Size>(this.CommandParameters[1], true, out Size size);
-
-                story.Size = size;
+                if (size == Size.Large || size == Size.Medium || size == Size.Small)
+                {
+                    story.Size = size;
+                }
+                else
+                {
+                    throw new ArgumentException("Please provide some of the following sizes: Large, Medium, Small");
+                }
 
                 story.History.Add($"This story {story.Title} size was changed to: {story.Size}!");
 

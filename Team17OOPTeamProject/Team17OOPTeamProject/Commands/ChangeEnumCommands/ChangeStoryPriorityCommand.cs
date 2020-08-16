@@ -20,6 +20,8 @@ namespace WIM.T17.Commands
             {
                 if (CommandParameters.Count < 2)
                     throw new ArgumentException("You should have 2 parameters!");
+                if (CommandParameters.Count > 2)
+                    throw new ArgumentException("You should have 2 parameters!");
 
                 string storyName = this.CommandParameters[0];
                 var story = this.Database.Stories.Where(m => m.Title == storyName).FirstOrDefault();
@@ -29,8 +31,14 @@ namespace WIM.T17.Commands
                 }
 
                 Enum.TryParse<Priority>(this.CommandParameters[1], true, out Priority priorityType);
-
-                story.Priority = priorityType;
+                if (priorityType == Priority.High || priorityType == Priority.Low || priorityType == Priority.Medium)
+                {
+                    story.Priority = priorityType;
+                }
+                else
+                {
+                    throw new ArgumentException("Please provide some of the following priorities: High, Medium, Low");
+                }
 
                 story.History.Add($"This story {story.Title} priority was changed to: {story.Priority}!");
 

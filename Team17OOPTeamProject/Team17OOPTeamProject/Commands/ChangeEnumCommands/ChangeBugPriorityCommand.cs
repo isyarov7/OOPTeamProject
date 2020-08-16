@@ -21,6 +21,8 @@ namespace WIM.T17.Commands
             {
                 if (CommandParameters.Count < 2)
                     throw new ArgumentException("You should have 2 parameters!");
+                if (CommandParameters.Count > 2)
+                    throw new ArgumentException("You should have 2 parameters!");
 
                 string bugName = this.CommandParameters[0];
                 var bug = this.Database.Bugs.Where(m => m.Title == bugName).FirstOrDefault();
@@ -30,8 +32,14 @@ namespace WIM.T17.Commands
                 }
 
                 Enum.TryParse<Priority>(this.CommandParameters[1], true, out Priority priorityType);
-
-                bug.Priority = priorityType;
+                if (priorityType == Priority.High || priorityType == Priority.Low || priorityType == Priority.Medium)
+                {
+                    bug.Priority = priorityType;
+                }
+                else
+                {
+                    throw new ArgumentException("Please provide some of the following priorities: High, Medium, Low");
+                }
 
                 bug.History.Add($"This bug {bug.Title} priority was changed to: {bug.Priority}!");
 

@@ -20,6 +20,8 @@ namespace WIM.T17.Commands
             {
                 if (CommandParameters.Count < 2)
                     throw new ArgumentException("You should have 2 parameters!");
+                if (CommandParameters.Count > 2)
+                    throw new ArgumentException("You should have 2 parameters!");
 
                 string storyName = this.CommandParameters[0];
                 var story = this.Database.Stories.Where(m => m.Title == storyName).FirstOrDefault();
@@ -29,15 +31,21 @@ namespace WIM.T17.Commands
                 }
 
                 Enum.TryParse<StoryStatus>(this.CommandParameters[1], true, out StoryStatus status);
+                if (status == StoryStatus.Done || status == StoryStatus.InProgress || status == StoryStatus.NotDone)
+                {
+                    story.StoryStatus = status;
+                }
+                else
+                {
+                    throw new ArgumentException("Please provide some of the following statuses: NotDone, InProfress, Done.");
+                }
 
-                story.StoryStatus = status;
-
-                if(story.StoryStatus == StoryStatus.Done)
+                if (story.StoryStatus == StoryStatus.Done)
                 {
                     story.History.Add($"This story {story.Title} status is: {status} ✅");
                     this.Database.Stories.Remove(story);
                     return $"This story {storyName} was removed successfully ✅";
-                    
+
                 }
 
                 story.History.Add($"This story {story.Title} status was changed to: {story.StoryStatus}!");
