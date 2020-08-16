@@ -21,7 +21,7 @@ namespace WIM.T17.Commands
             }
 
             string workItemType = this.CommandParameters[0];
-            if (workItemType != "Bug" || workItemType != "Story")
+            if (workItemType != "Bug" && workItemType != "Story")
             {
                 throw new ArgumentException("Please provide one of the following work items: Bug, Story.");
             }
