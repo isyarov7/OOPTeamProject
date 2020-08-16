@@ -6,7 +6,7 @@ using T17.Models.Commands.Abstracts;
 
 namespace WIM.T17.Commands
 {
-    class CreateBoardInTeamCommand : Command
+    public class CreateBoardInTeamCommand : Command
     {
         public CreateBoardInTeamCommand(IList<string> commandParameters)
            : base(commandParameters)

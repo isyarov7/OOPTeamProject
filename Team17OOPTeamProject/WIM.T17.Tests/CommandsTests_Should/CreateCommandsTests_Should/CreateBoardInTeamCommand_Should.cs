@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using T17.Models.Models;
 using T17.Models.Models.Contracts;
-using T17.Models.Core;
+using WIM.T17.Commands;
 
 namespace WIM.T17.Tests.CommandsTests_Should.CreateCommandsTests_Should
 {
@@ -13,7 +13,7 @@ namespace WIM.T17.Tests.CommandsTests_Should.CreateCommandsTests_Should
     public class CreateBoardInTeamCommand_Should : BaseTestClass
     {
         [TestMethod]
-        public void CreateBoardInTeamCommand()
+        public void CreateBoardInTeamCommandShould()
         {
             string boardName = "BoardName";
             string teamName = "TeamName";
@@ -27,49 +27,49 @@ namespace WIM.T17.Tests.CommandsTests_Should.CreateCommandsTests_Should
                     boardName,
                     teamName
                 };
+
+
+            CreateBoardInTeamCommand command = new CreateBoardInTeamCommand(parameters);
+            command.Execute();
+            Assert.IsTrue(database.Teams.Any(x => x.Name == boardName));
         }
-     //
-     //       CreateBoardInTeamCommand command = new CreateBoardInTeamCommand(parameters);
-     //       command.Execute();
-     //       Assert.IsTrue(database.Teams.Any(x => x.Name == name));
-     //   }
-     //
-     //   [TestMethod]
-     //   [ExpectedException(typeof(ArgumentException))]
-     //   public void ThrowExeptionWhenCommandParametersAreLessThanItShouldCorrectly()
-     //   {
-     //       string name = "TeamName";
-     //       ITeam team = new Team(name);
-     //
-     //       database.Teams.Add(team);
-     //
-     //       List<string> parameters = new List<string>
-     //       {
-     //       };
-     //
-     //       CreateTeamCommand command = new CreateTeamCommand(parameters);
-     //       command.Execute();
-     //       Assert.IsTrue(database.Teams.Any(x => x.Name == name));
-     //   }
-     //
-     //   [TestMethod]
-     //   [ExpectedException(typeof(ArgumentException))]
-     //   public void ThrowExeptionWhenCommandParametersAreMoreThanItShouldCorrectly()
-     //   {
-     //       string name = "TeamName";
-     //       ITeam team = new Team(name);
-     //
-     //       database.Teams.Add(team);
-     //
-     //       List<string> parameters = new List<string>
-     //           {
-     //               name,
-     //               name
-     //           };
-     //
-     //       CreateTeamCommand command = new CreateTeamCommand(parameters);
-     //       command.Execute();
-     //       Assert.IsTrue(database.Teams.Any(x => x.Name == name));
-     //   }
+        //
+        //   [TestMethod]
+        //   [ExpectedException(typeof(ArgumentException))]
+        //   public void ThrowExeptionWhenCommandParametersAreLessThanItShouldCorrectly()
+        //   {
+        //       string name = "TeamName";
+        //       ITeam team = new Team(name);
+        //
+        //       database.Teams.Add(team);
+        //
+        //       List<string> parameters = new List<string>
+        //       {
+        //       };
+        //
+        //       CreateTeamCommand command = new CreateTeamCommand(parameters);
+        //       command.Execute();
+        //       Assert.IsTrue(database.Teams.Any(x => x.Name == name));
+        //   }
+        //
+        //   [TestMethod]
+        //   [ExpectedException(typeof(ArgumentException))]
+        //   public void ThrowExeptionWhenCommandParametersAreMoreThanItShouldCorrectly()
+        //   {
+        //       string name = "TeamName";
+        //       ITeam team = new Team(name);
+        //
+        //       database.Teams.Add(team);
+        //
+        //       List<string> parameters = new List<string>
+        //           {
+        //               name,
+        //               name
+        //           };
+        //
+        //       CreateTeamCommand command = new CreateTeamCommand(parameters);
+        //       command.Execute();
+        //       Assert.IsTrue(database.Teams.Any(x => x.Name == name));
+        //   }
     }
 }
