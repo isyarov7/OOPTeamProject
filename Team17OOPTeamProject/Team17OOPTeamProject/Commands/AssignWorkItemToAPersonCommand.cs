@@ -14,9 +14,7 @@ namespace WIM.T17.Commands
         }
         public override string Execute()
         {
-            try
-            {
-                if (CommandParameters.Count < 3)
+                if (CommandParameters.Count != 3)
                     throw new ArgumentException("You should have 3 parameters!");
 
                 string workItemType = this.CommandParameters[0];
@@ -43,11 +41,6 @@ namespace WIM.T17.Commands
                 {
                     return "There is no feedback with such name!";
                 }
-            }
-            catch
-            {
-                throw new ArgumentException("Failed to parse AssignWorkItemToPerson command parameters.");
-            }
         }
     }
 }
