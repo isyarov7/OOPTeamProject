@@ -16,7 +16,9 @@ namespace WIM.T17.Commands
         public override string Execute()
         {
                 if (CommandParameters.Count != 2)
+                {
                     throw new ArgumentException("You should have 2 parameters!");
+                }
 
                 string boardName = CommandParameters[0];
                 if (boardName.Length < 3)

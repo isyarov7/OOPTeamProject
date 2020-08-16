@@ -15,22 +15,21 @@ namespace T17.Models.Commands
         }
         public override string Execute()
         {
-            try
+            if (CommandParameters.Count != 2) 
             {
-                if (CommandParameters.Count < 2)
-                    throw new ArgumentException("You should have 2 parameters!");
-                if (CommandParameters.Count > 2)
-                    throw new ArgumentException("You should have 2 parameters!");
+                throw new ArgumentException("You should have 2 parameters!"); 
+            }
+                    
 
                 string name = this.CommandParameters[0];
-                var member = this.Database.Members.Where(m => m.Name == name).FirstOrDefault();
+            var member = this.Database.Members.FirstOrDefault(m => m.Name == name);
                 if (member == null)
                 {
                     return "There is no such member!";
                 }
 
                 string teamName = this.CommandParameters[1];
-                var team = this.Database.Teams.Where(t => t.Name == teamName).FirstOrDefault();
+                var team = this.Database.Teams.FirstOrDefault(t => t.Name == teamName);
                 if (team == null)
                 {
                     return "There is no such team!";
@@ -41,11 +40,6 @@ namespace T17.Models.Commands
                 member.History.Add($"Member: {name} was added to team: {teamName}!");
 
                 return $"Member: {name} was added to team: {teamName}!";
-            }
-            catch
-            {
-                throw new ArgumentException("Failed to parse CreateMember command parameters.");
-            }
         }
     }
 }

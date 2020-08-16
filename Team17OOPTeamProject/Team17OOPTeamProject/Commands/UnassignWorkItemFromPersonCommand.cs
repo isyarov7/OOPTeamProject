@@ -14,8 +14,10 @@ namespace WIM.T17.Commands
         }
         public override string Execute()
         {
-                if (CommandParameters.Count != 3)
-                    throw new ArgumentException("You should have 3 parameters!");
+            if (CommandParameters.Count != 3)
+            {
+                throw new ArgumentException("You should have 3 parameters!"); 
+            }
 
                 string workItemType = this.CommandParameters[0];
                 string currenteWorkItem = this.CommandParameters[1];

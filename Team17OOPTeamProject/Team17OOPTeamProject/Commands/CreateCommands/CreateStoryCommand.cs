@@ -18,7 +18,9 @@ namespace WIM.T17.Commands
         public override string Execute()
         {
             if (CommandParameters.Count != 2)
-                throw new ArgumentException("You have to submit 2 parameters!");
+            {
+                throw new ArgumentException("You have to submit 2 parameters!"); 
+            }
 
             string title = this.CommandParameters[0];
             string description = this.CommandParameters[1];         

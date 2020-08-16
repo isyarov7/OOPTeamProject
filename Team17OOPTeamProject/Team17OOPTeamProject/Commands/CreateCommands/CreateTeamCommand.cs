@@ -14,9 +14,11 @@ namespace T17.Models.Commands
         }
 
         public override string Execute()
-        {   
-                if (CommandParameters.Count != 1)
-                    throw new ArgumentException("You should have 1 parameter!");
+        {
+            if (CommandParameters.Count != 1)
+            {
+                throw new ArgumentException("You should have 1 parameter!"); 
+            }
 
                 string name = this.CommandParameters[0];
                 ITeam team = this.Factory.CreateTeam(name);

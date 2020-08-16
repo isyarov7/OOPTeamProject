@@ -16,22 +16,20 @@ namespace WIM.T17.Commands
         }
         public override string Execute()
         {
-            try
+            if (CommandParameters.Count != 2)
             {
-                if (CommandParameters.Count < 2) 
-                    throw new ArgumentException("You should have 2 parameters!");
-                if (CommandParameters.Count > 2)
-                    throw new ArgumentException("You should have 2 parameters!");
+                throw new ArgumentException("You should have 2 parameters!");
+            }
 
                 string bugName = this.CommandParameters[0];
-                var bug = this.Database.Bugs.Where(m => m.Title == bugName).FirstOrDefault();
+            var bug = this.Database.Bugs.FirstOrDefault(m => m.Title == bugName);
                 if (bug == null)
                 {
                     return "There is no such bug!";
                 }
 
                 string boardName = this.CommandParameters[1];
-                var board = this.Database.Boards.Where(t => t.Name == boardName).FirstOrDefault();
+            var board = this.Database.Boards.FirstOrDefault(t => t.Name == boardName);
                 if (board == null)
                 {
                     return "There is no such board!";
@@ -43,11 +41,6 @@ namespace WIM.T17.Commands
                 board.History.Add($"Bug: {bug.Title} was successfully added to board {board.Name}!");
 
                 return $"Bug: {bug.Title} successfully added to board: {board.Name}!";
-            }
-            catch
-            {
-                throw new ArgumentException("Failed to parse AddBugToBoard command parameters.");
-            }
         }
     }
 }

@@ -14,22 +14,20 @@ namespace WIM.T17.Commands.AddCommands
         }
         public override string Execute()
         {
-            try
+            if (CommandParameters.Count != 2)
             {
-                if (CommandParameters.Count < 2)
-                    throw new ArgumentException("You should have 2 parameters!");
-                if (CommandParameters.Count > 2)
-                    throw new ArgumentException("You should have 2 parameters!");
+                throw new ArgumentException("You should have 2 parameters!");
+            }
 
                 string storyName = this.CommandParameters[0];
-                var story = this.Database.Stories.Where(m => m.Title == storyName).FirstOrDefault();
+                var story = this.Database.Stories.FirstOrDefault(m => m.Title == storyName);
                 if (story == null)
                 {
                     return "There is no such story!";
                 }
 
                 string boardName = this.CommandParameters[1];
-                var board = this.Database.Boards.Where(t => t.Name == boardName).FirstOrDefault();
+                var board = this.Database.Boards.FirstOrDefault(t => t.Name == boardName);
                 if (board == null)
                 {
                     return "There is no such team!";
@@ -40,12 +38,6 @@ namespace WIM.T17.Commands.AddCommands
                 board.History.Add($"Story: {story.Title} was successfully added to board {board.Name}!");
 
                 return $"Story: {story.Title} successfully added to board: {board.Name}!";
-            }
-
-            catch
-            {
-                throw new ArgumentException("Failed to parse AddStoryToBoard command parameters.");
-            }
         }
     }
 }
