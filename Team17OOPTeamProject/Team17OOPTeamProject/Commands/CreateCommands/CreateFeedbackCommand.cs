@@ -16,7 +16,7 @@ namespace WIM.T17.Commands
         public override string Execute()
         {
 
-            if (CommandParameters.Count < 3)
+            if (CommandParameters.Count != 3)
                 throw new ArgumentException("You have to submit 3 parameters!");
 
             string title = this.CommandParameters[0];

@@ -15,9 +15,7 @@ namespace WIM.T17.Commands
 
         public override string Execute()
         {
-            try
-            {
-                if (CommandParameters.Count < 2)
+                if (CommandParameters.Count != 2)
                     throw new ArgumentException("You should have 2 parameters!");
 
                 string boardName = CommandParameters[0];
@@ -37,11 +35,6 @@ namespace WIM.T17.Commands
                 this.Database.Boards.Add(board);
 
                 return $"New board: {boardName} was successfully created!";
-            }
-            catch
-            {
-                throw new ArgumentException("Failed to parse CreateNewBoardInTeam command parameters.");
-            }
         }
     }
 }
