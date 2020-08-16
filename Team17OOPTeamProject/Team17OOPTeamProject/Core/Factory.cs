@@ -40,14 +40,14 @@ namespace T17.Models.Core
             Board board = new Board(name);
             return board;
         }
-        public Bug CreateBug(string title, string description, Priority priority, Severity severity, List<string> stepsToProduce)
+        public Bug CreateBug(string title, string description, List<string> stepsToProduce)
         {
-            Bug bug = new Bug(title, description, priority, severity, stepsToProduce);
+            Bug bug = new Bug(title, description,stepsToProduce);
             return bug;
         }
-        public Story CreateStory(string title, string description, Priority priority, Size size)
+        public Story CreateStory(string title, string description)
         {
-            Story story = new Story(title, description, priority, size);
+            Story story = new Story(title, description);
             return story;
         }
         public Feedback CreateFeedback(string title, string description, int rating)

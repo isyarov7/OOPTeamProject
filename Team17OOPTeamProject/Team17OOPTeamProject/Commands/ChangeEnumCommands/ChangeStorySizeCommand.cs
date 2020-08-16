@@ -16,38 +16,28 @@ namespace WIM.T17.Commands
 
         public override string Execute()
         {
-            try
+            if (CommandParameters.Count != 2)
             {
-                if (CommandParameters.Count < 2)
-                    throw new ArgumentException("You should have 2 parameters!");
-                if (CommandParameters.Count > 2)
-                    throw new ArgumentException("You should have 2 parameters!");
-
-                string storyName = this.CommandParameters[0];
-                var story = this.Database.Stories.Where(m => m.Title == storyName).FirstOrDefault();
-                if (story == null)
-                {
-                    return "There is no such a story!";
-                }
-
-                Enum.TryParse<Size>(this.CommandParameters[1], true, out Size size);
-                if (size == Size.Large || size == Size.Medium || size == Size.Small)
-                {
-                    story.Size = size;
-                }
-                else
-                {
-                    throw new ArgumentException("Please provide some of the following sizes: Large, Medium, Small");
-                }
-
-                story.History.Add($"This story {story.Title} size was changed to: {story.Size}!");
-
-                return $"This story {story.Title} size was changed to:{story.Size}!";
+                throw new ArgumentException("You should have 2 parameters!");
             }
-            catch
+
+            string storyName = this.CommandParameters[0];
+            var story = this.Database.Stories.FirstOrDefault(m => m.Title == storyName);
+            if (story == null)
             {
-                throw new ArgumentException("Failed to parse ChangeStorySize command parameters.");
+                return "There is no such a story!";
             }
+
+            if (!Enum.TryParse<Size>(this.CommandParameters[1], true, out Size size))
+            {
+                throw new ArgumentException("Please provide some of the following sizes: Large, Medium, Small");
+            }
+
+            story.Size = size;
+
+            story.History.Add($"This story {story.Title} size was changed to: {story.Size}!");
+
+            return $"This story {story.Title} size was changed to:{story.Size}!";
         }
     }
 }

@@ -18,12 +18,10 @@ namespace WIM.T17.Tests.BugTest_Should
             //Arrage
             string title = "BugTitleShould";
             string description = "Very nice bug";
-            Priority priority = Priority.High;
-            Severity severity = Severity.Critical;
             List<string> stepsToProduce = new List<string> { "steps" };
 
             //Act
-            var bug = new Bug(title, description, priority, severity, stepsToProduce);
+            var bug = new Bug(title, description, stepsToProduce);
 
             //Assert
             Assert.AreEqual(bug.Title, "BugTitleShould");
@@ -41,12 +39,10 @@ namespace WIM.T17.Tests.BugTest_Should
             //Arrage
             string title = "Bug";
             string description = "Very nice story";
-            Priority priority = Priority.High;
-            Severity severity = Severity.Critical;
             List<string> stepsToProduce = new List<string> { "steps" };
 
             //Act
-            var bug = new Bug(title, description, priority, severity, stepsToProduce);
+            var bug = new Bug(title, description, stepsToProduce);
         }
 
         [TestMethod]
@@ -56,12 +52,10 @@ namespace WIM.T17.Tests.BugTest_Should
             //Arrage
             string title = "StoryTiStoryTitleIsOutOfRangeStoryTitleIsOutOfRangeStoryTitleIsOutOfRangetleIsOutOfRangeStoryTitleIsOutOfRangeStoryTitleIsOutOfRangeStoryTitleIsOutOfRangeStoryTitleIsOutOfRange";
             string description = "Very nice story";
-            Priority priority = Priority.High;
-            Severity severity = Severity.Critical;
             List<string> stepsToProduce = new List<string> { "steps" };
 
             //Act
-            var bug = new Bug(title, description, priority, severity, stepsToProduce);
+            var bug = new Bug(title, description, stepsToProduce);
         }
 
         [TestMethod]
@@ -71,12 +65,10 @@ namespace WIM.T17.Tests.BugTest_Should
             //Arrage
             string title = null;
             string description = "Very nice bug";
-            Priority priority = Priority.High;
-            Severity severity = Severity.Critical;
             List<string> stepsToProduce = new List<string> { "steps" };
 
             //Act
-            var bug = new Bug(title, description, priority, severity, stepsToProduce);
+            var bug = new Bug(title, description, stepsToProduce);
         }
 
         [TestMethod]
@@ -85,12 +77,10 @@ namespace WIM.T17.Tests.BugTest_Should
             //Arrage
             string title = "BugTitleShould";
             string description = "Very nice bug";
-            Priority priority = Priority.High;
-            Severity severity = Severity.Critical;
             List<string> stepsToProduce = new List<string> { "steps" };
 
             //Act
-            var bug = new Bug(title, description, priority, severity, stepsToProduce);
+            var bug = new Bug(title, description, stepsToProduce);
 
             //Assert         
             Assert.AreEqual(bug.Description, "Very nice bug");
@@ -103,12 +93,10 @@ namespace WIM.T17.Tests.BugTest_Should
             //Arrage
             string title = "StoryTitle";
             string description = "Very";
-            Priority priority = Priority.High;
-            Severity severity = Severity.Critical;
             List<string> stepsToProduce = new List<string> { "steps" };
 
             //Act
-            var bug = new Bug(title, description, priority, severity, stepsToProduce);
+            var bug = new Bug(title, description, stepsToProduce);
         }
 
         [TestMethod]
@@ -124,12 +112,10 @@ namespace WIM.T17.Tests.BugTest_Should
                 "Very nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice story" +
                 "Very nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice story" +
                 "Very nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice story";
-            Priority priority = Priority.High;
-            Severity severity = Severity.Critical;
             List<string> stepsToProduce = new List<string> { "steps" };
 
             //Act
-            var bug = new Bug(title, description, priority, severity, stepsToProduce);
+            var bug = new Bug(title, description, stepsToProduce);
         }
     }
 }

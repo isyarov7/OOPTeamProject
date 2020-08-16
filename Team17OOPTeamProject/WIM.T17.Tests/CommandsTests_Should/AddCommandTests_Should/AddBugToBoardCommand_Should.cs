@@ -30,10 +30,8 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
 
             string bugTitle = "MnogoLoshBug";
             string description = "Bug description";
-            Priority priority = Priority.High;
-            Severity severity = Severity.Critical;
             List<string> stepsToProduce = new List<string> { "Noting", "to", "produce." };
-            IBug bug = new Bug(bugTitle, description, priority, severity, stepsToProduce);
+            IBug bug = new Bug(bugTitle, description, stepsToProduce);
 
             database.Teams.Add(team);
             database.Boards.Add(board);
@@ -63,10 +61,8 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
 
             string bugTitle = "MnogoLoshBug";
             string description = "Bug description";
-            Priority priority = Priority.High;
-            Severity severity = Severity.Critical;
             List<string> stepsToProduce = new List<string> { "Nothing" };
-            IBug bug = new Bug(bugTitle, description, priority, severity, stepsToProduce);
+            IBug bug = new Bug(bugTitle, description, stepsToProduce);
 
             database.Teams.Add(team);
             database.Boards.Add(board);
@@ -95,10 +91,8 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
 
             string bugTitle = "MnogoLoshBug";
             string description = "Bug description";
-            Priority priority = Priority.High;
-            Severity severity = Severity.Critical;
             List<string> stepsToProduce = new List<string> { "Nothing" };
-            IBug bug = new Bug(bugTitle, description, priority, severity, stepsToProduce);
+            IBug bug = new Bug(bugTitle, description, stepsToProduce);
 
             database.Teams.Add(team);
             database.Boards.Add(board);

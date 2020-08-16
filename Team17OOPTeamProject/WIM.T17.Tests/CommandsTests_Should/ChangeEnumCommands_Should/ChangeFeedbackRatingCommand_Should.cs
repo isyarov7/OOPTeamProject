@@ -13,29 +13,29 @@ namespace WIM.T17.Tests.CommandsTests_Should.ChangeEnumCommands_Should
     [TestClass]
     public class ChangeFeedbackRatingCommand_Should : BaseTestClass
     {
-        //[TestMethod]
-        //public void ValidChangeFeedbackRating_Should()
-        //{
-        //    string feedbackTitle = "feedbackTitle";
-        //    string description = "Feedback description";
-        //    int rating = 4;
-        //    IFeedback feedback = new Feedback(feedbackTitle, description, rating);
+        [TestMethod]
+        public void ValidChangeFeedbackRating_Should()
+        {
+            string feedbackTitle = "feedbackTitle";
+            string description = "Feedback description";
+            int rating = 4;
+            IFeedback feedback = new Feedback(feedbackTitle, description, rating);
 
 
-        //    database.Feedbacks.Add(feedback);
+            database.Feedbacks.Add(feedback);
 
-        //    int newRating = 3;
+            string newRating = "3";
 
-        //    List<object> parameters = new List<object>
-        //    {
-        //       feedbackTitle,
-        //       newRating
-        //    };
+            List<string> parameters = new List<string>
+            {
+               feedbackTitle,
+               newRating
+            };
 
-        //   // ChangeFeedbackRatingCommand command = new ChangeFeedbackRatingCommand(parameters);
-        //    command.Execute();
-        //    Assert.IsTrue(feedback.Rating.Equals(newRating));
-        //}
+            ChangeFeedbackRatingCommand command = new ChangeFeedbackRatingCommand(parameters);
+            command.Execute();
+            Assert.IsTrue(feedback.Rating.Equals(int.Parse(newRating)));
+        }
         //[TestMethod]
         //[ExpectedException(typeof(ArgumentException))]
         //public void ChangeBugInvalidParameters_Should()

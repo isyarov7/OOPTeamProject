@@ -8,12 +8,12 @@ namespace Team17OOPTeamProject.Models
 {
     public class Story : WorkItem, IStory
     {
-        public Story(string title, string description, Priority priority, Size size)
+        public Story(string title, string description)
            : base(title, description)
         {
             this.StoryStatus = StoryStatus.NotDone;
-            this.Size = size;
-            this.Priority = priority;           
+            this.Priority = Priority.High;
+            this.Size = Size.Large;     
         }
 
         //Properties

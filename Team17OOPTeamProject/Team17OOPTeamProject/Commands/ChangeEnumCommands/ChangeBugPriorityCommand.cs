@@ -17,38 +17,28 @@ namespace WIM.T17.Commands
 
         public override string Execute()
         {
-            try
+            if (CommandParameters.Count != 2)
             {
-                if (CommandParameters.Count < 2)
-                    throw new ArgumentException("You should have 2 parameters!");
-                if (CommandParameters.Count > 2)
-                    throw new ArgumentException("You should have 2 parameters!");
-
-                string bugName = this.CommandParameters[0];
-                var bug = this.Database.Bugs.Where(m => m.Title == bugName).FirstOrDefault();
-                if (bug == null)
-                {
-                    return "There is no such a bug!";
-                }
-
-                Enum.TryParse<Priority>(this.CommandParameters[1], true, out Priority priorityType);
-                if (priorityType == Priority.High || priorityType == Priority.Low || priorityType == Priority.Medium)
-                {
-                    bug.Priority = priorityType;
-                }
-                else
-                {
-                    throw new ArgumentException("Please provide some of the following priorities: High, Medium, Low");
-                }
-
-                bug.History.Add($"This bug {bug.Title} priority was changed to: {bug.Priority}!");
-
-                return $"This bug {bug.Title} priority was changed to: {bug.Priority}!";
+                throw new ArgumentException("You should have 2 parameters!");
             }
-            catch
+
+            string bugName = this.CommandParameters[0];
+            var bug = this.Database.Bugs.FirstOrDefault(m => m.Title == bugName);
+            if (bug == null)
             {
-                throw new ArgumentException("Failed to parse ChangeBugPriority command parameters.");
+                return "There is no such a bug!";
             }
+
+
+            if (!Enum.TryParse<Priority>(this.CommandParameters[1], true, out Priority priorityType))
+            {
+                throw new ArgumentException("Please provide some of the following priorities: High, Medium, Low");
+            }
+
+            bug.Priority = priorityType;
+            bug.History.Add($"This bug {bug.Title} priority was changed to: {bug.Priority}!");
+
+            return $"This bug {bug.Title} priority was changed to: {bug.Priority}!";
         }
     }
 }

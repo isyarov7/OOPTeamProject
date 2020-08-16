@@ -30,7 +30,7 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
             Priority priority = Priority.High;
             Size size = Size.Small;
             List<string> stepsToProduce = new List<string> { "Noting", "to", "produce." };
-            IStory story = new Story(storyTitle, description, priority, size);
+            IStory story = new Story(storyTitle, description);
 
             database.Teams.Add(team);
             database.Boards.Add(board);
@@ -63,7 +63,7 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
             Priority priority = Priority.High;
             Size size = Size.Small;
             List<string> stepsToProduce = new List<string> { "Noting", "to", "produce." };
-            IStory story = new Story(storyTitle, description, priority, size);
+            IStory story = new Story(storyTitle, description);
 
             database.Teams.Add(team);
             database.Boards.Add(board);
@@ -95,7 +95,7 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
             Priority priority = Priority.High;
             Size size = Size.Small;
             List<string> stepsToProduce = new List<string> { "Noting", "to", "produce." };
-            IStory story = new Story(storyTitle, description, priority, size);
+            IStory story = new Story(storyTitle, description);
 
             database.Teams.Add(team);
             database.Boards.Add(board);

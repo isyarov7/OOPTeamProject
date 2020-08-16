@@ -16,10 +16,8 @@ namespace WIM.T17.Tests.CommandsTests_Should.ChangeEnumCommands_Should
         {
             string bugName = "BugNameShould";
             string description = "MegaBadBug";
-            Priority priority = Priority.High;
-            Severity severity = Severity.Critical;
             List<string> stepsToProduce = new List<string> { "steps" };
-            var bug = new Bug(bugName, description, priority, severity, stepsToProduce);
+            var bug = new Bug(bugName, description, stepsToProduce);
 
             database.Bugs.Add(bug);
 
@@ -57,10 +55,8 @@ namespace WIM.T17.Tests.CommandsTests_Should.ChangeEnumCommands_Should
         {
             string bugName = null;
             string description = "MegaBadBug";
-            Priority priority = Priority.High;
-            Severity severity = Severity.Critical;
             List<string> stepsToProduce = new List<string> { "steps" };
-            var bug = new Bug(bugName, description, priority, severity, stepsToProduce);
+            var bug = new Bug(bugName, description, stepsToProduce);
 
             database.Bugs.Add(bug);
 
@@ -82,10 +78,8 @@ namespace WIM.T17.Tests.CommandsTests_Should.ChangeEnumCommands_Should
         {
             string bugName = "BugNameShould";
             string description = "MegaBadBug";
-            Priority priority = Priority.High;
-            Severity severity = Severity.Critical;
             List<string> stepsToProduce = new List<string> { "steps" };
-            var bug = new Bug(bugName, description, priority, severity, stepsToProduce);
+            var bug = new Bug(bugName, description, stepsToProduce);
 
             database.Bugs.Add(bug);
 
@@ -107,10 +101,8 @@ namespace WIM.T17.Tests.CommandsTests_Should.ChangeEnumCommands_Should
         {
             string bugName = "BugNameShould";
             string description = "MegaBadBug";
-            Priority priority = Priority.High;
-            Severity severity = Severity.Critical;
             List<string> stepsToProduce = new List<string> { "steps" };
-            var bug = new Bug(bugName, description, priority, severity, stepsToProduce);
+            var bug = new Bug(bugName, description, stepsToProduce);
 
             database.Bugs.Add(bug);
 
@@ -132,10 +124,8 @@ namespace WIM.T17.Tests.CommandsTests_Should.ChangeEnumCommands_Should
         {
             string bugName = "BugNameShould";
             string description = "MegaBadBug";
-            Priority priority = Priority.High;
-            Severity severity = Severity.Critical;
             List<string> stepsToProduce = new List<string> { "steps" };
-            var bug = new Bug(bugName, description, priority, severity, stepsToProduce);
+            var bug = new Bug(bugName, description, stepsToProduce);
 
             database.Bugs.Add(bug);
 
@@ -155,9 +145,8 @@ namespace WIM.T17.Tests.CommandsTests_Should.ChangeEnumCommands_Should
             string bugName = "BugNameShould";
             string description = "MegaBadBug";
             Priority priority = Priority.High;
-            Severity severity = Severity.Critical;
             List<string> stepsToProduce = new List<string> { "steps" };
-            var bug = new Bug(bugName, description, priority, severity, stepsToProduce);
+            var bug = new Bug(bugName, description, stepsToProduce);
 
             database.Bugs.Add(bug);
 

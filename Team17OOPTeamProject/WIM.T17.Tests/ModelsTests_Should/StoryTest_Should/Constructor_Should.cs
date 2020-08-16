@@ -16,11 +16,9 @@ namespace WIM.T17.Tests.StoryTest_Should
             //Arrage
             string title = "StoryTitle";
             string description = "Very nice story";
-            Priority priority = Priority.High;
-            Size size = Size.Large;
 
             //Act
-            var story = new Story(title, description, priority, size);
+            var story = new Story(title, description);
 
             //Assert
             Assert.AreEqual(story.Title, "StoryTitle");
@@ -37,11 +35,9 @@ namespace WIM.T17.Tests.StoryTest_Should
             //Arrage
             string title = "Sto";
             string description = "Very nice story";
-            Priority priority = Priority.High;
-            Size size = Size.Large;
 
             //Act
-            var story = new Story(title, description, priority, size);
+            var story = new Story(title, description);
         }
 
         [TestMethod]
@@ -51,11 +47,9 @@ namespace WIM.T17.Tests.StoryTest_Should
             //Arrage
             string title = "StoryTiStoryTitleIsOutOfRangeStoryTitleIsOutOfRangeStoryTitleIsOutOfRangetleIsOutOfRangeStoryTitleIsOutOfRangeStoryTitleIsOutOfRangeStoryTitleIsOutOfRangeStoryTitleIsOutOfRange";
             string description = "Very nice story";
-            Priority priority = Priority.High;
-            Size size = Size.Large;
 
             //Act
-            var story = new Story(title, description, priority, size);
+            var story = new Story(title, description);
         }
 
         [TestMethod]
@@ -65,11 +59,9 @@ namespace WIM.T17.Tests.StoryTest_Should
             //Arrage
             string title = null;
             string description = "Very nice story";
-            Priority priority = Priority.High;
-            Size size = Size.Large;
 
             //Act
-            var story = new Story(title, description, priority, size);
+            var story = new Story(title, description);
         }
 
         [TestMethod]
@@ -78,11 +70,9 @@ namespace WIM.T17.Tests.StoryTest_Should
             //Arrage
             string title = "StoryTitle";
             string description = "Very nice story";
-            Priority priority = Priority.High;
-            Size size = Size.Large;
 
             //Act
-            var story = new Story(title, description, priority, size);
+            var story = new Story(title, description);
 
             //Assert
             Assert.AreEqual(story.Title, "StoryTitle");
@@ -99,11 +89,10 @@ namespace WIM.T17.Tests.StoryTest_Should
             //Arrage
             string title = "StoryTitle";
             string description = "Very";
-            Priority priority = Priority.High;
-            Size size = Size.Large;
+
 
             //Act
-            var story = new Story(title, description, priority, size);
+            var story = new Story(title, description);
         }
 
         [TestMethod]
@@ -119,11 +108,9 @@ namespace WIM.T17.Tests.StoryTest_Should
                 "Very nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice story" +
                 "Very nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice story" +
                 "Very nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice storyVery nice story";
-            Priority priority = Priority.High;
-            Size size = Size.Large;
 
             //Act
-            var story = new Story(title, description, priority, size);
+            var story = new Story(title, description);
         }
     }
 }

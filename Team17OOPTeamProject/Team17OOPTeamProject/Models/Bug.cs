@@ -10,13 +10,13 @@ namespace Team17OOPTeamProject.Models
     public class Bug : WorkItem, IBug
     {
         //Constructor
-        public Bug(string title, string description, Priority priority, Severity severity, List<string> stepsToProduce)
+        public Bug(string title, string description, List<string> stepsToProduce)
             : base(title, description)
         {
             this.BugStatus = BugStatus.Active;
+            this.Priority = Priority.High;
+            this.Severity = Severity.Critical;
             this.StepsToProduce = stepsToProduce;
-            this.Priority = priority;
-            this.Severity = severity;
         }
         //Properties
         public Priority Priority { get; set; }

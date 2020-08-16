@@ -16,46 +16,36 @@ namespace WIM.T17.Commands
 
         public override string Execute()
         {
-            try
+            if (CommandParameters.Count != 2)
             {
-                if (CommandParameters.Count < 2)
-                    throw new ArgumentException("You should have 2 parameters!");
-                if (CommandParameters.Count > 2)
-                    throw new ArgumentException("You should have 2 parameters!");
-
-                string storyName = this.CommandParameters[0];
-                var story = this.Database.Stories.Where(m => m.Title == storyName).FirstOrDefault();
-                if (story == null)
-                {
-                    return "There is no such a story!";
-                }
-
-                Enum.TryParse<StoryStatus>(this.CommandParameters[1], true, out StoryStatus status);
-                if (status == StoryStatus.Done || status == StoryStatus.InProgress || status == StoryStatus.NotDone)
-                {
-                    story.StoryStatus = status;
-                }
-                else
-                {
-                    throw new ArgumentException("Please provide some of the following statuses: NotDone, InProfress, Done.");
-                }
-
-                if (story.StoryStatus == StoryStatus.Done)
-                {
-                    story.History.Add($"This story {story.Title} status is: {status} ✅");
-                    this.Database.Stories.Remove(story);
-                    return $"This story {storyName} was removed successfully ✅";
-
-                }
-
-                story.History.Add($"This story {story.Title} status was changed to: {story.StoryStatus}!");
-
-                return $"This story {story.Title} status was changed to:{story.StoryStatus}!";
+                throw new ArgumentException("You should have 2 parameters!");
             }
-            catch
+
+            string storyName = this.CommandParameters[0];
+            var story = this.Database.Stories.FirstOrDefault(m => m.Title == storyName);
+            if (story == null)
             {
-                throw new ArgumentException("Failed to parse ChangeStoryStatus command parameters.");
+                return "There is no such a story!";
             }
+
+            if (!Enum.TryParse<StoryStatus>(this.CommandParameters[1], true, out StoryStatus status))
+            {
+                throw new ArgumentException("Please provide some of the following statuses: NotDone, InProfress, Done.");
+            }
+
+            story.StoryStatus = status;
+
+            if (story.StoryStatus == StoryStatus.Done)
+            {
+                story.History.Add($"This story {story.Title} status is: {status} ✅");
+                this.Database.Stories.Remove(story);
+                return $"This story {storyName} was removed successfully ✅";
+
+            }
+
+            story.History.Add($"This story {story.Title} status was changed to: {story.StoryStatus}!");
+
+            return $"This story {story.Title} status was changed to:{story.StoryStatus}!";
         }
     }
 }

@@ -14,12 +14,11 @@ namespace WIM.T17.Tests.CommandsTests_Should.ChangeEnumCommands_Should
         [TestMethod]
         public void ValidChangeStoryPriority_Should()
         {
+            //Default Priority: High
             string storyName = "StoryNameShould";
             string description = "MegaBadStory";
-            Priority priority = Priority.High;
-            Size size = Size.Large;
             List<string> stepsToProduce = new List<string> { "steps" };
-            var story = new Story(storyName, description, priority, size);
+            var story = new Story(storyName, description);
 
             database.Stories.Add(story);
 
@@ -33,7 +32,7 @@ namespace WIM.T17.Tests.CommandsTests_Should.ChangeEnumCommands_Should
 
             ChangeStoryPriorityCommand command = new ChangeStoryPriorityCommand(parameters);
             command.Execute();
-            Assert.AreEqual(story.Priority, newPriority);
+            Assert.AreEqual(story.Priority, Priority.Low);
         }
 
         [TestMethod]
@@ -57,12 +56,11 @@ namespace WIM.T17.Tests.CommandsTests_Should.ChangeEnumCommands_Should
         {
             string storyName = null;
             string description = "MegaBadStory";
-            Priority priority = Priority.High;
-            Size size = Size.Large;
             List<string> stepsToProduce = new List<string> { "steps" };
-            var story = new Story(storyName, description, priority, size);
+            var story = new Story(storyName, description);
 
             database.Stories.Add(story);
+            Priority priority = Priority.High;
 
             List<string> parameters = new List<string>
             {
@@ -80,10 +78,8 @@ namespace WIM.T17.Tests.CommandsTests_Should.ChangeEnumCommands_Should
         {
             string storyName = "StoryNameShould";
             string description = "MegaBadStory";
-            Priority priority = Priority.High;
-            Size size = Size.Large;
             List<string> stepsToProduce = new List<string> { "steps" };
-            var story = new Story(storyName, description, priority, size);
+            var story = new Story(storyName, description);
 
             database.Stories.Add(story);
 
@@ -104,10 +100,8 @@ namespace WIM.T17.Tests.CommandsTests_Should.ChangeEnumCommands_Should
         {
             string storyName = "StoryNameShould";
             string description = "MegaBadStory";
-            Priority priority = Priority.High;
-            Size size = Size.Large;
             List<string> stepsToProduce = new List<string> { "steps" };
-            var story = new Story(storyName, description, priority, size);
+            var story = new Story(storyName, description);
 
             database.Stories.Add(story);
 
@@ -127,9 +121,8 @@ namespace WIM.T17.Tests.CommandsTests_Should.ChangeEnumCommands_Should
             string storyName = "StoryNameShould";
             string description = "MegaBadStory";
             Priority priority = Priority.High;
-            Size size = Size.Large;
             List<string> stepsToProduce = new List<string> { "steps" };
-            var story = new Story(storyName, description, priority, size);
+            var story = new Story(storyName, description);
 
             database.Stories.Add(story);
 
