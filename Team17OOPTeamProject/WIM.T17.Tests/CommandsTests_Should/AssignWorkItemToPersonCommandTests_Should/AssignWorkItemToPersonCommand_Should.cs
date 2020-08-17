@@ -77,24 +77,8 @@ namespace WIM.T17.Tests.CommandsTests_Should.AssignWorkItemToPersonCommand_Shoul
         [ExpectedException(typeof(ArgumentException))]
         public void IfBugTitleIsNull()
         {
-            string bugTitle = null;
-            string description = "NeznamKakvoStava";
-            List<string> stepsToProduce = new List<string> { "one", "two" };
-            var bug = new Bug(bugTitle, description, stepsToProduce);
-
-            string personName = "Gosho";
-            var person = new Member(personName);
-
-            database.Bugs.Add(bug);
-            database.Members.Add(person);
-
-            string typeOfWI = "Bug";
-
             List<string> parameters = new List<string>
             {
-                typeOfWI,
-                bugTitle,
-                personName
             };
 
             AssignWorkItemToPersonCommand assign = new AssignWorkItemToPersonCommand(parameters);
@@ -112,9 +96,6 @@ namespace WIM.T17.Tests.CommandsTests_Should.AssignWorkItemToPersonCommand_Shoul
 
             string personName = null;
             var person = new Member(personName);
-
-            database.Bugs.Add(bug);
-            database.Members.Add(person);
 
             string typeOfWI = "Bug";
 
@@ -138,7 +119,7 @@ namespace WIM.T17.Tests.CommandsTests_Should.AssignWorkItemToPersonCommand_Shoul
             List<string> stepsToProduce = new List<string> { "one", "two" };
             var bug = new Bug(bugTitle, description, stepsToProduce);
 
-            string personName = null;
+            string personName = "Pesho";
             var person = new Member(personName);
 
             database.Bugs.Add(bug);
@@ -167,9 +148,6 @@ namespace WIM.T17.Tests.CommandsTests_Should.AssignWorkItemToPersonCommand_Shoul
 
             string personName = null;
             var person = new Member(personName);
-
-            database.Bugs.Add(bug);
-            database.Members.Add(person);
 
             string typeOfWI = "Bug";
 

@@ -46,11 +46,7 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
             IMember member = new Member(memberName);
 
             string teamName = "Tigrite";
-            ITeam team = new Team(teamName);
-
-            database.Members.Add(member);
-            database.Teams.Add(team);
-
+      
             List<string> parameters = new List<string>
             {
                 memberName,

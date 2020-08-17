@@ -50,14 +50,9 @@ namespace WIM.T17.Tests.CommandsTests_Should.ShowCommandsTests_Should
         public void ThrowsExceptionWhenMemberNameIsNull()
         {
             string teamName = "Tigrite23";
-            ITeam team = new Team(teamName);
 
             string memberName = null;
             IMember member = new Member(memberName);
-
-            database.Teams.Add(team);
-            database.Members.Add(member);
-            team.Members.Add(member);
 
             List<string> parameters = new List<string>()
             {
@@ -78,12 +73,7 @@ namespace WIM.T17.Tests.CommandsTests_Should.ShowCommandsTests_Should
             ITeam team = new Team(teamName);
 
             string memberName = "PersonName";
-            IMember member = new Member(memberName);
-
-            database.Teams.Add(team);
-            database.Members.Add(member);
-            team.Members.Add(member);
-
+          
             List<string> parameters = new List<string>()
             {
                 teamName,

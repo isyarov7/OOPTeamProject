@@ -81,10 +81,6 @@ namespace WIM.T17.Tests.CommandsTests_Should
             var bug = new Bug(bugTitle, description, stepsToProduce);
 
             string personName = "Gosho";
-            var person = new Member(personName);
-
-            database.Bugs.Add(bug);
-            database.Members.Add(person);
 
             string typeOfWI = "Bug";
 
@@ -104,15 +100,9 @@ namespace WIM.T17.Tests.CommandsTests_Should
         public void IfPersonIsNull()
         {
             string bugTitle = "BugTitleShould";
-            string description = "NeznamKakvoStava";
-            List<string> stepsToProduce = new List<string> { "one", "two" };
-            var bug = new Bug(bugTitle, description, stepsToProduce);
 
             string personName = null;
             var person = new Member(personName);
-
-            database.Bugs.Add(bug);
-            database.Members.Add(person);
 
             string typeOfWI = "Bug";
 
@@ -132,16 +122,6 @@ namespace WIM.T17.Tests.CommandsTests_Should
         public void ThrowExeptionWhenCommandParametersAreLessThanItShouldCorrectly()
         {
             string bugTitle = "BugTitleShould";
-            string description = "NeznamKakvoStava";
-            List<string> stepsToProduce = new List<string> { "one", "two" };
-            var bug = new Bug(bugTitle, description, stepsToProduce);
-
-            string personName = null;
-            var person = new Member(personName);
-
-            database.Bugs.Add(bug);
-            database.Members.Add(person);
-
             string typeOfWI = "Bug";
 
             List<string> parameters = new List<string>
@@ -159,16 +139,9 @@ namespace WIM.T17.Tests.CommandsTests_Should
         public void ThrowExeptionWhenCommandParametersAreMoreThanItShouldCorrectly()
         {
             string bugTitle = "BugTitleShould";
-            string description = "NeznamKakvoStava";
-            List<string> stepsToProduce = new List<string> { "one", "two" };
-            var bug = new Bug(bugTitle, description, stepsToProduce);
-
+ 
             string personName = null;
-            var person = new Member(personName);
-
-            database.Bugs.Add(bug);
-            database.Members.Add(person);
-
+   
             string typeOfWI = "Bug";
 
             List<string> parameters = new List<string>
