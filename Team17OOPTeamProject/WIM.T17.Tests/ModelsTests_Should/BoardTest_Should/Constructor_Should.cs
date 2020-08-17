@@ -23,7 +23,8 @@ namespace WIM.T17.Tests.BoardTest_Should
         public void ThrowWhenNameIsShorter_Should()
         {
             //Act
-            var board = new Board("Boa");
+            string name = "Boa";
+            var board = new Board(name);
         }
 
         [TestMethod]
@@ -31,7 +32,8 @@ namespace WIM.T17.Tests.BoardTest_Should
         public void ThrowWhenNameIsLonger_Should()
         {
             //Act
-            var board = new Board("ThrowExeptionWhenNameIsLonger");
+            string name = "ThrowExeptionWhenNameIsLonger";
+            var board = new Board(name);
         }
 
         [TestMethod]
@@ -39,7 +41,8 @@ namespace WIM.T17.Tests.BoardTest_Should
         public void ThrowWhenNameIsNull_Should()
         {
             //Act
-            var board = new Board(null);
+            string name = null;
+            var board = new Board(name);
         }
     }
 }

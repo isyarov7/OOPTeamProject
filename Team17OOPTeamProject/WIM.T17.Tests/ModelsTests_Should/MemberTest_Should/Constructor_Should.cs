@@ -13,10 +13,11 @@ namespace WIM.T17.Tests.MemberTest_Should
         public void PassValues_Should()
         {
             //Act
-            var member = new Member("Tigura88");
+            string name = "Tigura88";
+            var member = new Member(name);
 
             //Assert
-            Assert.AreEqual(member.Name, "Tigura88");
+            Assert.AreEqual(member.Name, name);
         }
 
         [TestMethod]
@@ -24,7 +25,8 @@ namespace WIM.T17.Tests.MemberTest_Should
         public void ThrowWhenNameIsShorter_Should()
         {
             //Act
-            var member = new Member("Tig");
+            string name = "Tig";
+            var member = new Member(name);
         }
 
         [TestMethod]
@@ -32,7 +34,8 @@ namespace WIM.T17.Tests.MemberTest_Should
         public void ThrowWhenNameIsLonger_Should()
         {
             //Act
-            var member = new Member("ThrowExeptionWhenNameIsLonger");
+            string name = "ThrowExeptionWhenNameIsLonger";
+            var member = new Member(name);
         }
 
         [TestMethod]
@@ -40,7 +43,8 @@ namespace WIM.T17.Tests.MemberTest_Should
         public void ThrowWhenNameIsNull_Should()
         {
             //Act
-            var member = new Member(null);
+            string name = null;
+            var member = new Member(name);
         }
     }
 }

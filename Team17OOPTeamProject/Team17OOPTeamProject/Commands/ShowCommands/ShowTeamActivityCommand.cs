@@ -20,7 +20,7 @@ namespace T17.Models.Commands
             }
 
             string teamName = CommandParameters[0];
-            var team = this.Database.Boards.FirstOrDefault(x => x.Name == teamName);
+            var team = this.Database.Teams.FirstOrDefault(x => x.Name == teamName);
             if (team == null)
             {
                 throw new ArgumentException("There is no such team!");

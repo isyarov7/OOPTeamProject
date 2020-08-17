@@ -13,10 +13,11 @@ namespace WIM.T17.Tests.TeamTest_Should
         public void PassValues_Should()
         {
             //Act
-            var team = new Team("Tigrite");
+            string name = "TeamTigrite";
+            var team = new Team(name);
 
             //Assert
-            Assert.AreEqual(team.Name, "Tigrite");
+            Assert.AreEqual(team.Name, name);
         }
 
         [TestMethod]
@@ -24,7 +25,8 @@ namespace WIM.T17.Tests.TeamTest_Should
         public void ThrowWhenNameIsShorter_Should()
         {
             //Act
-            var team = new Team("Tig");
+            string name = "Tig";
+            var team = new Team(name);
         }
 
         [TestMethod]
@@ -32,7 +34,8 @@ namespace WIM.T17.Tests.TeamTest_Should
         public void ThrowWhenNameIsLonger_Should()
         {
             //Act
-            var team = new Team("ThrowExeptionWhenNameIsLonger");
+            string name = "ThrowExeptionWhenNameIsLonger";
+            var team = new Team(name);
         }
 
         [TestMethod]
@@ -40,7 +43,8 @@ namespace WIM.T17.Tests.TeamTest_Should
         public void ThrowWhenNameIsNull_Should()
         {
             //Act
-            var team = new Team(null);
+            string name = null;
+            var team = new Team(name);
         }
     }
 }

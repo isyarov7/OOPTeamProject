@@ -21,11 +21,11 @@ namespace T17.Models.Core
                 return instance;
             }
         }
-        public List<IBug> Bugs { get; set; } = new List<IBug>();
-        public List<IFeedback> Feedbacks { get; set; } = new List<IFeedback>();
-        public List<IStory> Stories { get; set; } = new List<IStory>();
-        public List<ITeam> Teams { get; set; } = new List<ITeam>();
-        public List<IMember> Members { get; set; } = new List<IMember>();
-        public List<IBoard> Boards { get; set; } = new List<IBoard>();     
+        public List<IBug> Bugs { get; } = new List<IBug>();
+        public List<IFeedback> Feedbacks { get; } = new List<IFeedback>();
+        public List<IStory> Stories { get; } = new List<IStory>();
+        public List<ITeam> Teams { get; } = new List<ITeam>();
+        public List<IMember> Members { get; } = new List<IMember>();
+        public List<IBoard> Boards { get;  } = new List<IBoard>();     
     }
 }
