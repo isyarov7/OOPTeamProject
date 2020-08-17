@@ -20,27 +20,44 @@ namespace WIM.T17.Commands.AddCommands
             }
 
             string workItemType = this.CommandParameters[0];
+            if (workItemType != "Bug" && workItemType != "Story" && workItemType != "Feedback")
+            {
+                throw new ArgumentException("Please provide some of the following work items: Bug, Story, Feedback.");
+            }
+
             string currenteWorkItem = this.CommandParameters[1];
 
             string comment = this.CommandParameters[2];
 
             if (workItemType == "Bug")
             {
-                var bug = this.Database.Bugs.Where(x => x.Title == currenteWorkItem).FirstOrDefault();
+                var bug = this.Database.Bugs.FirstOrDefault(x => x.Title == currenteWorkItem);
+                if (bug == null)
+                {
+                    throw new ArgumentException("There is no such bug.");
+                }
                 bug.Comments.Add(DateTime.Now, comment);
                 bug.History.Add($"Bug {bug.Title} has new comment: {comment}");
                 return $"Bug {bug.Title} has new comment: {comment}";
             }
             else if (workItemType == "Story")
             {
-                var story = this.Database.Stories.Where(x => x.Title == currenteWorkItem).FirstOrDefault();
+                var story = this.Database.Stories.FirstOrDefault(x => x.Title == currenteWorkItem);
+                if (story == null)
+                {
+                    throw new ArgumentException("There is no such story.");
+                }
                 story.Comments.Add(DateTime.Now, comment);
                 story.History.Add($"Story {story.Title} has new comment: {comment}");
                 return $"Story {story.Title} has new comment: {comment}";
             }
             else if (workItemType == "Feedback")
             {
-                var feedback = this.Database.Feedbacks.Where(x => x.Title == currenteWorkItem).FirstOrDefault();
+                var feedback = this.Database.Feedbacks.FirstOrDefault(x => x.Title == currenteWorkItem);
+                if (feedback == null)
+                {
+                    throw new ArgumentException("There is no such feedback.");
+                }
                 feedback.Comments.Add(DateTime.Now, comment);
                 feedback.History.Add($"Feedback {feedback.Title} has new comment: {comment}");
                 return $"Feedback {feedback.Title} has new comment: {comment}";

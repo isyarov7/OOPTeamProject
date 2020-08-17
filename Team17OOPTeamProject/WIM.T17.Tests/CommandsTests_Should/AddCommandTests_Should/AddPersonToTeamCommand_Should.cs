@@ -40,6 +40,52 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
+        public void ThrowExeptionWhenMemberNameIsNull()
+        {
+            string memberName = null;
+            IMember member = new Member(memberName);
+
+            string teamName = "Tigrite";
+            ITeam team = new Team(teamName);
+
+            database.Members.Add(member);
+            database.Teams.Add(team);
+
+            List<string> parameters = new List<string>
+            {
+                memberName,
+                teamName
+            };
+
+            AddPersonToTeamCommand command = new AddPersonToTeamCommand(parameters);
+            command.Execute();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void ThrowExeptionWhenTeamNameIsNull()
+        {
+            string memberName = "Tigura88";
+            IMember member = new Member(memberName);
+
+            string teamName = null;
+            ITeam team = new Team(teamName);
+
+            database.Members.Add(member);
+            database.Teams.Add(team);
+
+            List<string> parameters = new List<string>
+            {
+                memberName,
+                teamName
+            };
+
+            AddPersonToTeamCommand command = new AddPersonToTeamCommand(parameters);
+            command.Execute();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void ThrowExeptionWhenCommandParametersAreLessThanItShould()
         {
             string memberName = "Tigura88";
@@ -58,7 +104,6 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
 
             AddPersonToTeamCommand command = new AddPersonToTeamCommand(parameters);
             command.Execute();
-            Assert.IsTrue(team.Members.Any(x => x.Name == memberName));
         }
 
         [TestMethod]
@@ -83,7 +128,6 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
 
             AddPersonToTeamCommand command = new AddPersonToTeamCommand(parameters);
             command.Execute();
-            Assert.IsTrue(team.Members.Any(x => x.Name == memberName));
         }
     }
 }

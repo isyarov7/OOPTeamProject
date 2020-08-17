@@ -36,91 +36,102 @@ namespace WIM.T17.Tests.CommandsTests_Should.ChangeEnumCommands_Should
             command.Execute();
             Assert.IsTrue(feedback.Rating.Equals(int.Parse(newRating)));
         }
-        //TODO
-        //[TestMethod]
-        //[ExpectedException(typeof(ArgumentException))]
-        //public void ChangeBugInvalidParameters_Should()
-        //{
-        //    string bugName = "BugNameShould";
+        
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void InputFeedbackNameIsNULL_Should()
+        {
+            string feedbackTitle = null;
+            string description = "Feedback description";
+            int rating = 4;
+            IFeedback feedback = new Feedback(feedbackTitle, description, rating);
 
-        //    List<string> parameters = new List<string>
-        //    {
-        //       bugName
-        //    };
 
-        //    ChangeBugPriorityCommand command = new ChangeBugPriorityCommand(parameters);
-        //    command.Execute();
-        //}
-        //[TestMethod]
-        //[ExpectedException(typeof(ArgumentException))]
-        //public void InputBugNameIsNULL_Should()
-        //{
-        //    string bugName = null;
-        //    string description = "MegaBadBug";
-        //    Priority priority = Priority.High;
-        //    Severity severity = Severity.Critical;
-        //    List<string> stepsToProduce = new List<string> { "steps" };
-        //    var bug = new Bug(bugName, description, priority, severity, stepsToProduce);
+            database.Feedbacks.Add(feedback);
 
-        //    database.Bugs.Add(bug);
+            string newRating = "3";
 
-        //    List<string> parameters = new List<string>
-        //    {
-        //       bugName,
-        //       priority.ToString()
-        //    };
+            List<string> parameters = new List<string>
+            {
+               feedbackTitle,
+               newRating
+            };
 
-        //    ChangeBugPriorityCommand command = new ChangeBugPriorityCommand(parameters);
-        //    command.Execute();
-        //}
-        //[TestMethod]
-        //[ExpectedException(typeof(ArgumentException))]
-        //public void InputBugPriorityParameterIsNULL_Should()
-        //{
-        //    string bugName = null;
-        //    string description = "MegaBadBug";
-        //    Priority priority = Priority.High;
-        //    Severity severity = Severity.Critical;
-        //    List<string> stepsToProduce = new List<string> { "steps" };
-        //    var bug = new Bug(bugName, description, priority, severity, stepsToProduce);
+            ChangeFeedbackRatingCommand command = new ChangeFeedbackRatingCommand(parameters);
+            command.Execute();
+        }
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void ThrowsExceptionWhenDescIsNULL_Should()
+        {
+            string feedbackTitle = "feedbackTitle";
+            string description = null;
+            int rating = 4;
+            IFeedback feedback = new Feedback(feedbackTitle, description, rating);
 
-        //    database.Bugs.Add(bug);
 
-        //    string newPriority = null;
+            database.Feedbacks.Add(feedback);
 
-        //    List<string> parameters = new List<string>
-        //    {
-        //       bugName,
-        //       newPriority
-        //    };
+            string newRating = "3";
 
-        //    ChangeBugPriorityCommand command = new ChangeBugPriorityCommand(parameters);
-        //    command.Execute();
-        //}
-        //[TestMethod]
-        //[ExpectedException(typeof(ArgumentException))]
-        //public void InValidChangeBugPriority_Should()
-        //{
-        //    string bugName = null;
-        //    string description = "MegaBadBug";
-        //    Priority priority = Priority.High;
-        //    Severity severity = Severity.Critical;
-        //    List<string> stepsToProduce = new List<string> { "steps" };
-        //    var bug = new Bug(bugName, description, priority, severity, stepsToProduce);
+            List<string> parameters = new List<string>
+            {
+               feedbackTitle,
+               newRating
+            };
 
-        //    database.Bugs.Add(bug);
+            ChangeFeedbackRatingCommand command = new ChangeFeedbackRatingCommand(parameters);
+            command.Execute();
+        }
 
-        //    string newPriority = "Invalid Priority";
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void BiggerRating_Should()
+        {
+            string feedbackTitle = "feedbackTitle";
+            string description = "Feedback description";
+            int rating = 6;
+            IFeedback feedback = new Feedback(feedbackTitle, description, rating);
 
-        //    List<string> parameters = new List<string>
-        //    {
-        //       bugName,
-        //       newPriority
-        //    };
 
-        //    ChangeBugPriorityCommand command = new ChangeBugPriorityCommand(parameters);
-        //    command.Execute();
-        //}
+            database.Feedbacks.Add(feedback);
+
+            string newRating = "6";
+
+            List<string> parameters = new List<string>
+            {
+               feedbackTitle,
+               newRating
+            };
+
+            ChangeFeedbackRatingCommand command = new ChangeFeedbackRatingCommand(parameters);
+            command.Execute();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void SmallerRating_Should()
+        {
+            string feedbackTitle = "feedbackTitle";
+            string description = "Feedback description";
+            int rating = -1;
+            IFeedback feedback = new Feedback(feedbackTitle, description, rating);
+
+
+            database.Feedbacks.Add(feedback);
+
+            string newRating = "-1";
+
+            List<string> parameters = new List<string>
+            {
+               feedbackTitle,
+               newRating
+            };
+
+            ChangeFeedbackRatingCommand command = new ChangeFeedbackRatingCommand(parameters);
+            command.Execute();
+        }
+
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void ThrowExeptionWhenCommandParametersAreLessThanItShould()

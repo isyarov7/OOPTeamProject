@@ -19,22 +19,67 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
         [TestMethod]
         public void AddsStoryToBoardCommand_Should()
         {
-            string teamName = "Tigrite";
-            ITeam team = new Team(teamName);
-
             string boardName = "Board";
             IBoard board = new Board(boardName);
 
             string storyTitle = "StoryTitle";
             string description = "Story description";
-            Priority priority = Priority.High;
-            Size size = Size.Small;
             List<string> stepsToProduce = new List<string> { "Noting", "to", "produce." };
             IStory story = new Story(storyTitle, description);
 
-            database.Teams.Add(team);
             database.Boards.Add(board);
-            team.Boards.Add(board);
+            database.Stories.Add(story);
+
+            List<string> parameters = new List<string>
+            {
+                storyTitle,
+                boardName
+            };
+
+            AddStoryToBoardCommand command = new AddStoryToBoardCommand(parameters);
+            command.Execute();
+            Assert.IsTrue(board.WorkItems.Any(x => x.Title == storyTitle));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void ThrowExeptionWhenBoardNameIsNull()
+        {
+            string boardName = null;
+            IBoard board = new Board(boardName);
+
+            string storyTitle = "StoryTitle";
+            string description = "Story description";
+            List<string> stepsToProduce = new List<string> { "Noting", "to", "produce." };
+            IStory story = new Story(storyTitle, description);
+
+            database.Boards.Add(board);
+            database.Stories.Add(story);
+
+            List<string> parameters = new List<string>
+            {
+                storyTitle,
+                boardName
+            };
+
+            AddStoryToBoardCommand command = new AddStoryToBoardCommand(parameters);
+            command.Execute();
+            Assert.IsTrue(board.WorkItems.Any(x => x.Title == storyTitle));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void ThrowExeptionWhenStoryTitleIsNull()
+        {
+            string boardName = "Board";
+            IBoard board = new Board(boardName);
+
+            string storyTitle = null;
+            string description = "Story description";
+            List<string> stepsToProduce = new List<string> { "Noting", "to", "produce." };
+            IStory story = new Story(storyTitle, description);
+
+            database.Boards.Add(board);
             database.Stories.Add(story);
 
             List<string> parameters = new List<string>
@@ -52,22 +97,15 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
         [ExpectedException(typeof(ArgumentException))]
         public void ThrowExeptionWhenCommandParametersAreLessThanItShould()
         {
-            string teamName = "Tigrite";
-            ITeam team = new Team(teamName);
-
             string boardName = "Board";
             IBoard board = new Board(boardName);
 
             string storyTitle = "StoryTitle";
             string description = "Story description";
-            Priority priority = Priority.High;
-            Size size = Size.Small;
             List<string> stepsToProduce = new List<string> { "Noting", "to", "produce." };
             IStory story = new Story(storyTitle, description);
 
-            database.Teams.Add(team);
             database.Boards.Add(board);
-            team.Boards.Add(board);
             database.Stories.Add(story);
 
             List<string> parameters = new List<string>
@@ -77,29 +115,21 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
 
             AddStoryToBoardCommand command = new AddStoryToBoardCommand(parameters);
             command.Execute();
-            Assert.IsTrue(board.WorkItems.Any(x => x.Title == storyTitle));
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void ThrowExeptionWhenCommandParametersAreMoreThanItShouldCorrectly()
         {
-            string teamName = "Tigrite";
-            ITeam team = new Team(teamName);
-
             string boardName = "Board";
             IBoard board = new Board(boardName);
 
             string storyTitle = "StoryTitle";
             string description = "Story description";
-            Priority priority = Priority.High;
-            Size size = Size.Small;
             List<string> stepsToProduce = new List<string> { "Noting", "to", "produce." };
             IStory story = new Story(storyTitle, description);
 
-            database.Teams.Add(team);
             database.Boards.Add(board);
-            team.Boards.Add(board);
             database.Stories.Add(story);
 
             List<string> parameters = new List<string>
@@ -111,7 +141,6 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
 
             AddStoryToBoardCommand command = new AddStoryToBoardCommand(parameters);
             command.Execute();
-            Assert.IsTrue(board.WorkItems.Any(x => x.Title == storyTitle));
         }
     }
 }

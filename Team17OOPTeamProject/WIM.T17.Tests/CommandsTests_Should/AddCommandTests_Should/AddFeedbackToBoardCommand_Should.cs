@@ -21,9 +21,6 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
         [TestMethod]
         public void AddsFeedbackToBoardCommand_Should()
         {
-            string teamName = "Tigrite";
-            ITeam team = new Team(teamName);
-
             string boardName = "Board";
             IBoard board = new Board(boardName);
 
@@ -32,9 +29,7 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
             int rating = 4;
             IFeedback feedback = new Feedback(feedbackTitle, description, rating);
 
-            database.Teams.Add(team);
             database.Boards.Add(board);
-            team.Boards.Add(board);
             database.Feedbacks.Add(feedback);
 
             List<string> parameters = new List<string>
@@ -50,11 +45,58 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
+        public void ThrowExeptionWhenBoardNameIsNull()
+        {
+            string boardName = null;
+            IBoard board = new Board(boardName);
+
+            string feedbackTitle = "feedbackTitle";
+            string description = "Feedback description";
+            int rating = 4;
+            IFeedback feedback = new Feedback(feedbackTitle, description, rating);
+
+            database.Boards.Add(board);
+            database.Feedbacks.Add(feedback);
+
+            List<string> parameters = new List<string>
+            {
+                feedbackTitle,
+                boardName
+            };
+
+            AddFeedbackToBoardCommand command = new AddFeedbackToBoardCommand(parameters);
+            command.Execute();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void ThrowExeptionWhenFeedbackTitleIsNull()
+        {
+            string boardName = "Board";
+            IBoard board = new Board(boardName);
+
+            string feedbackTitle = null;
+            string description = "Feedback description";
+            int rating = 4;
+            IFeedback feedback = new Feedback(feedbackTitle, description, rating);
+
+            database.Boards.Add(board);
+            database.Feedbacks.Add(feedback);
+
+            List<string> parameters = new List<string>
+            {
+                feedbackTitle,
+                boardName
+            };
+
+            AddFeedbackToBoardCommand command = new AddFeedbackToBoardCommand(parameters);
+            command.Execute();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void ThrowExeptionWhenCommandParametersAreLessThanItShould()
         {
-            string teamName = "Tigrite";
-            ITeam team = new Team(teamName);
-
             string boardName = "Board";
             IBoard board = new Board(boardName);
 
@@ -63,9 +105,7 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
             int rating = 4;
             IFeedback feedback = new Feedback(feedbackTitle, description, rating);
 
-            database.Teams.Add(team);
             database.Boards.Add(board);
-            team.Boards.Add(board);
             database.Feedbacks.Add(feedback);
 
             List<string> parameters = new List<string>
@@ -75,16 +115,12 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
 
             AddFeedbackToBoardCommand command = new AddFeedbackToBoardCommand(parameters);
             command.Execute();
-            Assert.IsTrue(board.WorkItems.Any(x => x.Title == feedbackTitle));
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void ThrowExeptionWhenCommandParametersAreMoreThanItShould()
         {
-            string teamName = "Tigrite";
-            ITeam team = new Team(teamName);
-
             string boardName = "Board";
             IBoard board = new Board(boardName);
 
@@ -93,21 +129,18 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
             int rating = 4;
             IFeedback feedback = new Feedback(feedbackTitle, description, rating);
 
-            database.Teams.Add(team);
             database.Boards.Add(board);
-            team.Boards.Add(board);
             database.Feedbacks.Add(feedback);
 
             List<string> parameters = new List<string>
             {
                 feedbackTitle,
                 boardName,
-                teamName
+                feedbackTitle
             };
 
             AddFeedbackToBoardCommand command = new AddFeedbackToBoardCommand(parameters);
             command.Execute();
-            Assert.IsTrue(board.WorkItems.Any(x => x.Title == feedbackTitle));
         }
     }
 }

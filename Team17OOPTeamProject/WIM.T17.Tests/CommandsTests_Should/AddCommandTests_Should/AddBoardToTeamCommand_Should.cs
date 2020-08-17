@@ -37,6 +37,52 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
+        public void ThrowExeptionWhenBoardNameIsNull()
+        {
+            string boardName = null;
+            IBoard board = new Board(boardName);
+
+            string teamName = "TeamName";
+            ITeam team = new Team(teamName);
+
+            database.Boards.Add(board);
+            database.Teams.Add(team);
+
+            List<string> parameters = new List<string>
+            {
+                boardName,
+                teamName
+            };
+
+            AddBoardToTeamCommand command = new AddBoardToTeamCommand(parameters);
+            command.Execute();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void ThrowExeptionWhenTeamNameIsNull()
+        {
+            string boardName = "Board";
+            IBoard board = new Board(boardName);
+
+            string teamName = null;
+            ITeam team = new Team(teamName);
+
+            database.Boards.Add(board);
+            database.Teams.Add(team);
+
+            List<string> parameters = new List<string>
+            {
+                boardName,
+                teamName
+            };
+
+            AddBoardToTeamCommand command = new AddBoardToTeamCommand(parameters);
+            command.Execute();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void ThrowExeptionWhenCommandParametersAreLessThanItShouldCorrectly()
         {
             string boardName = "Board";
@@ -55,7 +101,6 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
 
             AddBoardToTeamCommand command = new AddBoardToTeamCommand(parameters);
             command.Execute();
-            Assert.IsTrue(team.Boards.Any(x => x.Name == boardName));
         }
 
         [TestMethod]
@@ -80,7 +125,6 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
 
             AddBoardToTeamCommand command = new AddBoardToTeamCommand(parameters);
             command.Execute();
-            Assert.IsTrue(team.Boards.Any(x => x.Name == boardName));
         }
     }
 }

@@ -21,13 +21,17 @@ namespace WIM.T17.Commands
             }
 
             string feedbackName = this.CommandParameters[0];
-            var feedback = this.Database.Feedbacks.Where(m => m.Title == feedbackName).FirstOrDefault();
+            var feedback = this.Database.Feedbacks.FirstOrDefault(m => m.Title == feedbackName);
             if (feedback == null)
             {
                 return "There is no such a story!";
             }
 
             int feedbackRating = int.Parse(this.CommandParameters[1]);
+            if (feedbackRating < 0 || feedbackRating > 5)
+            {
+                throw new ArgumentException("Rating must be between 0 and 5.");
+            }
 
             feedback.Rating = feedbackRating;
 

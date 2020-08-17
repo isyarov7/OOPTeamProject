@@ -22,9 +22,6 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
         [TestMethod]
         public void AddsBugToBoardCommand_Should()
         {
-            string teamName = "Tigrite";
-            ITeam team = new Team(teamName);
-
             string boardName = "Board";
             IBoard board = new Board(boardName);
 
@@ -33,9 +30,7 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
             List<string> stepsToProduce = new List<string> { "Noting", "to", "produce." };
             IBug bug = new Bug(bugTitle, description, stepsToProduce);
 
-            database.Teams.Add(team);
             database.Boards.Add(board);
-            team.Boards.Add(board);
             database.Bugs.Add(bug);
 
             List<string> parameters = new List<string>
@@ -51,11 +46,58 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
+        public void ThrowExeptionWhenBugNameIsNull()
+        {
+            string boardName = "Board";
+            IBoard board = new Board(boardName);
+
+            string bugTitle = null;
+            string description = "Bug description";
+            List<string> stepsToProduce = new List<string> { "Nothing" };
+            IBug bug = new Bug(bugTitle, description, stepsToProduce);
+
+            database.Boards.Add(board);
+            database.Bugs.Add(bug);
+
+            List<string> parameters = new List<string>
+            {
+                bugTitle,
+                boardName
+            };
+
+            AddBugToBoardCommand command = new AddBugToBoardCommand(parameters);
+            command.Execute();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void ThrowExeptionWhenBoardNameIsNull()
+        {
+            string boardName = null;
+            IBoard board = new Board(boardName);
+
+            string bugTitle = "MnogoLoshBug";
+            string description = "Bug description";
+            List<string> stepsToProduce = new List<string> { "Nothing" };
+            IBug bug = new Bug(bugTitle, description, stepsToProduce);
+
+            database.Boards.Add(board);
+            database.Bugs.Add(bug);
+
+            List<string> parameters = new List<string>
+            {
+                bugTitle,
+                boardName
+            };
+
+            AddBugToBoardCommand command = new AddBugToBoardCommand(parameters);
+            command.Execute();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void ThrowExeptionWhenCommandParametersAreLessThanItShouldCorrectly()
         {
-            string teamName = "Tigrite";
-            ITeam team = new Team(teamName);
-
             string boardName = "Board";
             IBoard board = new Board(boardName);
 
@@ -64,9 +106,7 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
             List<string> stepsToProduce = new List<string> { "Nothing" };
             IBug bug = new Bug(bugTitle, description, stepsToProduce);
 
-            database.Teams.Add(team);
             database.Boards.Add(board);
-            team.Boards.Add(board);
             database.Bugs.Add(bug);
 
             List<string> parameters = new List<string>
@@ -76,16 +116,12 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
 
             AddBugToBoardCommand command = new AddBugToBoardCommand(parameters);
             command.Execute();
-            Assert.IsTrue(board.WorkItems.Any(x => x.Title == bugTitle));
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void ThrowExeptionWhenCommandParametersAreMoreThanItShouldCorrectly()
         {
-            string teamName = "Tigrite";
-            ITeam team = new Team(teamName);
-
             string boardName = "Board";
             IBoard board = new Board(boardName);
 
@@ -94,9 +130,7 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
             List<string> stepsToProduce = new List<string> { "Nothing" };
             IBug bug = new Bug(bugTitle, description, stepsToProduce);
 
-            database.Teams.Add(team);
             database.Boards.Add(board);
-            team.Boards.Add(board);
             database.Bugs.Add(bug);
 
             string thirdParameter = "ThirdParameter";
@@ -110,7 +144,6 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
 
             AddBugToBoardCommand command = new AddBugToBoardCommand(parameters);
             command.Execute();
-            Assert.IsTrue(board.WorkItems.Any(x => x.Title == bugTitle));
         }
     }
 }
