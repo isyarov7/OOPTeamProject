@@ -19,7 +19,6 @@ namespace WIM.T17.Commands.ShowCommands
             foreach (var item in this.Database.Bugs)
             {
                 sb.AppendLine(item.PrintDetails());
-                sb.AppendLine("#############");
             }
             return sb.ToString();
         }

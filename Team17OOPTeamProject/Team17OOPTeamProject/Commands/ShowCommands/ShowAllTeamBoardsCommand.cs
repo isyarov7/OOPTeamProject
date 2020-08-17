@@ -6,7 +6,7 @@ using T17.Models.Commands.Abstracts;
 
 namespace WIM.T17.Commands
 {
-    class ShowAllTeamBoardsCommand : Command
+    public class ShowAllTeamBoardsCommand : Command
     {
         public ShowAllTeamBoardsCommand(IList<string> commandParameters)
             : base(commandParameters)

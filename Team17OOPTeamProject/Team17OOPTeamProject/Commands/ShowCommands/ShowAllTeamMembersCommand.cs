@@ -7,7 +7,7 @@ using T17.Models.Models;
 
 namespace WIM.T17.Commands
 {
-    class ShowAllTeamMembersCommand : Command
+    public class ShowAllTeamMembersCommand : Command
     {
         public ShowAllTeamMembersCommand(IList<string> commandParameters)
          : base(commandParameters)
