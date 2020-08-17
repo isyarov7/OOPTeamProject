@@ -19,25 +19,25 @@ namespace WIM.T17.Commands.AddCommands
                 throw new ArgumentException("You should have 2 parameters!");
             }
 
-                string storyName = this.CommandParameters[0];
-                var story = this.Database.Stories.FirstOrDefault(m => m.Title == storyName);
-                if (story == null)
-                {
-                    return "There is no such story!";
-                }
+            string storyName = this.CommandParameters[0];
+            var story = this.Database.Stories.FirstOrDefault(m => m.Title == storyName);
+            if (story == null)
+            {
+                return "There is no such story!";
+            }
 
-                string boardName = this.CommandParameters[1];
-                var board = this.Database.Boards.FirstOrDefault(t => t.Name == boardName);
-                if (board == null)
-                {
-                    return "There is no such team!";
-                }
+            string boardName = this.CommandParameters[1];
+            var board = this.Database.Boards.FirstOrDefault(t => t.Name == boardName);
+            if (board == null)
+            {
+                return "There is no such team!";
+            }
 
-                board.WorkItems.Add(story);
-                story.History.Add($"Story: {story.Title} successfully added to board: {board.Name}!");
-                board.History.Add($"Story: {story.Title} was successfully added to board {board.Name}!");
+            board.WorkItems.Add(story);
+            story.History.Add($"Story: {story.Title} successfully added to board: {board.Name}!");
+            board.History.Add($"Story: {story.Title} was successfully added to board {board.Name}!");
 
-                return $"Story: {story.Title} successfully added to board: {board.Name}!";
+            return $"Story: {story.Title} successfully added to board: {board.Name}!";
         }
     }
 }

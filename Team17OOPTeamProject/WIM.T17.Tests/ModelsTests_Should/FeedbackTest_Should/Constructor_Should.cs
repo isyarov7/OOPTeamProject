@@ -141,7 +141,7 @@ namespace WIM.T17.Tests.FeedbackTest_Should
             //Act
             var feedback = new Feedback(title, description, rating);
         }
-        
+
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void ThrowWhenRatingIsLessThanZero_Should()

@@ -55,6 +55,7 @@ namespace WIM.T17.Tests.CommandsTests_Should.CreateCommandsTests_Should
             command.Execute();
             Assert.IsTrue(database.Feedbacks.Any(x => x.Title == feedbackTitle));
         }
+
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void ThrowExeptionWhenCommandParametersAreMoreThanItShouldCorrectly()
@@ -65,7 +66,7 @@ namespace WIM.T17.Tests.CommandsTests_Should.CreateCommandsTests_Should
             IFeedback feedback = new Feedback(feedbackTitle, description, rating);
 
             database.Feedbacks.Add(feedback);
-            
+
             List<string> parameters = new List<string>
                 {
                     feedbackTitle,

@@ -55,6 +55,7 @@ namespace WIM.T17.Tests.CommandsTests_Should.CreateCommandsTests_Should
             command.Execute();
             Assert.IsTrue(database.Bugs.Any(x => x.Title == bugTitle));
         }
+
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void ThrowExeptionWhenCommandParametersAreMoreThanItShouldCorrectly()

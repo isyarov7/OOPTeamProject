@@ -16,16 +16,16 @@ namespace T17.Models.Commands
         public override string Execute()
         {
             if (CommandParameters.Count != 1)
-            { 
-                throw new ArgumentException("You should have 1 parameters!"); 
+            {
+                throw new ArgumentException("You should have 1 parameters!");
             }
 
-                string name = this.CommandParameters[0];
+            string name = this.CommandParameters[0];
 
-                IMember member = this.Factory.CreateMember(name);
-                this.Database.Members.Add(member);
-                member.History.Add($"Person with ID {this.Database.Members.Count} was created.");
-                return $"Person with ID {this.Database.Members.Count} was created.";
+            IMember member = this.Factory.CreateMember(name);
+            this.Database.Members.Add(member);
+            member.History.Add($"Person with ID {this.Database.Members.Count} was created.");
+            return $"Person with ID {this.Database.Members.Count} was created.";
         }
     }
 }

@@ -21,26 +21,26 @@ namespace WIM.T17.Commands
                 throw new ArgumentException("You should have 2 parameters!");
             }
 
-                string bugName = this.CommandParameters[0];
+            string bugName = this.CommandParameters[0];
             var bug = this.Database.Bugs.FirstOrDefault(m => m.Title == bugName);
-                if (bug == null)
-                {
-                    return "There is no such bug!";
-                }
+            if (bug == null)
+            {
+                return "There is no such bug!";
+            }
 
-                string boardName = this.CommandParameters[1];
+            string boardName = this.CommandParameters[1];
             var board = this.Database.Boards.FirstOrDefault(t => t.Name == boardName);
-                if (board == null)
-                {
-                    return "There is no such board!";
-                }
+            if (board == null)
+            {
+                return "There is no such board!";
+            }
 
-                board.WorkItems.Add(bug);
+            board.WorkItems.Add(bug);
 
-                bug.History.Add($"Bug: {bug.Title} successfully added to board: {board.Name}!");
-                board.History.Add($"Bug: {bug.Title} was successfully added to board {board.Name}!");
+            bug.History.Add($"Bug: {bug.Title} successfully added to board: {board.Name}!");
+            board.History.Add($"Bug: {bug.Title} was successfully added to board {board.Name}!");
 
-                return $"Bug: {bug.Title} successfully added to board: {board.Name}!";
+            return $"Bug: {bug.Title} successfully added to board: {board.Name}!";
         }
     }
 }

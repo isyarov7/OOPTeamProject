@@ -11,7 +11,7 @@ namespace Team17OOPTeamProject
         //Fields
         private int rating;
         //Constructor
-        public Feedback(string title,string description, int rating)
+        public Feedback(string title, string description, int rating)
              : base(title, description)
         {
             this.FeedbackStatus = FeedbackStatus.New;

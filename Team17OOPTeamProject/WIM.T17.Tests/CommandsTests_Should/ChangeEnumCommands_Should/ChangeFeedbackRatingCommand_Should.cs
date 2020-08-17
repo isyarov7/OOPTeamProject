@@ -36,6 +36,7 @@ namespace WIM.T17.Tests.CommandsTests_Should.ChangeEnumCommands_Should
             command.Execute();
             Assert.IsTrue(feedback.Rating.Equals(int.Parse(newRating)));
         }
+        //TODO
         //[TestMethod]
         //[ExpectedException(typeof(ArgumentException))]
         //public void ChangeBugInvalidParameters_Should()

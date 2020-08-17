@@ -15,31 +15,31 @@ namespace T17.Models.Commands
         }
         public override string Execute()
         {
-            if (CommandParameters.Count != 2) 
+            if (CommandParameters.Count != 2)
             {
-                throw new ArgumentException("You should have 2 parameters!"); 
+                throw new ArgumentException("You should have 2 parameters!");
             }
-                    
 
-                string name = this.CommandParameters[0];
+
+            string name = this.CommandParameters[0];
             var member = this.Database.Members.FirstOrDefault(m => m.Name == name);
-                if (member == null)
-                {
-                    return "There is no such member!";
-                }
+            if (member == null)
+            {
+                return "There is no such member!";
+            }
 
-                string teamName = this.CommandParameters[1];
-                var team = this.Database.Teams.FirstOrDefault(t => t.Name == teamName);
-                if (team == null)
-                {
-                    return "There is no such team!";
-                }
+            string teamName = this.CommandParameters[1];
+            var team = this.Database.Teams.FirstOrDefault(t => t.Name == teamName);
+            if (team == null)
+            {
+                return "There is no such team!";
+            }
 
-                team.Members.Add(member);
-                team.History.Add($"Member: {name} was added to team: {teamName}!");
-                member.History.Add($"Member: {name} was added to team: {teamName}!");
+            team.Members.Add(member);
+            team.History.Add($"Member: {name} was added to team: {teamName}!");
+            member.History.Add($"Member: {name} was added to team: {teamName}!");
 
-                return $"Member: {name} was added to team: {teamName}!";
+            return $"Member: {name} was added to team: {teamName}!";
         }
     }
 }

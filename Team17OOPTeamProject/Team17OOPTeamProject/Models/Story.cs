@@ -13,7 +13,7 @@ namespace Team17OOPTeamProject.Models
         {
             this.StoryStatus = StoryStatus.NotDone;
             this.Priority = Priority.High;
-            this.Size = Size.Large;     
+            this.Size = Size.Large;
         }
 
         //Properties

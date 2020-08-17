@@ -19,12 +19,12 @@ namespace WIM.T17.Commands
         {
             if (CommandParameters.Count != 2)
             {
-                throw new ArgumentException("You have to submit 2 parameters!"); 
+                throw new ArgumentException("You have to submit 2 parameters!");
             }
 
             string title = this.CommandParameters[0];
-            string description = this.CommandParameters[1];         
-        
+            string description = this.CommandParameters[1];
+
             var story = this.Factory.CreateStory(title, description);
             this.Database.Stories.Add(story);
 

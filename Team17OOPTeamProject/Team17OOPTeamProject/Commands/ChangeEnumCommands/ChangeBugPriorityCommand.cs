@@ -29,7 +29,6 @@ namespace WIM.T17.Commands
                 return "There is no such a bug!";
             }
 
-
             if (!Enum.TryParse<Priority>(this.CommandParameters[1], true, out Priority priorityType))
             {
                 throw new ArgumentException("Please provide some of the following priorities: High, Medium, Low");

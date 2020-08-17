@@ -60,7 +60,7 @@ namespace Team17OOPTeamProject.Models.Abstract
                 this.description = value;
             }
         }
-        public Dictionary<DateTime, string> Comments 
+        public Dictionary<DateTime, string> Comments
         {
             get { return this.comments; }
             set { this.comments = value; }
@@ -88,7 +88,7 @@ namespace Team17OOPTeamProject.Models.Abstract
             }
             else
             {
-                
+
                 sb.AppendLine("History:");
                 foreach (var item in this.history)
                 {
@@ -124,7 +124,7 @@ namespace Team17OOPTeamProject.Models.Abstract
                 foreach (var item in this.Comments)
                 {
                     sb.AppendLine($"{counter}. {item.Key} {item.Value}");
-                        counter++;
+                    counter++;
                 }
             }
             else

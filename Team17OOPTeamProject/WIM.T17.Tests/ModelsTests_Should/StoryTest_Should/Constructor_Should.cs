@@ -43,7 +43,7 @@ namespace WIM.T17.Tests.StoryTest_Should
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void ThrowWhenNameIsLonger_Should()
-        { 
+        {
             //Arrage
             string title = "StoryTiStoryTitleIsOutOfRangeStoryTitleIsOutOfRangeStoryTitleIsOutOfRangetleIsOutOfRangeStoryTitleIsOutOfRangeStoryTitleIsOutOfRangeStoryTitleIsOutOfRangeStoryTitleIsOutOfRange";
             string description = "Very nice story";

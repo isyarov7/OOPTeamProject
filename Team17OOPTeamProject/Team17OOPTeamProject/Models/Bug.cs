@@ -40,6 +40,6 @@ namespace Team17OOPTeamProject.Models
                 counter++;
             }
             return sb.ToString();
-        }     
+        }
     }
 }

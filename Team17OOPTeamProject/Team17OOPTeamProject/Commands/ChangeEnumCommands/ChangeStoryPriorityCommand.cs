@@ -20,7 +20,7 @@ namespace WIM.T17.Commands
             {
                 throw new ArgumentException("You should have 2 parameters!");
             }
-           
+
             string storyName = this.CommandParameters[0];
             var story = this.Database.Stories.FirstOrDefault(m => m.Title == storyName);
             if (story == null)

@@ -40,7 +40,7 @@ namespace T17.Models.Core
                 "ChangeFeedbackStatus" => new ChangeFeedbackStatusCommand(commandParameters),
                 "CreatePerson" => new CreatePersonCommand(commandParameters),
                 "CreateTeam" => new CreateTeamCommand(commandParameters),
-                "CreateBoardInTeam" => new CreateBoardInTeamCommand(commandParameters),
+                "CreateBoardInTeam" => new CreateBoardCommand(commandParameters),
                 "CreateBug" => new CreateBugCommand(commandParameters),
                 "CreateStory" => new CreateStoryCommand(commandParameters),
                 "CreateFeedback" => new CreateFeedbackCommand(commandParameters),

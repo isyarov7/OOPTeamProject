@@ -50,7 +50,7 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]   
+        [ExpectedException(typeof(ArgumentException))]
         public void ThrowExeptionWhenCommandParametersAreLessThanItShouldCorrectly()
         {
             string teamName = "Tigrite";

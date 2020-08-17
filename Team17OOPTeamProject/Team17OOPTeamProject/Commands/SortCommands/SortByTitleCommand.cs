@@ -45,7 +45,7 @@ namespace WIM.T17.Commands.ShowCommands
             {
                 sb.AppendLine(item.Title);
             }
-            return sb.ToString();          
+            return sb.ToString();
         }
     }
 }

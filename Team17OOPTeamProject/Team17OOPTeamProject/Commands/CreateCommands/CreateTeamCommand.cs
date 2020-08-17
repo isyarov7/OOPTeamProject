@@ -17,14 +17,14 @@ namespace T17.Models.Commands
         {
             if (CommandParameters.Count != 1)
             {
-                throw new ArgumentException("You should have 1 parameter!"); 
+                throw new ArgumentException("You should have 1 parameter!");
             }
 
-                string name = this.CommandParameters[0];
-                ITeam team = this.Factory.CreateTeam(name);
-                this.Database.Teams.Add(team);
-                team.History.Add($"Team with ID {this.Database.Teams.Count} was created.");
-                return $"Team with ID {this.Database.Teams.Count} was created.";           
+            string name = this.CommandParameters[0];
+            ITeam team = this.Factory.CreateTeam(name);
+            this.Database.Teams.Add(team);
+            team.History.Add($"Team with ID {this.Database.Teams.Count} was created.");
+            return $"Team with ID {this.Database.Teams.Count} was created.";
         }
     }
 }

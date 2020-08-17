@@ -41,8 +41,8 @@ namespace WIM.T17.Tests.CommandsTests_Should.CreateCommandsTests_Should
             database.Members.Add(person);
 
             List<string> parameters = new List<string>
-                {                  
-                };
+            {
+            };
 
             CreatePersonCommand command = new CreatePersonCommand(parameters);
             command.Execute();

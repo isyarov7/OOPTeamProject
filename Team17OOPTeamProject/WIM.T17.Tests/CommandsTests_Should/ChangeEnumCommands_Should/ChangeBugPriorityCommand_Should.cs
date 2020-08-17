@@ -69,13 +69,13 @@ namespace WIM.T17.Tests.CommandsTests_Should.ChangeEnumCommands_Should
             ChangeBugPriorityCommand command = new ChangeBugPriorityCommand(parameters);
             command.Execute();
         }
-       
+
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void InValidChangeBugPriority_Should()
         {
             string bugName = "BugName";
-            string description = "MegaBadBug";      
+            string description = "MegaBadBug";
             List<string> stepsToProduce = new List<string> { "steps" };
             var bug = new Bug(bugName, description, stepsToProduce);
 

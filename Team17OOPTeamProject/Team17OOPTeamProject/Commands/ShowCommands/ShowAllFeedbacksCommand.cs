@@ -5,7 +5,7 @@ using T17.Models.Commands.Abstracts;
 
 namespace WIM.T17.Commands.ShowCommands
 {
-   public class ShowAllFeedbacksCommand :Command
+    public class ShowAllFeedbacksCommand : Command
     {
         public ShowAllFeedbacksCommand(IList<string> commandParameters)
           : base(commandParameters)

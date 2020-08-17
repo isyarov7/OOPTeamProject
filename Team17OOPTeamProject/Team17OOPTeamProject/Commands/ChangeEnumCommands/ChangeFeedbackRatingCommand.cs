@@ -20,7 +20,6 @@ namespace WIM.T17.Commands
                 throw new ArgumentException("You should have 2 parameters!");
             }
 
-
             string feedbackName = this.CommandParameters[0];
             var feedback = this.Database.Feedbacks.Where(m => m.Title == feedbackName).FirstOrDefault();
             if (feedback == null)

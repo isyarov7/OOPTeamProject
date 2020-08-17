@@ -25,10 +25,11 @@ namespace WIM.T17.Commands
             {
                 throw new ArgumentException("Please provide one of the following work items: Bug, Story.");
             }
+
             string currenteWorkItem = this.CommandParameters[1];
             if (currenteWorkItem == null) { throw new ArgumentException($"There is no such work item: {currenteWorkItem}"); }
 
-            var person = this.Database.Members.Where(x => x.Name == CommandParameters[2]).FirstOrDefault();
+            var person = this.Database.Members.FirstOrDefault(x => x.Name == CommandParameters[2]);
             if (person == null) { throw new ArgumentException($"There is no such person: {person.Name}"); }
 
             if (workItemType == "Bug")

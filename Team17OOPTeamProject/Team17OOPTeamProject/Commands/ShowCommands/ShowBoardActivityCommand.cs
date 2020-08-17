@@ -14,12 +14,14 @@ namespace WIM.T17.Commands.ShowCommands
         }
         public override string Execute()
         {
-            if (CommandParameters.Count < 1)
+            if (CommandParameters.Count != 1)
+            {
                 throw new ArgumentException("You should have 1 parameters!");
+            }
 
             string boardName = CommandParameters[0];
-            var board = this.Database.Boards.Where(x => x.Name == boardName).FirstOrDefault();
-            if(board == null)
+            var board = this.Database.Boards.FirstOrDefault(x => x.Name == boardName);
+            if (board == null)
             {
                 throw new ArgumentException("There is no such board!");
             }

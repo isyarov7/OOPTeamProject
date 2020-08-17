@@ -27,7 +27,7 @@ namespace WIM.T17.Commands.SortCommands
             {
                 sb.AppendLine($"{item.Title}: {item.Priority}");
             }
-            
+
             foreach (var item in story)
             {
                 sb.AppendLine($"{item.Title}: {item.Priority}");

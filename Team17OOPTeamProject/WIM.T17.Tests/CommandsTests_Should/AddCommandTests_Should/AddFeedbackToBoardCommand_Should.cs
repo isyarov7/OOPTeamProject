@@ -102,7 +102,7 @@ namespace WIM.T17.Tests.CommandsTests_Should.AddCommandTests_Should
             {
                 feedbackTitle,
                 boardName,
-                teamName  
+                teamName
             };
 
             AddFeedbackToBoardCommand command = new AddFeedbackToBoardCommand(parameters);

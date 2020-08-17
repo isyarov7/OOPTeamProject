@@ -14,11 +14,13 @@ namespace T17.Models.Commands
         }
         public override string Execute()
         {
-            if (CommandParameters.Count < 1)
+            if (CommandParameters.Count != 1)
+            {
                 throw new ArgumentException("You should have 1 parameters!");
+            }
 
             string teamName = CommandParameters[0];
-            var team = this.Database.Boards.Where(x => x.Name == teamName).FirstOrDefault();
+            var team = this.Database.Boards.FirstOrDefault(x => x.Name == teamName);
             if (team == null)
             {
                 throw new ArgumentException("There is no such board!");

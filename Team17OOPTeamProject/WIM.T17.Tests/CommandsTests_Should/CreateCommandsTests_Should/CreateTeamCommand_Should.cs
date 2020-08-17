@@ -40,8 +40,8 @@ namespace WIM.T17.Tests.CommandsTests_Should.CreateCommandsTests_Should
             database.Teams.Add(team);
 
             List<string> parameters = new List<string>
-                {
-                };
+            {
+            };
 
             CreateTeamCommand command = new CreateTeamCommand(parameters);
             command.Execute();
