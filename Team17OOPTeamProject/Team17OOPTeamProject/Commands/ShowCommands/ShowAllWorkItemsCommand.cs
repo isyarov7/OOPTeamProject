@@ -19,19 +19,16 @@ namespace WIM.T17.Commands.ShowCommands
             foreach (var item in this.Database.Bugs)
             {
                 sb.AppendLine(item.PrintDetails());
-                sb.AppendLine("#############");
             }
             sb.AppendLine("***All Stories***");
             foreach (var item in this.Database.Stories)
             {
                 sb.AppendLine(item.PrintDetails());
-                sb.AppendLine("#############");
             }
             sb.AppendLine("***All Feedbacks***");
             foreach (var item in this.Database.Feedbacks)
             {
                 sb.AppendLine(item.PrintDetails());
-                sb.AppendLine("#############");
             }
             return sb.ToString();
         }

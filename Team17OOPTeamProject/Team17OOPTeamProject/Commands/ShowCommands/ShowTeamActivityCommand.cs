@@ -23,7 +23,7 @@ namespace T17.Models.Commands
             var team = this.Database.Boards.FirstOrDefault(x => x.Name == teamName);
             if (team == null)
             {
-                throw new ArgumentException("There is no such board!");
+                throw new ArgumentException("There is no such team!");
             }
 
             var sb = new StringBuilder();

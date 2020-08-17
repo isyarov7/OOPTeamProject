@@ -44,5 +44,103 @@ namespace WIM.T17.Tests.CommandsTests_Should.ShowCommandsTests_Should
 
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void ThrowsExceptionWhenMemberNameIsNull()
+        {
+            string teamName = "Tigrite23";
+            ITeam team = new Team(teamName);
+
+            string memberName = null;
+            IMember member = new Member(memberName);
+
+            database.Teams.Add(team);
+            database.Members.Add(member);
+            team.Members.Add(member);
+
+            List<string> parameters = new List<string>()
+            {
+                teamName,
+                memberName
+            };
+
+            ShowAllTeamMembersCommand command = new ShowAllTeamMembersCommand(parameters);
+
+            command.Execute();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void ThrowsExceptionWhenTeamNameIsNull()
+        {
+            string teamName = null;
+            ITeam team = new Team(teamName);
+
+            string memberName = "PersonName";
+            IMember member = new Member(memberName);
+
+            database.Teams.Add(team);
+            database.Members.Add(member);
+            team.Members.Add(member);
+
+            List<string> parameters = new List<string>()
+            {
+                teamName,
+                memberName
+            };
+
+            ShowAllTeamMembersCommand command = new ShowAllTeamMembersCommand(parameters);
+
+            command.Execute();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void ThrowsExceptionWhenLessParametersPassed()
+        {
+            string teamName = "Tigrite23";
+            ITeam team = new Team(teamName);
+
+            string memberName = "PersonName";
+            IMember member = new Member(memberName);
+
+            database.Teams.Add(team);
+            database.Members.Add(member);
+            team.Members.Add(member);
+
+            List<string> parameters = new List<string>()
+            {
+            };
+
+            ShowAllTeamMembersCommand command = new ShowAllTeamMembersCommand(parameters);
+
+            command.Execute();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void ThrowsExceptionWhenMoreParametersPassed()
+        {
+            string teamName = "Tigrite23";
+            ITeam team = new Team(teamName);
+
+            string memberName = "PersonName";
+            IMember member = new Member(memberName);
+
+            database.Teams.Add(team);
+            database.Members.Add(member);
+            team.Members.Add(member);
+
+            List<string> parameters = new List<string>()
+            {
+                teamName,
+                teamName
+            };
+
+            ShowAllTeamMembersCommand command = new ShowAllTeamMembersCommand(parameters);
+
+            command.Execute();
+        }
     }
 }
