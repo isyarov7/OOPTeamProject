@@ -35,14 +35,6 @@ namespace WIM.T17.Commands
 
             story.StoryStatus = status;
 
-            if (story.StoryStatus == StoryStatus.Done)
-            {
-                story.History.Add($"This story {story.Title} status is: {status} ✅");
-                this.Database.Stories.Remove(story);
-                return $"This story {storyName} was removed successfully ✅";
-
-            }
-
             story.History.Add($"This story {story.Title} status was changed to: {story.StoryStatus}!");
 
             return $"This story {story.Title} status was changed to:{story.StoryStatus}!";

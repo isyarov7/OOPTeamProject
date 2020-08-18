@@ -35,14 +35,6 @@ namespace WIM.T17.Commands
 
             feedback.FeedbackStatus = status;
 
-            if (feedback.FeedbackStatus == FeedbackStatus.Done)
-            {
-                feedback.History.Add($"This feedback {feedback.Title} status is: {status} ✅");
-                this.Database.Feedbacks.Remove(feedback);
-                return $"This feedback {feedbackName} status is: {status} ✅";
-
-            }
-
             feedback.History.Add($"This feedback {feedback.Title} status was changed to: {status}!");
             return $"This feedback {feedback.Title} status was changed to: {status}!";
         }

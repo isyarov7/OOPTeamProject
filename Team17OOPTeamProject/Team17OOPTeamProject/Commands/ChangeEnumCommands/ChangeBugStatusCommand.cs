@@ -36,13 +36,6 @@ namespace WIM.T17.Commands
 
             bug.BugStatus = bugStatusType;
 
-            if (bug.BugStatus == BugStatus.Fixed)
-            {
-                bug.History.Add($"This bug {bug.Title} status is: {bugStatusType}!");
-                this.Database.Bugs.Remove(bug);
-                return $"This bug {bugName} was removed successfully ✅";
-            }
-
             bug.History.Add($"This bug {bug.Title} status was changed to: {bug.BugStatus}!");
 
             return $"This bug {bug.Title} status was changed to: {bug.BugStatus}!";
