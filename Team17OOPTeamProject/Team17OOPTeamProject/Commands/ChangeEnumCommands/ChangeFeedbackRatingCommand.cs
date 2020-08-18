@@ -24,7 +24,7 @@ namespace WIM.T17.Commands
             var feedback = this.Database.Feedbacks.FirstOrDefault(m => m.Title == feedbackName);
             if (feedback == null)
             {
-                return "There is no such a story!";
+                return "There is no such a feedback!";
             }
 
             int feedbackRating = int.Parse(this.CommandParameters[1]);
