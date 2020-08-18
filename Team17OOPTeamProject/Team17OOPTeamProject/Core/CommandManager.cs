@@ -25,6 +25,12 @@ namespace T17.Models.Core
 
             return commandName switch
             {
+                "CreatePerson" => new CreatePersonCommand(commandParameters),
+                "CreateTeam" => new CreateTeamCommand(commandParameters),
+                "CreateBoard" => new CreateBoardCommand(commandParameters),
+                "CreateBug" => new CreateBugCommand(commandParameters),
+                "CreateStory" => new CreateStoryCommand(commandParameters),
+                "CreateFeedback" => new CreateFeedbackCommand(commandParameters),
                 "AddPersonToTeam" => new AddPersonToTeamCommand(commandParameters),
                 "AddBoardToTeam" => new AddBoardToTeamCommand(commandParameters),
                 "AddBugToBoard" => new AddBugToBoardCommand(commandParameters),
@@ -39,12 +45,6 @@ namespace T17.Models.Core
                 "ChangeStoryStatus" => new ChangeStoryStatusCommand(commandParameters),
                 "ChangeFeedbackRating" => new ChangeFeedbackRatingCommand(commandParameters),
                 "ChangeFeedbackStatus" => new ChangeFeedbackStatusCommand(commandParameters),
-                "CreatePerson" => new CreatePersonCommand(commandParameters),
-                "CreateTeam" => new CreateTeamCommand(commandParameters),
-                "CreateBoard" => new CreateBoardCommand(commandParameters),
-                "CreateBug" => new CreateBugCommand(commandParameters),
-                "CreateStory" => new CreateStoryCommand(commandParameters),
-                "CreateFeedback" => new CreateFeedbackCommand(commandParameters),
                 "ShowAllMembers" => new ShowAllMembersCommand(commandParameters),
                 "ShowPersonActivity" => new ShowPersonActivityCommand(commandParameters),
                 "ShowAllTeams" => new ShowAllTeamsCommand(commandParameters),

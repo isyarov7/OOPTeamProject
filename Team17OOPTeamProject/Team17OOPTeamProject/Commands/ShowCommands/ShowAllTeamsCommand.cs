@@ -20,7 +20,6 @@ namespace T17.Models.Commands
             foreach (var item in this.Database.Teams)
             {
                 sb.AppendLine(item.PrintDetails());
-                sb.AppendLine("#############");
             }
             return sb.ToString();
         }
