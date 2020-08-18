@@ -43,7 +43,7 @@ namespace WIM.T17.Commands
             {
                 var story = this.Database.Stories.Where(x => x.Title == currenteWorkItem).FirstOrDefault();
                 person.WorkItems.Add(story);
-                person.History.Add($"Bug {story.Title} added to person: {person.Name}");
+                person.History.Add($"Story {story.Title} added to person: {person.Name}");
                 return $"Item {story.Title} has been successfully assigned to {person.Name}.";
             }
             else

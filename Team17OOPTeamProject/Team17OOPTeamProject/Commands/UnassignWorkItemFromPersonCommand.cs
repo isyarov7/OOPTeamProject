@@ -42,7 +42,7 @@ namespace WIM.T17.Commands
             {
                 var story = this.Database.Stories.Where(x => x.Title == currenteWorkItem).FirstOrDefault();
                 person.WorkItems.Remove(story);
-                person.History.Add($"Bug {story.Title} removed from person: {person.Name}");
+                person.History.Add($"Story {story.Title} removed from person: {person.Name}");
                 return $"Item {story.Title} has been successfully unassigned from {person.Name}.";
             }
             else

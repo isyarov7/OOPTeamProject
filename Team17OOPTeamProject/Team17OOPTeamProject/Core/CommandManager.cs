@@ -58,7 +58,7 @@ namespace T17.Models.Core
                 "ShowTeamBoards" => new ShowAllTeamBoardsCommand(commandParameters),
                 "ShowBoardsActivity" => new ShowBoardActivityCommand(commandParameters),
                 "AssignWorkItemToPerson" => new AssignWorkItemToPersonCommand(commandParameters),
-                "UnassingWorkItemFromPerson" => new UnassignWorkItemFromPersonCommand(commandParameters),
+                "UnassignWorkItemFromPerson" => new UnassignWorkItemFromPersonCommand(commandParameters),
                 "SortByTitle" => new SortByTitleCommand(commandParameters),
                 "SortByPriority" => new SortByPriorityCommand(commandParameters),
                 "SortBySeverity" => new SortBySeverityCommand(commandParameters),

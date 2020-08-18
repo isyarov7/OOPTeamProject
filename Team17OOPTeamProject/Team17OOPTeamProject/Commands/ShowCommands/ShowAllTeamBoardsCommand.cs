@@ -39,7 +39,6 @@ namespace WIM.T17.Commands
             foreach (var item in team.Boards)
             {
                 sb.AppendLine(item.PrintDetails());
-                sb.AppendLine("#############");
             }
             return sb.ToString();
         }
