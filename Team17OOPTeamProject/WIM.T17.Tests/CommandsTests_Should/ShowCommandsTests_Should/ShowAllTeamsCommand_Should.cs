@@ -28,7 +28,6 @@ namespace WIM.T17.Tests.CommandsTests_Should.ShowCommandsTests_Should
             foreach (var item in this.database.Teams)
             {
                 sb.AppendLine(item.PrintDetails());
-                sb.AppendLine("#############");
             }
             string expected = sb.ToString();
             string actual = command.Execute();
